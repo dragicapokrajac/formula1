@@ -1,38 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Teams = () => {
-  const [teams, setTeams] = useState([]);
-    return (
-        <>
-            <h1>Teams component</h1>
-        </>
-    );
 
-    
+    const [teams, setTeamsDetails] = useState ([]);
     useEffect(() => {
-      // Fetch data from the API
-      axios.get('http://ergast.com/api/f1/2013/constructorStandings.json')
-        .then((response) => {
-          // Extract the team data from the response
-          const teamData = response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
-          setTeams(teamData);
-        })
+        getTeamsDetails()
     }, []);
-  
-    console.log(teams)
+
+    const getTeamsDetails = async () =>{
+        const url = "http://ergast.com/api/f1/2013/constructorStandings.json";
+        const response = await axios.get(url);
+      const dataTeams = response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+        setTeamsDetails(dataTeams);
+        console.log("Teamdata",dataTeams);
+    };
+
+
     return (
       <div>
-        <h1>Formula One Teams</h1>
-        <ul>
-          {/* {teams.map((team) => (
-            <li key={team.Constructor.constructorId}>{team.Constructor.name}</li>
-          ))} */}
-        </ul>
-      </div>
+<table>
+    <thead>
+        <tr>
+            <th>Position</th>
+            <th>Name</th>
+            <th>Details</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        {teams.map((team, i) => (
+            <tr key={i}>
+                <td>{team.position}</td>
+                <td>{team.Constructor.name}</td>
+                <td><a href={team.Constructor.url}>Details</a></td>
+                <td>{team.points}</td>
+            </tr>
+        ))}
+    </tbody>
+</table>
+  </div >     
     );
 };
-
 
 export default Teams;
