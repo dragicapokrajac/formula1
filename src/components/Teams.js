@@ -33,7 +33,7 @@ const Teams = () => {
             <tr key={i}>
                 <td>{team.position}</td>
                 <td>{team.Constructor.name}</td>
-                <td>{team.Constructor.url}</td>
+                <td><a href={team.Constructor.url}>Details</a></td>
                 <td>{team.points}</td>
             </tr>
         ))}
