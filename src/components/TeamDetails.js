@@ -3,9 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 
-
 const TeamDetails = () => {
-
 
    const params = useParams();
     const [teamDetails, setTeamDetails] = useState([]);
@@ -49,8 +47,8 @@ return (
                <tr>
                   <th>Round</th>
                   <th>Gran Prix</th>
-                  <th>Driver 1</th>
-                  <th>Driver 2</th>
+                  <th>{teamResults[0].Results[0].Driver.familyName}</th>
+                  <th>{teamResults[0].Results[1].Driver.familyName}</th>
                   <th>Points</th>
                </tr>                        
             </thead>
@@ -60,7 +58,9 @@ return (
             <tr key={result.round}>
               <td>{result.round}</td>
               <td>{result.raceName}</td>
-              <td>{result.Results[0]?.points || '-'}</td>
+              <td>{parseInt(result.Results[0].position)}</td>
+              <td>{parseInt(result.Results[1].position)}</td>
+              <td>{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</td>
             </tr>
           ))}
             </tbody>
