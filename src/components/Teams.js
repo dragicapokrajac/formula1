@@ -29,8 +29,10 @@ const Teams = () => {
       return <Loader />
    };
 
+
    return (
       <div>
+         <h1>Constructors Championship</h1>
          <table>
             <thead>
                <tr>
