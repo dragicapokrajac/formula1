@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "./Loader";
+import { useNavigate } from "react-router-dom";
 
 
 const Races = () => {
    const [dataRaces, setDataRaces] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
+   const navigate = useNavigate();
+
    useEffect(() => {
       getRaces();
    }, []);
@@ -16,6 +19,11 @@ const Races = () => {
       const resData = response.data.MRData.RaceTable.Races;
       setDataRaces(resData);
       setIsLoading(false);
+   };
+
+   const handleRaceResults = (id) => {
+      const link = `/raceResults/${id}`;
+      navigate(link);
    };
 
    if (isLoading) {
@@ -39,7 +47,12 @@ const Races = () => {
                {dataRaces.map(dataRace =>
                   <tr key={dataRace.Circuit.circuitId}>
                      <td>{dataRace.round}</td>
-                     <td>{dataRace.raceName}</td>
+                     <td
+                        onClick={() => handleRaceResults(dataRace.round)}
+                        style={{ cursor: "pointer" }}
+                     >
+                        {dataRace.raceName}
+                     </td>
                      <td>{dataRace.Circuit.circuitName}</td>
                      <td>{dataRace.date}</td>
                      <td>{dataRace.Results[0].Driver.familyName}</td>
