@@ -24,7 +24,7 @@ const TeamDetails = () => {
    const responseStandings = await axios.get(urlStandings);
    const responseResults = await axios.get(urlResults);
    setTeamDetails(responseStandings.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);
-   setTeamResults (responseResults.data.MRData);
+   setTeamResults (responseResults.data.MRData.RaceTable.Races);
    setIsLoading(false);
 };
 console.log(teamResults)
@@ -52,9 +52,17 @@ return (
                   <th>Driver 1</th>
                   <th>Driver 2</th>
                   <th>Points</th>
-               </tr>
+               </tr>                        
             </thead>
             <tbody>
+
+          {teamResults.map((result) => (
+            <tr key={result.round}>
+              <td>{result.round}</td>
+              <td>{result.raceName}</td>
+              <td>{result.Results[0]?.points || '-'}</td>
+            </tr>
+          ))}
             </tbody>
          </table>
    </div>
