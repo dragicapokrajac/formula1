@@ -9,6 +9,7 @@ import TeamDetails from "./components/TeamDetails";
 import RaceResults from "./components/RaceResults";
 import Navigation from "./components/Navigation";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 
 function App() {
