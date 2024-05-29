@@ -57,7 +57,7 @@ const Races = (props) => {
                      >
                         {props.flagsRes.map(nation => {
                            if (nation.en_short_name === dataRace.Circuit.Location.country) {
-                              return <Flag key={nation.alpha_2_code} country={nation.alpha_2_code} />;
+                              return <Flag country={nation.alpha_2_code} />;
                            } else {
                               return null;
                            }
