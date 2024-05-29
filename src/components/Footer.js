@@ -1,9 +1,9 @@
 function Footer() {
-    return(
-        <>
-            <h4>Design copyright &copy; Team 1 2014</h4>
-        </>
-    );
+   return (
+      <footer>
+         <h4>Design copyright &copy; Team 1 2024</h4>
+      </footer>
+   );
 };
 
 export default Footer;

@@ -13,9 +13,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./scss/styles.scss";
 
-
 function App() {
-
    const [flagsRes, setFlagsRes] = useState([]);
    useEffect(() => {
       getFlags();
@@ -29,8 +27,6 @@ function App() {
 
    return (
       <>
-
-
          <Router>
             <Breadcrumbs />
             <Header />
@@ -39,7 +35,7 @@ function App() {
                <Route path="/" element={<div></div>} />
                <Route path="/drivers" element={<Drivers flagsRes={flagsRes} />} />
                <Route path="/driverDeatils/:id" element={<DriverDetails />} />
-               <Route path="/teams" element={<Teams flagsRes={flagsRes}/>} />
+               <Route path="/teams" element={<Teams flagsRes={flagsRes} />} />
                <Route path="/teamDetails/:id" element={<TeamDetails flagsRes={flagsRes} />} />
                <Route path="/races" element={<Races flagsRes={flagsRes} />} />
                <Route path="/raceResults/:id" element={<RaceResults />} />
