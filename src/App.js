@@ -8,6 +8,7 @@ import DriverDetails from "./components/DriverDetails";
 import TeamDetails from "./components/TeamDetails";
 import RaceResults from "./components/RaceResults";
 import Navigation from "./components/Navigation";
+import Breadcrumbs from "./components/Breadcrumbs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./scss/styles.scss";
@@ -31,6 +32,7 @@ function App() {
 
 
          <Router>
+            <Breadcrumbs />
             <Header />
             <Navigation />
             <Routes>
