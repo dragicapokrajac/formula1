@@ -11,6 +11,7 @@ import Navigation from "./components/Navigation";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./scss/styles.scss";
+import Homepage from "./components/Homepage";
 
 const App = () => {
    const [flagsRes, setFlagsRes] = useState([]);
@@ -49,7 +50,7 @@ const App = () => {
             <Routes>
                <Route
                   path="/"
-                  element={<div></div>}
+                  element={<Homepage />}
                />
                <Route
                   path="/drivers"
