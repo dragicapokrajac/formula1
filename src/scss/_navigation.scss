@@ -13,14 +13,18 @@ body {
 
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ff652f;
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        margin-bottom: 15px;
 
         &:hover {
             font-weight: bold;
         }
 
-        img {
-            width: 5%;
-            height: 5%;
-        }
+
     }
 }

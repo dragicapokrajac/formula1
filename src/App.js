@@ -9,6 +9,9 @@ import TeamDetails from "./components/TeamDetails";
 import RaceResults from "./components/RaceResults";
 import Navigation from "./components/Navigation";
 import "./scss/styles.scss";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 
 
 function App() {
@@ -26,21 +29,24 @@ function App() {
 
    return (
       <>
-
-
-         <Router>
+         <Router >
             <Header />
-            <Navigation />
-            <Routes>
-               <Route path="/" element={<div></div>} />
-               <Route path="/drivers" element={<Drivers flagsRes={flagsRes} />} />
-               <Route path="/driverDeatils/:id" element={<DriverDetails />} />
-               <Route path="/teams" element={<Teams />} />
-               <Route path="/teamDetails/:id" element={<TeamDetails />} />
-               <Route path="/races" element={<Races flagsRes={flagsRes} />} />
-               <Route path="/raceResults/:id" element={<RaceResults />} />
-            </Routes>
+            <section className="router-container">
+               <Navigation />
+               <main>
+                  <Routes>
+                     <Route path="/" element={<div></div>} />
+                     <Route path="/drivers" element={<Drivers flagsRes={flagsRes} />} />
+                     <Route path="/driverDeatils/:id" element={<DriverDetails />} />
+                     <Route path="/teams" element={<Teams flagsRes={flagsRes} />} />
+                     <Route path="/teamDetails/:id" element={<TeamDetails flagsRes={flagsRes} />} />
+                     <Route path="/races" element={<Races flagsRes={flagsRes} />} />
+                     <Route path="/raceResults/:id" element={<RaceResults />} />
+                  </Routes>
+               </main>
+            </section>
             <Footer />
+
          </Router>
       </>
    );
