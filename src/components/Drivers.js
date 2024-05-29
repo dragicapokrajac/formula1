@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loader from "./Loader";
+import Flag from 'react-flagkit';
 
-const Drivers = () => {
-
-   const [drivers, setDrivers] = useState({});
+const Drivers = (props) => {
+   const [drivers, setDrivers] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
    const navigate = useNavigate();
 
@@ -51,10 +51,14 @@ const Drivers = () => {
                         onClick={() => handleShowDriverDetails(driver.Driver.driverId)}
                         style={{ cursor: "pointer" }}
                      >
+                        {props.flagsRes.map(nation =>
+                           nation.nationality === driver.Driver.nationality && <Flag country={nation.alpha_2_code} />
+                        )}
                         {driver.Driver.givenName} {driver.Driver.familyName}
                      </td>
                      <td>{driver.Constructors[0].name}</td>
                      <td>{driver.points}</td>
+                     <td>{driver.Driver.nationality}</td>
                   </tr>
                )}
             </tbody>
