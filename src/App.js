@@ -26,8 +26,9 @@ function App() {
    return (
       <>
       
-      <Header/>
+      
          <Router>
+         <Header/>
             <Navigation />
             <Routes>
             <Route path="/" element={<div></div>} />
@@ -38,6 +39,7 @@ function App() {
                <Route path="/races" element={<Races flagsRes={flagsRes} />} />
                <Route path="/raceResults/:id" element={<RaceResults />} />
             </Routes>
+            <Footer />
          </Router>
       </>
    );
