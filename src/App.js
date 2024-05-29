@@ -40,7 +40,7 @@ function App() {
                <Route path="/drivers" element={<Drivers flagsRes={flagsRes} />} />
                <Route path="/driverDeatils/:id" element={<DriverDetails />} />
                <Route path="/teams" element={<Teams flagsRes={flagsRes}/>} />
-               <Route path="/teamDetails/:id" element={<TeamDetails />} />
+               <Route path="/teamDetails/:id" element={<TeamDetails flagsRes={flagsRes} />} />
                <Route path="/races" element={<Races flagsRes={flagsRes} />} />
                <Route path="/raceResults/:id" element={<RaceResults />} />
             </Routes>
