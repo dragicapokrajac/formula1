@@ -33,6 +33,17 @@ const RaceResults = () => {
       };
    };
 
+   let bestTime = [];
+   // qualifyingResults.map(qRes => {
+   //    bestTime.push(qRes.Q1);
+   //    bestTime.push(qRes.Q2);
+   //    bestTime.push(qRes.Q3);
+   // });
+   // bestTime = bestTime.filter(x => x).sort();
+   // bestTime = bestTime.sort();
+   // console.log(bestTime);
+
+
    if (isLoading) {
       return <Loader />
    };
@@ -66,7 +77,7 @@ const RaceResults = () => {
                         <td>{qRes.position}</td>
                         <td>{qRes.Driver.familyName}</td>
                         <td>{qRes.Constructor.name}</td>
-                        <td>best time...</td>
+                        <td>{bestTime = [qRes.Q1, qRes.Q2, qRes.Q3].sort()[0]}</td>
                      </tr>
                   )}
                </tbody>
