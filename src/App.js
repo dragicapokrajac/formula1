@@ -8,6 +8,7 @@ import DriverDetails from "./components/DriverDetails";
 import TeamDetails from "./components/TeamDetails";
 import RaceResults from "./components/RaceResults";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 function App() {
    const [flagsRes, setFlagsRes] = useState([]);
@@ -33,6 +34,7 @@ function App() {
                <Route path="/races" element={<Races flagsRes={flagsRes} />} />
                <Route path="/raceResults/:id" element={<RaceResults />} />
             </Routes>
+            <Footer />
          </Router>
       </>
    );
