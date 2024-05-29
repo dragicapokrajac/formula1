@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
 import Flag from 'react-flagkit';
-=======
->>>>>>> e5c507e9d169e1ee352b8b0c8583d32750276c4b
 
 
 const Races = (props) => {
@@ -52,7 +49,6 @@ const Races = (props) => {
             <tbody>
                {dataRaces.map(dataRace =>
                   <tr key={dataRace.Circuit.circuitId}>
-<<<<<<< HEAD
                      <td>  {dataRace.round}</td>
                      <td
                         onClick={() => handleRaceResults(dataRace.round)}
@@ -61,18 +57,11 @@ const Races = (props) => {
                      >
                         {props.flagsRes.map(nation => {
                            if (nation.en_short_name === dataRace.Circuit.Location.country) {
-                              return <Flag key={nation.alpha_2_code} country={nation.alpha_2_code} />;
+                              return <Flag country={nation.alpha_2_code} />;
                            } else {
                               return null;
                            }
                         })}
-=======
-                     <td>{dataRace.round}</td>
-                     <td
-                        onClick={() => handleRaceResults(dataRace.round)}
-                        style={{ cursor: "pointer" }}
-                     >
->>>>>>> e5c507e9d169e1ee352b8b0c8583d32750276c4b
                         {dataRace.raceName}
                      </td>
                      <td>{dataRace.Circuit.circuitName}</td>

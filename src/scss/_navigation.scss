@@ -1,0 +1,26 @@
+body {
+    background-color: $bcg-color;
+    font-family: $fnt-fmly;
+    font-size: 20px;
+    color: $fnt-col
+}
+
+.wrapper {
+
+    .drivers,
+    .teams,
+    .races {
+
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            font-weight: bold;
+        }
+
+        img {
+            width: 5%;
+            height: 5%;
+        }
+    }
+}

@@ -8,6 +8,8 @@ import DriverDetails from "./components/DriverDetails";
 import TeamDetails from "./components/TeamDetails";
 import RaceResults from "./components/RaceResults";
 import Navigation from "./components/Navigation";
+import "./scss/styles.scss";
+
 
 function App() {
    const [flagsRes, setFlagsRes] = useState([]);
@@ -20,6 +22,7 @@ function App() {
       const res = await axios.get(url);
       setFlagsRes(res.data)
    };
+
    return (
       <>
          <Router>
@@ -30,11 +33,7 @@ function App() {
                <Route path="/driverDeatils/:id" element={<DriverDetails />} />
                <Route path="/teams" element={<Teams />} />
                <Route path="/teamDetails/:id" element={<TeamDetails />} />
-<<<<<<< HEAD
                <Route path="/races" element={<Races flagsRes={flagsRes} />} />
-=======
-               <Route path="/races" element={<Races />} />
->>>>>>> e5c507e9d169e1ee352b8b0c8583d32750276c4b
                <Route path="/raceResults/:id" element={<RaceResults />} />
             </Routes>
          </Router>
