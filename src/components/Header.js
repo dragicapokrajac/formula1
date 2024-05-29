@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import LinkLogo from "../img/F1-logo.png";
 import SearchBar from "./SearchBat";
+import Breadcrumbs from "./Breadcrumbs";
 
 const Header = () => {
    return (
@@ -11,6 +12,7 @@ const Header = () => {
                <img src={LinkLogo} alt="Logo"></img>
             </li>
          </Link>
+         <Breadcrumbs />
       </header>
    );
 };
