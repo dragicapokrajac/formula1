@@ -5,7 +5,7 @@ import Loader from "./Loader";
 
 const Drivers = () => {
 
-   const [drivers, setDrivers] = useState([]);
+   const [drivers, setDrivers] = useState({});
    const [isLoading, setIsLoading] = useState(true);
    const navigate = useNavigate();
 
