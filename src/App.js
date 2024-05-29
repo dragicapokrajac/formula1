@@ -8,8 +8,11 @@ import DriverDetails from "./components/DriverDetails";
 import TeamDetails from "./components/TeamDetails";
 import RaceResults from "./components/RaceResults";
 import Navigation from "./components/Navigation";
+import Header from "./components/Header";
+
 
 function App() {
+
    const [flagsRes, setFlagsRes] = useState([]);
    useEffect(() => {
       getFlags();
@@ -22,6 +25,8 @@ function App() {
    };
    return (
       <>
+      
+      <Header/>
          <Router>
             <Navigation />
             <Routes>
