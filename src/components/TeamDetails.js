@@ -60,7 +60,7 @@ const TeamDetails = (props) => {
                </thead>
                <tbody>
 
-                  {teamResults.map((result) => (
+                  {teamResults.map((result => 
                      <tr key={result.round}>
                         <td>{result.round}</td>
                         <td
