@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
+import Flag from "react-flagkit";
 
-const RaceResults = () => {
-   const [prixDetail, setPrixDetail] = useState([])
+const RaceResults = ({ flagsRes, showFlag }) => {
    const [qualifyingResults, setQualifyingResults] = useState([]);
    const [raceResults, setRaceResults] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
@@ -15,16 +15,11 @@ const RaceResults = () => {
    }, []);
 
    const getRaceResults = async () => {
-      // console.log(params);
       try {
-         const urlQualifying = `http://ergast.com/api/f1/2013/${params.id}/qualifying.json`;
-         // const urlQualifying = `http://ergast.com/api/f1/2013/1/qualifying.json`;
-         const resQualifying = await axios.get(urlQualifying);
-         setPrixDetail(resQualifying.data.MRData.RaceTable.Races);
-         setQualifyingResults(resQualifying.data.MRData.RaceTable.Races[0].QualifyingResults);
+         const resQualifying = await axios.get(`http://ergast.com/api/f1/2013/${params.id}/qualifying.json`);
+         setQualifyingResults(resQualifying.data.MRData.RaceTable.Races[0]);
 
-         const urlResults = `http://ergast.com/api/f1/2013/${params.id}/results.json`;
-         const resRaceResults = await axios.get(urlResults);
+         const resRaceResults = await axios.get(`http://ergast.com/api/f1/2013/${params.id}/results.json`);
          setRaceResults(resRaceResults.data.MRData.RaceTable.Races[0].Results);
 
          setIsLoading(false);
@@ -34,15 +29,6 @@ const RaceResults = () => {
    };
 
    let bestTime = [];
-   // qualifyingResults.map(qRes => {
-   //    bestTime.push(qRes.Q1);
-   //    bestTime.push(qRes.Q2);
-   //    bestTime.push(qRes.Q3);
-   // });
-   // bestTime = bestTime.filter(x => x).sort();
-   // bestTime = bestTime.sort();
-   // console.log(bestTime);
-
 
    if (isLoading) {
       return <Loader />
@@ -51,31 +37,53 @@ const RaceResults = () => {
    return (
       <>
          <section>
-            <h2>{prixDetail[0].raceName}</h2>
-            <p>Country: {prixDetail[0].Circuit.Location.country}</p>
-            <p>Location: {prixDetail[0].Circuit.Location.locality}</p>
-            <p>Date: {prixDetail[0].date}</p>
-            <p>Full Report: <a href={prixDetail[0].url} target="_blank">Details</a></p>
+            <Flag country={showFlag(flagsRes, qualifyingResults?.Circuit.Location.country)} />
+            <table>
+               <thead>
+                  <tr><th>{qualifyingResults.raceName}</th></tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Country: </td>
+                     <td>{qualifyingResults.Circuit.Location.country}</td>
+                  </tr>
+                  <tr>
+                     <td>Location: </td>
+                     <td>{qualifyingResults.Circuit.Location.locality}</td>
+                  </tr>
+                  <tr>
+                     <td>Date: </td>
+                     <td>{qualifyingResults.date}</td>
+                  </tr>
+                  <tr>
+                     <td>Full Report: </td>
+                     <td><a href={qualifyingResults.url} target="_blank">Details</a></td>
+                  </tr>
+               </tbody>
+            </table>
          </section>
          <br />
          <section>
             <table>
                <thead>
                   <tr>
-                     <td colSpan='4'>Qualifying Results</td>
+                     <th colSpan='4'>Qualifying Results</th>
                   </tr>
                   <tr>
-                     <td>Pos</td>
-                     <td>Driver</td>
-                     <td>Team</td>
-                     <td>Best Time</td>
+                     <th>Pos</th>
+                     <th>Driver</th>
+                     <th>Team</th>
+                     <th>Best Time</th>
                   </tr>
                </thead>
                <tbody>
-                  {qualifyingResults.map(qRes =>
+                  {qualifyingResults.QualifyingResults.map(qRes =>
                      <tr key={qRes.Driver.driverId}>
                         <td>{qRes.position}</td>
-                        <td>{qRes.Driver.familyName}</td>
+                        <td>
+                           <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} />
+                           {qRes.Driver.familyName}
+                        </td>
                         <td>{qRes.Constructor.name}</td>
                         <td>{bestTime = [qRes.Q1, qRes.Q2, qRes.Q3].sort()[0]}</td>
                      </tr>
@@ -88,21 +96,24 @@ const RaceResults = () => {
             <table>
                <thead>
                   <tr>
-                     <td colSpan='4'>Race Results</td>
+                     <th colSpan='4'>Race Results</th>
                   </tr>
                   <tr>
-                     <td>Pos</td>
-                     <td>Driver</td>
-                     <td>Team</td>
-                     <td>Result</td>
-                     <td>Points</td>
+                     <th>Pos</th>
+                     <th>Driver</th>
+                     <th>Team</th>
+                     <th>Result</th>
+                     <th>Points</th>
                   </tr>
                </thead>
                <tbody>
                   {raceResults.map(result =>
                      <tr key={result.Driver.driverId}>
                         <td>{result.position}</td>
-                        <td>{result.Driver.familyName}</td>
+                        <td>
+                           <Flag country={showFlag(flagsRes, result.Driver.nationality)} />
+                           {result.Driver.familyName}
+                        </td>
                         <td>{result.Constructor.name}</td>
                         <td>{result.Time?.time}</td>
                         <td>{result.points}</td>

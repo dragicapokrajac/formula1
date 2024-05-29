@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
-import { useNavigate } from "react-router-dom";
 import Flag from 'react-flagkit';
 
 
@@ -31,8 +31,6 @@ const Races = (props) => {
       return <Loader />
    };
 
-
-
    return (
       <>
          <h1>Races Calendar</h1>
@@ -53,25 +51,14 @@ const Races = (props) => {
                      <td
                         onClick={() => handleRaceResults(dataRace.round)}
                         style={{ cursor: "pointer" }}
-
                      >
-                        {props.flagsRes.map(nation => {
-                           if (nation.en_short_name === dataRace.Circuit.Location.country) {
-                              return <Flag country={nation.alpha_2_code} />;
-                           } else {
-                              return null;
-                           }
-                        })}
+                        <Flag country={props.showFlag(props.flagsRes, dataRace.Circuit.Location.country)} />
                         {dataRace.raceName}
                      </td>
                      <td>{dataRace.Circuit.circuitName}</td>
                      <td>{dataRace.date}</td>
                      <td>
-
-                        {props.flagsRes.map(nation =>
-                           nation.nationality === dataRace.Results[0].Driver.nationality && <Flag country={nation.alpha_2_code} />
-                        )}
-
+                        <Flag country={props.showFlag(props.flagsRes, dataRace.Results[0].Driver.nationality)} />
                         {dataRace.Results[0].Driver.familyName}
                      </td>
                   </tr>

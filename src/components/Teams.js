@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
-import { useNavigate } from "react-router-dom";
 import Flag from 'react-flagkit';
 
 const Teams = (props) => {
@@ -30,7 +30,6 @@ const Teams = (props) => {
       return <Loader />
    };
 
-
    return (
       <div>
          <h1>Constructors Championship</h1>
@@ -51,9 +50,7 @@ const Teams = (props) => {
                         onClick={() => handleShowTeamRaces(team.Constructor.constructorId)}
                         style={{ cursor: "pointer" }}
                      >
-                        {props.flagsRes.map(nation =>
-                           nation.nationality === team.Constructor.nationality && <Flag country={nation.alpha_2_code} />
-                        )}
+                        <Flag country={props.showFlag(props.flagsRes, team.Constructor.nationality)} />
                         {team.Constructor.name}
                      </td>
                      <td><a href={team.Constructor.url}>Details</a></td>

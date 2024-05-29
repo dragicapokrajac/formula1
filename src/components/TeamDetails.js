@@ -31,15 +31,17 @@ const TeamDetails = (props) => {
    const handleRaceResults = (id) => {
       const link = `/raceResults/${id}`;
       navigate(link);
-   }
+   };
 
    if (isLoading) {
       return <Loader />;
-   }
+   };
 
    return (
       <>
          <div>
+            <img src="" alt="TEAM IMG" />
+            <Flag country={props.showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
             <p>Team: {teamDetails.Constructor.name}</p>
             <p>Country:{teamDetails.Constructor.nationality}</p>
             <p>Position:{teamDetails.position}</p>
@@ -60,20 +62,20 @@ const TeamDetails = (props) => {
                </thead>
                <tbody>
 
-                  {teamResults.map((result => 
+                  {teamResults.map((result =>
                      <tr key={result.round}>
                         <td>{result.round}</td>
                         <td
                            onClick={() => handleRaceResults(result.round)}
                            style={{ cursor: 'pointer' }}
                         >
-                        {props.flagsRes.map(nation => {
-                           if (nation.en_short_name === result.Circuit.Location.country) {
-                              return <Flag key={nation.alpha_2_code} country={nation.alpha_2_code} />;
-                           } else {
-                              return null;
-                           }
-                        })}
+                           {props.flagsRes.map(nation => {
+                              if (nation.en_short_name === result.Circuit.Location.country) {
+                                 return <Flag key={nation.alpha_2_code} country={nation.alpha_2_code} />;
+                              } else {
+                                 return null;
+                              }
+                           })}
                            {result.raceName}
                         </td>
                         <td>{parseInt(result.Results[0].position)}</td>

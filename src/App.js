@@ -13,7 +13,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./scss/styles.scss";
 
-function App() {
+const App = () => {
    const [flagsRes, setFlagsRes] = useState([]);
    useEffect(() => {
       getFlags();
@@ -25,6 +25,23 @@ function App() {
       setFlagsRes(res.data)
    };
 
+   const showFlag = (resFlags, checkParam) => {
+      const flagArr = resFlags.filter(x =>
+         x.nationality === checkParam || x.en_short_name === checkParam
+      );
+      if (flagArr.length) {
+         return flagArr[0].alpha_2_code;
+      } else if (checkParam === 'British' || checkParam === 'UK') {
+         return 'GB';
+      } else if (checkParam === 'Dutch') {
+         return 'NL';
+      } else if (checkParam === 'American') {
+         return 'US';
+      } else if (checkParam === 'Korea') {
+         return 'KR';
+      };
+   };
+
    return (
       <>
          <Router>
@@ -32,13 +49,34 @@ function App() {
             <Header />
             <Navigation />
             <Routes>
-               <Route path="/" element={<div></div>} />
-               <Route path="/drivers" element={<Drivers flagsRes={flagsRes} />} />
-               <Route path="/driverDeatils/:id" element={<DriverDetails />} />
-               <Route path="/teams" element={<Teams flagsRes={flagsRes} />} />
-               <Route path="/teamDetails/:id" element={<TeamDetails flagsRes={flagsRes} />} />
-               <Route path="/races" element={<Races flagsRes={flagsRes} />} />
-               <Route path="/raceResults/:id" element={<RaceResults />} />
+               <Route
+                  path="/"
+                  element={<div></div>}
+               />
+               <Route
+                  path="/drivers"
+                  element={<Drivers flagsRes={flagsRes} showFlag={showFlag} />}
+               />
+               <Route
+                  path="/driverDeatils/:id"
+                  element={<DriverDetails flagsRes={flagsRes} showFlag={showFlag} />}
+               />
+               <Route
+                  path="/teams"
+                  element={<Teams flagsRes={flagsRes} showFlag={showFlag} />}
+               />
+               <Route
+                  path="/teamDetails/:id"
+                  element={<TeamDetails flagsRes={flagsRes} showFlag={showFlag} />}
+               />
+               <Route
+                  path="/races"
+                  element={<Races flagsRes={flagsRes} showFlag={showFlag} />}
+               />
+               <Route
+                  path="/raceResults/:id"
+                  element={<RaceResults flagsRes={flagsRes} showFlag={showFlag} />}
+               />
             </Routes>
             <Footer />
          </Router>
