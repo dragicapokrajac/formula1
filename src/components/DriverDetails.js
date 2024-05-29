@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "./Loader";
+import Flag from "react-flagkit";
 
 const DriverDetails = () => {
 
@@ -38,14 +39,14 @@ const DriverDetails = () => {
    if (isLoading) {
       return <Loader />
    };
-
+   //The curent Flag is a placeholder, it will change
    return (
       <>
          <h1>DriverDetails component</h1>
-
       <div>
+         <Flag />
          <div>{driver.Driver?.givenName}</div>
-         <div>{driver.Driver?.familyName}</div>
+         <div>{driver.Driver?.familyName}</div> 
 
          <table>
             <tbody>
