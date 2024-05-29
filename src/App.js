@@ -30,7 +30,11 @@ function App() {
                <Route path="/driverDeatils/:id" element={<DriverDetails />} />
                <Route path="/teams" element={<Teams />} />
                <Route path="/teamDetails/:id" element={<TeamDetails />} />
+<<<<<<< HEAD
+               <Route path="/races" element={<Races flagsRes={flagsRes} />} />
+=======
                <Route path="/races" element={<Races />} />
+>>>>>>> e5c507e9d169e1ee352b8b0c8583d32750276c4b
                <Route path="/raceResults/:id" element={<RaceResults />} />
             </Routes>
          </Router>
