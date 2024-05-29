@@ -25,16 +25,12 @@ function App() {
          <Router>
             <Navigation />
             <Routes>
-               <Route path="/" element={<div></div>} />
+            <Route path="/" element={<div></div>} />
                <Route path="/drivers" element={<Drivers flagsRes={flagsRes} />} />
                <Route path="/driverDeatils/:id" element={<DriverDetails />} />
-               <Route path="/teams" element={<Teams />} />
-               <Route path="/teamDetails/:id" element={<TeamDetails />} />
-<<<<<<< HEAD
+               <Route path="/teams" element={<Teams flagsRes={flagsRes} /> } />
+               <Route path="/teamDetails/:id" element={<TeamDetails flagsRes={flagsRes} />} />
                <Route path="/races" element={<Races flagsRes={flagsRes} />} />
-=======
-               <Route path="/races" element={<Races />} />
->>>>>>> e5c507e9d169e1ee352b8b0c8583d32750276c4b
                <Route path="/raceResults/:id" element={<RaceResults />} />
             </Routes>
          </Router>

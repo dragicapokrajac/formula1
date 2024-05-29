@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
+import Flag from 'react-flagkit';
 
-const TeamDetails = () => {
+const TeamDetails = (props) => {
 
    const params = useParams();
    const [teamDetails, setTeamDetails] = useState([]);
@@ -17,7 +18,7 @@ const TeamDetails = () => {
 
 
    const getTeamDetails = async () => {
-      console.log(params);
+      // console.log(params);
       const urlStandings = `http://ergast.com/api/f1/2013/constructors/${params.id}/constructorStandings.json`;
       const urlResults = `http://ergast.com/api/f1/2013/constructors/${params.id}/results.json`;
       const responseStandings = await axios.get(urlStandings);
@@ -66,6 +67,13 @@ const TeamDetails = () => {
                            onClick={() => handleRaceResults(result.round)}
                            style={{ cursor: 'pointer' }}
                         >
+                        {props.flagsRes.map(nation => {
+                           if (nation.en_short_name === result.Circuit.Location.country) {
+                              return <Flag key={nation.alpha_2_code} country={nation.alpha_2_code} />;
+                           } else {
+                              return null;
+                           }
+                        })}
                            {result.raceName}
                         </td>
                         <td>{parseInt(result.Results[0].position)}</td>
