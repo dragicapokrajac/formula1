@@ -4,6 +4,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag } from '../helpers';
+import linkImg from '../img/icons/link-white.png';
 
 const DriverDetails = (props) => {
    const params = useParams();
@@ -56,39 +57,38 @@ const DriverDetails = (props) => {
    };
 
    return (
-      <>
-         <section>
-            <div>
-               <img src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)} style={{ width: '80px', height: 'auto' }} />
-               <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
-               <p>{driver.Driver?.givenName}</p>
-               <p>{driver.Driver?.familyName}</p>
+      <div className='component-container-row'>
+         <section className="card">
+            <div className="card-info">
+               <img
+                  className="img"
+                  src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)}
+               />
+               <Flag className=" img img-flag"
+                  country={showFlag(props.flagsRes, driver.Driver.nationality)}
+               />
+               <p>{driver.Driver?.givenName} {driver.Driver?.familyName}</p>
             </div>
-            <br />
-            <table>
-               <tbody>
-                  <tr>
-                     <td><b>Country: </b></td>
-                     <td>{driver.Driver.nationality}</td>
-                  </tr>
-                  <tr>
-                     <td><b>Team: </b></td>
-                     <td>{driver.Constructors[0].name}</td>
-                  </tr>
-                  <tr>
-                     <td><b>Birth: </b></td>
-                     <td>{driver.Driver.dateOfBirth}</td>
-                  </tr>
-                  <tr>
-                     <td><b>Biography: </b></td>
-                     <td><a href={driver.Driver.url}>link</a></td>
-                  </tr>
-               </tbody>
-            </table>
+            <div className="data-wrapper">
+               <div className="data-label">
+                  <p>Country:</p>
+                  <p>Team:</p>
+                  <p>Birth:</p>
+                  <p>Biography:</p>
+               </div>
+               <div className="data">
+                  <p>{driver.Driver.nationality}</p>
+                  <p>{driver.Constructors[0].name}</p>
+                  <p>{driver.Driver.dateOfBirth}</p>
+                  <p><a href={driver.Driver.url}>
+                     <img src={linkImg} className='link-icon' />
+                  </a></p>
+               </div>
+            </div>
          </section>
-         <br />
-         <section>
-            <table>
+
+         <section className="table-v80">
+            <table className="table">
                <thead>
                   <tr>
                      <th colSpan='5'>Formula 1 2013 Results</th>
@@ -119,7 +119,7 @@ const DriverDetails = (props) => {
                </tbody>
             </table>
          </section>
-      </>
+      </div>
    );
 };
 

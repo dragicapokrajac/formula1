@@ -5,23 +5,30 @@ import LinkRaces from "../img/icons/icons8-race-60.png";
 
 const Navigation = () => {
    return (
-      <nav className="navigation">
-         <ul>
-            <li>
-               <img src={LinkDriver} alt="Drivers" />
-               <Link to="/drivers"
-                  className="link">Drivers</Link>
-            </li>
-            <li>
-               <img src={LinkTeams} alt="Teams" />
-               <Link to="/teams" className="link">Teams</Link>
-            </li>
-            <li>
-               <img src={LinkRaces} alt="Races" />
-               <Link to="/races" className="link">Races</Link>
-            </li>
-         </ul>
-      </nav>
+      <div className="nav-container">
+         <nav className="navigation">
+            <ul>
+               <li>
+                  <Link to="/drivers" className="link">
+                     <img src={LinkDriver} alt="Drivers" />
+                     <span>Drivers</span>
+                  </Link>
+               </li>
+               <li>
+                  <Link to="/teams" className="link">
+                     <img src={LinkTeams} alt="Teams" />
+                     <span>Teams</span>
+                  </Link>
+               </li>
+               <li>
+                  <Link to="/races" className="link">
+                     <img src={LinkRaces} alt="Races" />
+                     <span>Races</span>
+                  </Link>
+               </li>
+            </ul>
+         </nav>
+      </div>
    );
 };
 

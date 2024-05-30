@@ -28,8 +28,8 @@ const App = () => {
       <>
          <Router>
             <Header />
-            <Navigation />
-            <main>
+            <main className="routes-container">
+               <Navigation />
                <Routes>
                   <Route
                      path="/"
@@ -40,7 +40,7 @@ const App = () => {
                      element={<Drivers flagsRes={flagsRes} />}
                   />
                   <Route
-                     path="/driverDeatils/:id"
+                     path="/driverDetails/:id"
                      element={<DriverDetails flagsRes={flagsRes} />}
                   />
                   <Route
