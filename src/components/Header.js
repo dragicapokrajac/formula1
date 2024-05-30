@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import LinkLogo from "../img/F1-logo.png";
-import SearchBar from "./SearchBat";
+import SearchBar from "./SearchBar";
 import Breadcrumbs from "./Breadcrumbs";
 
 const Header = () => {
