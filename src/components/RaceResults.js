@@ -34,6 +34,35 @@ const RaceResults = ({ flagsRes, showFlag }) => {
       return <Loader />
    };
 
+
+
+   const getColor = (points) => {
+      console.log(points)
+      switch (points) {
+         case "25":
+            return "yellow";
+         case "18":
+            return "darkgray";
+         case "15":
+            return "orange";
+         case "12":
+         case "10":
+         case "8":
+         case "6":
+         case "4":
+         case "2":
+         case "1":
+            return "lightgreen";
+
+         default:
+            return "gray";
+      };
+
+
+   };
+
+
+
    return (
       <>
          <section>
@@ -116,7 +145,9 @@ const RaceResults = ({ flagsRes, showFlag }) => {
                         </td>
                         <td>{result.Constructor.name}</td>
                         <td>{result.Time?.time}</td>
-                        <td>{result.points}</td>
+                        <td style={{ backgroundColor: getColor(result.points) }}> {result.points}
+
+                        </td>
                      </tr>
                   )}
                </tbody>
