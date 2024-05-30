@@ -7,9 +7,9 @@ const Navigation = () => {
    return (
       <nav className="wrapper">
          <ul>
-            <li className="drivers"><img src={LinkDriver} alt="Drivers"></img> <Link to="/drivers">Drivers</Link> </li>
-            <li className="teams"><img src={LinkTeams} alt="Teams"></img><Link to="/teams">Teams</Link></li>
-            <li className="races"><img src={LinkRaces} alt="Races"></img><Link to="/races">Races</Link></li>
+            <li className="drivers"><img src={LinkDriver} alt="Drivers"/> <Link to="/drivers">Drivers</Link> </li>
+            <li className="teams"><img src={LinkTeams} alt="Teams"/><Link to="/teams">Teams</Link></li>
+            <li className="races"><img src={LinkRaces} alt="Races"/><Link to="/races">Races</Link></li>
          </ul>
       </nav>
    );
