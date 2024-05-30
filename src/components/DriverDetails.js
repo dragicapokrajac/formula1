@@ -4,6 +4,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag } from '../helpers';
+import avatar from '../img/drivers/avatar.png';
 
 
 const DriverDetails = (props) => {
@@ -36,10 +37,12 @@ const DriverDetails = (props) => {
    };
 
    return (
+
+
       <>
          <section>
             <div>
-               <img src='' alt="DRIVER IMG" />
+               <img src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)} style={{ width: '80px', height: 'auto' }} />
                <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
                <p>{driver.Driver?.givenName}</p>
                <p>{driver.Driver?.familyName}</p>
@@ -100,5 +103,7 @@ const DriverDetails = (props) => {
       </>
    );
 };
+
+
 
 export default DriverDetails;
