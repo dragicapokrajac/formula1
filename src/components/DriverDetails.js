@@ -1,8 +1,10 @@
-import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
+import { showFlag } from '../helpers';
+
 
 const DriverDetails = (props) => {
    const params = useParams();
@@ -15,6 +17,7 @@ const DriverDetails = (props) => {
    }, []);
 
    const getDriver = async () => {
+      console.log(params)
       try {
          const result = await axios.get(`http://ergast.com/api/f1/2013/drivers/${params.id}/driverStandings.json`);
          setDriver(result.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
@@ -37,7 +40,7 @@ const DriverDetails = (props) => {
          <section>
             <div>
                <img src='' alt="DRIVER IMG" />
-               <Flag country={props.showFlag(props.flagsRes, driver.Driver.nationality)} />
+               <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
                <p>{driver.Driver?.givenName}</p>
                <p>{driver.Driver?.familyName}</p>
             </div>
@@ -80,10 +83,10 @@ const DriverDetails = (props) => {
                </thead>
                <tbody>
                   {driverRaces.map(d2 =>
-                     <tr key={d2.Circuit.Location.lat}>
+                     <tr key={d2.Results[0].Driver.driverId}>
                         <td>{d2.round}</td>
                         <td>
-                           <Flag country={props.showFlag(props.flagsRes, d2.Circuit.Location.country)} />
+                           <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} />
                            {d2.raceName}
                         </td>
                         <td>{d2.Results[0].Constructor.name}</td>

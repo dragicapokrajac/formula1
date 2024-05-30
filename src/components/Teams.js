@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
+import { showFlag } from '../helpers';
 
 const Teams = (props) => {
    const [teams, setTeams] = useState([]);
@@ -50,7 +51,7 @@ const Teams = (props) => {
                         onClick={() => handleShowTeamRaces(team.Constructor.constructorId)}
                         style={{ cursor: "pointer" }}
                      >
-                        <Flag country={props.showFlag(props.flagsRes, team.Constructor.nationality)} />
+                        <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} />
                         {team.Constructor.name}
                      </td>
                      <td><a href={team.Constructor.url}>Details</a></td>
