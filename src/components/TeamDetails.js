@@ -38,8 +38,9 @@ const TeamDetails = (props) => {
 
    return (
       <>
+      <section>
          <div>
-            <img src="" alt="TEAM IMG" />
+            <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)} style={{ width: '80px', height: 'auto' }} />
             <Flag country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
             <p>Team: {teamDetails.Constructor.name}</p>
             <p>Country:{teamDetails.Constructor.nationality}</p>
@@ -47,6 +48,7 @@ const TeamDetails = (props) => {
             <p>Points:{teamDetails.points}</p>
             <p><a href={teamDetails.Constructor.url} target="_blank">Details</a></p>
          </div>
+         </section>
          <div>
             <h1>Formula 1 2013 Results</h1>
             <table>
