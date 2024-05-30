@@ -36,6 +36,32 @@ const DriverDetails = (props) => {
       return <Loader />
    };
 
+
+   const getColor = (position) => {
+
+      console.log(position)
+      switch (position) {
+         case "1":
+            return "yellow";
+         case "2":
+            return "darkgray";
+         case "3":
+            return "orange";
+         case "4":
+            return "lightgreen";
+         case "5":
+            return "lightblue";
+         case "6":
+         case "7":
+         case "8":
+         case "9":
+         case "10":
+            return "gray";
+      };
+
+
+   };
+
    return (
 
 
@@ -43,7 +69,7 @@ const DriverDetails = (props) => {
          <section>
             <div>
                <img src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)} style={{ width: '80px', height: 'auto' }} />
-               <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
+               <Flag country={props.showFlag(props.flagsRes, driver.Driver.nationality)} />
                <p>{driver.Driver?.givenName}</p>
                <p>{driver.Driver?.familyName}</p>
             </div>
@@ -86,7 +112,7 @@ const DriverDetails = (props) => {
                </thead>
                <tbody>
                   {driverRaces.map(d2 =>
-                     <tr key={d2.Results[0].Driver.driverId}>
+                     <tr key={d2.round}>
                         <td>{d2.round}</td>
                         <td>
                            <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} />
@@ -94,7 +120,7 @@ const DriverDetails = (props) => {
                         </td>
                         <td>{d2.Results[0].Constructor.name}</td>
                         <td>{d2.Results[0].grid}</td>
-                        <td>{d2.Results[0].position}</td>
+                        <td style={{ backgroundColor: getColor(d2.Results[0].position) }}>{d2.Results[0].position}</td>
                      </tr>
                   )}
                </tbody>

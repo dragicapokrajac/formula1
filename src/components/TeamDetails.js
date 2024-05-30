@@ -36,18 +36,39 @@ const TeamDetails = (props) => {
       return <Loader />;
    };
 
+   const getColor = (position) => {
+      switch (position) {
+         case "1":
+            return "yellow";
+         case "2":
+            return "darkgray";
+         case "3":
+            return "orange";
+         case "4":
+            return "lightgreen";
+         case "5":
+         case "6":
+         case "7":
+         case "8":
+            return "lightblue";
+         case "9":
+         case "10":
+            return "gray";
+      };
+   };
+
    return (
       <>
-      <section>
-         <div>
-            <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)} style={{ width: '80px', height: 'auto' }} />
-            <Flag country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
-            <p>Team: {teamDetails.Constructor.name}</p>
-            <p>Country:{teamDetails.Constructor.nationality}</p>
-            <p>Position:{teamDetails.position}</p>
-            <p>Points:{teamDetails.points}</p>
-            <p><a href={teamDetails.Constructor.url} target="_blank">Details</a></p>
-         </div>
+         <section>
+            <div>
+               <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)} style={{ width: '80px', height: 'auto' }} />
+               <Flag country={props.showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
+               <p>Team: {teamDetails.Constructor.name}</p>
+               <p>Country:{teamDetails.Constructor.nationality}</p>
+               <p>Position:{teamDetails.position}</p>
+               <p>Points:{teamDetails.points}</p>
+               <p><a href={teamDetails.Constructor.url} target="_blank">Details</a></p>
+            </div>
          </section>
          <div>
             <h1>Formula 1 2013 Results</h1>
@@ -73,8 +94,8 @@ const TeamDetails = (props) => {
                            <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} />
                            {result.raceName}
                         </td>
-                        <td>{parseInt(result.Results[0].position)}</td>
-                        <td>{parseInt(result.Results[1].position)}</td>
+                        <td style={{ backgroundColor: getColor(result.Results[0].position) }}>{parseInt(result.Results[0].position)}</td>
+                        <td style={{ backgroundColor: getColor(result.Results[1].position) }}>{parseInt(result.Results[1].position)}</td>
                         <td>{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</td>
                      </tr>
                   ))}
