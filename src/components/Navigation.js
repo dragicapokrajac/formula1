@@ -5,11 +5,21 @@ import LinkRaces from "../img/icons/icons8-race-60.png";
 
 const Navigation = () => {
    return (
-      <nav className="wrapper">
+      <nav className="navigation">
          <ul>
-            <li className="drivers"><img src={LinkDriver} alt="Drivers"/> <Link to="/drivers">Drivers</Link> </li>
-            <li className="teams"><img src={LinkTeams} alt="Teams"/><Link to="/teams">Teams</Link></li>
-            <li className="races"><img src={LinkRaces} alt="Races"/><Link to="/races">Races</Link></li>
+            <li>
+               <img src={LinkDriver} alt="Drivers" />
+               <Link to="/drivers"
+                  className="link">Drivers</Link>
+            </li>
+            <li>
+               <img src={LinkTeams} alt="Teams" />
+               <Link to="/teams" className="link">Teams</Link>
+            </li>
+            <li>
+               <img src={LinkRaces} alt="Races" />
+               <Link to="/races" className="link">Races</Link>
+            </li>
          </ul>
       </nav>
    );

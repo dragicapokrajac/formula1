@@ -5,7 +5,6 @@ import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
 
-
 const Drivers = (props) => {
    const [drivers, setDrivers] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +23,7 @@ const Drivers = (props) => {
          setIsLoading(false);
       } catch (error) {
          console.error("Error", error);
-      }
+      };
    };
 
    const handleShowDriverDetails = (id) => {

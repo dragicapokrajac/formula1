@@ -6,7 +6,6 @@ import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
 
 const TeamDetails = (props) => {
-
    const params = useParams();
    const [teamDetails, setTeamDetails] = useState([]);
    const [teamResults, setTeamResults] = useState([]);
@@ -62,7 +61,7 @@ const TeamDetails = (props) => {
          <section>
             <div>
                <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)} style={{ width: '80px', height: 'auto' }} />
-               <Flag country={props.showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
+               <Flag country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
                <p>Team: {teamDetails.Constructor.name}</p>
                <p>Country:{teamDetails.Constructor.nationality}</p>
                <p>Position:{teamDetails.position}</p>
@@ -83,7 +82,6 @@ const TeamDetails = (props) => {
                   </tr>
                </thead>
                <tbody>
-
                   {teamResults.map((result =>
                      <tr key={result.round}>
                         <td>{result.round}</td>
@@ -94,33 +92,18 @@ const TeamDetails = (props) => {
                            <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} />
                            {result.raceName}
                         </td>
-                        <td style={{ backgroundColor: getColor(result.Results[0].position) }}>{parseInt(result.Results[0].position)}</td>
-                        <td style={{ backgroundColor: getColor(result.Results[1].position) }}>{parseInt(result.Results[1].position)}</td>
+                        <td style={{ backgroundColor: getColor(result.Results[0].position) }}>
+                           {parseInt(result.Results[0].position)}
+                        </td>
+                        <td style={{ backgroundColor: getColor(result.Results[1].position) }}>
+                           {parseInt(result.Results[1].position)}
+                        </td>
                         <td>{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</td>
                      </tr>
                   ))}
                </tbody>
             </table>
          </div>
-
-      </>
-   );
-
-
-   return (
-
-
-
-
-      <>
-         <h1>TeamDetails component</h1>
-         <h3>ova dva linka se koriste za prikaze u ovoj komponenti - koristi se use params (import from "react-router-dom")</h3>
-         <p>
-            TeamDetails: 'http://ergast.com/api/f1/2013/constructors/' + id + '/constructorStandings.json'
-         </p>
-         <p>
-            TeamResults: 'http://ergast.com/api/f1/2013/constructors/' + id + '/results.json'
-         </p>
       </>
    );
 };

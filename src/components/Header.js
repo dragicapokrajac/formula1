@@ -6,16 +6,13 @@ import Breadcrumbs from "./Breadcrumbs";
 const Header = () => {
    return (
       <header className="header">
-         <SearchBar />
-         <Link to="/">
-            <li className="Logo">
-               <img src={LinkLogo} alt="Logo"></img>
-            </li>
-         </Link>
          <Breadcrumbs />
+         <Link to="/">
+            <img src={LinkLogo} alt="Logo"></img>
+         </Link>
+         <SearchBar />
       </header>
    );
 };
 
 export default Header;
-

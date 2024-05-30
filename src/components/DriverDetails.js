@@ -4,8 +4,6 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag } from '../helpers';
-import avatar from '../img/drivers/avatar.png';
-
 
 const DriverDetails = (props) => {
    const params = useParams();
@@ -36,10 +34,7 @@ const DriverDetails = (props) => {
       return <Loader />
    };
 
-
    const getColor = (position) => {
-
-      console.log(position)
       switch (position) {
          case "1":
             return "yellow";
@@ -58,18 +53,14 @@ const DriverDetails = (props) => {
          case "10":
             return "gray";
       };
-
-
    };
 
    return (
-
-
       <>
          <section>
             <div>
                <img src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)} style={{ width: '80px', height: 'auto' }} />
-               <Flag country={props.showFlag(props.flagsRes, driver.Driver.nationality)} />
+               <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
                <p>{driver.Driver?.givenName}</p>
                <p>{driver.Driver?.familyName}</p>
             </div>
@@ -120,7 +111,9 @@ const DriverDetails = (props) => {
                         </td>
                         <td>{d2.Results[0].Constructor.name}</td>
                         <td>{d2.Results[0].grid}</td>
-                        <td style={{ backgroundColor: getColor(d2.Results[0].position) }}>{d2.Results[0].position}</td>
+                        <td style={{ backgroundColor: getColor(d2.Results[0].position) }}>
+                           {d2.Results[0].position}
+                        </td>
                      </tr>
                   )}
                </tbody>

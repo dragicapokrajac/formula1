@@ -25,7 +25,7 @@ const RaceResults = ({ flagsRes }) => {
 
          setIsLoading(false);
       } catch (error) {
-         console.log(error);
+         console.error(error);
       };
    };
 
@@ -35,10 +35,7 @@ const RaceResults = ({ flagsRes }) => {
       return <Loader />
    };
 
-
-
    const getColor = (points) => {
-      console.log(points)
       switch (points) {
          case "25":
             return "yellow";
@@ -54,15 +51,10 @@ const RaceResults = ({ flagsRes }) => {
          case "2":
          case "1":
             return "lightgreen";
-
          default:
             return "gray";
       };
-
-
    };
-
-
 
    return (
       <>
@@ -146,8 +138,8 @@ const RaceResults = ({ flagsRes }) => {
                         </td>
                         <td>{result.Constructor.name}</td>
                         <td>{result.Time?.time}</td>
-                        <td style={{ backgroundColor: getColor(result.points) }}> {result.points}
-
+                        <td style={{ backgroundColor: getColor(result.points) }}>
+                           {result.points}
                         </td>
                      </tr>
                   )}
