@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
-
+import { showFlag } from '../helpers';
 
 const Races = (props) => {
    const [dataRaces, setDataRaces] = useState([]);
@@ -52,13 +52,13 @@ const Races = (props) => {
                         onClick={() => handleRaceResults(dataRace.round)}
                         style={{ cursor: "pointer" }}
                      >
-                        <Flag country={props.showFlag(props.flagsRes, dataRace.Circuit.Location.country)} />
+                        <Flag country={showFlag(props.flagsRes, dataRace.Circuit.Location.country)} />
                         {dataRace.raceName}
                      </td>
                      <td>{dataRace.Circuit.circuitName}</td>
                      <td>{dataRace.date}</td>
                      <td>
-                        <Flag country={props.showFlag(props.flagsRes, dataRace.Results[0].Driver.nationality)} />
+                        <Flag country={showFlag(props.flagsRes, dataRace.Results[0].Driver.nationality)} />
                         {dataRace.Results[0].Driver.familyName}
                      </td>
                   </tr>

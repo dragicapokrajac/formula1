@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
+import { showFlag } from '../helpers';
 
 
 const Drivers = (props) => {
@@ -52,7 +53,7 @@ const Drivers = (props) => {
                         onClick={() => handleShowDriverDetails(driver.Driver.driverId)}
                         style={{ cursor: "pointer" }}
                      >
-                        <Flag country={props.showFlag(props.flagsRes, driver.Driver.nationality)} />
+                        <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
                         {driver.Driver.givenName} {driver.Driver.familyName}
                      </td>
                      <td>{driver.Constructors[0].name}</td>
