@@ -3,29 +3,27 @@ import { Link, useLocation } from "react-router-dom";
 function Breadcrumbs() {
     //Still a work in progress!
     const location = useLocation();
-    const pathnames = location.pathname.split("/").filter((x) => x);
+    const pathnames = location.pathname.split("/").filter(x => x);
     let breadcrumbPath = "";
 
     return(
-        <>
+        <nav>
             <ul>
-                <li><a href="/">Formula 1</a></li>
+                <Link to={"/"}>Formula 1</Link>
                 {pathnames.map((name, index) => {
                 breadcrumbPath += `/${name}`;
                 const isLast = index === pathnames.length - 1;
-                console.log(pathnames, breadcrumbPath);
  
                 return isLast? (
-                    <li key={breadcrumbPath}> / {name}</li>
+                    <p key={breadcrumbPath}> / {name}</p>
                 ) : (
-                    <li key={breadcrumbPath}>
-                        {" "}
-                        / <Link to={breadcrumbPath}>{name}</Link>
-                    </li>
+                    <p key={breadcrumbPath}> 
+                    {" "} / <Link to={breadcrumbPath}>{name}</Link>
+                    </p>
                 );
-            })}  
+            })}
             </ul>
-        </>
+        </nav>
     );
 };
 
