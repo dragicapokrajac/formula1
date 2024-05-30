@@ -59,20 +59,16 @@ const TeamDetails = (props) => {
 
    return (
       <>
-      <section>
-         <div>
-            <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)} style={{ width: '80px', height: 'auto' }} />
-<<<<<<< HEAD
-            <Flag country={props.showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
-=======
-            <Flag country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
->>>>>>> 264e232f3d2c95231735094b017305987d77e5e7
-            <p>Team: {teamDetails.Constructor.name}</p>
-            <p>Country:{teamDetails.Constructor.nationality}</p>
-            <p>Position:{teamDetails.position}</p>
-            <p>Points:{teamDetails.points}</p>
-            <p><a href={teamDetails.Constructor.url} target="_blank">Details</a></p>
-         </div>
+         <section>
+            <div>
+               <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)} style={{ width: '80px', height: 'auto' }} />
+               <Flag country={props.showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
+               <p>Team: {teamDetails.Constructor.name}</p>
+               <p>Country:{teamDetails.Constructor.nationality}</p>
+               <p>Position:{teamDetails.position}</p>
+               <p>Points:{teamDetails.points}</p>
+               <p><a href={teamDetails.Constructor.url} target="_blank">Details</a></p>
+            </div>
          </section>
          <div>
             <h1>Formula 1 2013 Results</h1>

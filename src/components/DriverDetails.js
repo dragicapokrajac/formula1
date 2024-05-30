@@ -69,11 +69,7 @@ const DriverDetails = (props) => {
          <section>
             <div>
                <img src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)} style={{ width: '80px', height: 'auto' }} />
-<<<<<<< HEAD
                <Flag country={props.showFlag(props.flagsRes, driver.Driver.nationality)} />
-=======
-               <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
->>>>>>> 264e232f3d2c95231735094b017305987d77e5e7
                <p>{driver.Driver?.givenName}</p>
                <p>{driver.Driver?.familyName}</p>
             </div>
