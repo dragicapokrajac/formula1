@@ -86,7 +86,7 @@ const DriverDetails = (props) => {
                </thead>
                <tbody>
                   {driverRaces.map(d2 =>
-                     <tr key={d2.Results[0].Driver.driverId}>
+                     <tr key={d2.round}>
                         <td>{d2.round}</td>
                         <td>
                            <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} />
