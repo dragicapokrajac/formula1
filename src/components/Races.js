@@ -29,7 +29,7 @@ const Races = (props) => {
    };
 
    const filteredDataRaces = dataRaces.filter(dataRace => {
-      const fullName = `${dataRace.raceName} ${dataRace.Circuit.circuitName}`.toLowerCase();
+      const fullName = `${dataRace.raceName} ${dataRace.Circuit.circuitName} ${dataRace.date}${dataRace.Results[0].Driver.familyName}`.toLowerCase();
       return fullName.includes(searchTerm.toLowerCase());
    });
    console.log(filteredDataRaces);
