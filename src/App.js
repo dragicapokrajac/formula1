@@ -29,7 +29,6 @@ const App = () => {
          <Router>
             <Header />
             <main className="routes-container">
-               <Navigation />
                <Routes>
                   <Route
                      path="/"
