@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Breadcrumbs = (props) => {
    let crumbs = props.crumbs;
    // u let crumbs je smesten niz objekata koje smo prosledili preko props-a
-   // svaki objekat predstavlja jedan bredcrumb
+   // svaki objekat predstavlja jedan breadcrumb
    // [
    //    { path: "/", label: "Home", name: "Home" },
    //    { path: "/Drivers", name: "Drivers" }
@@ -34,7 +34,7 @@ const Breadcrumbs = (props) => {
                   I onda, u prvom prolasku kroz niz poredi vrednosti i=0 sa length-1=2, i vraca 'true' jer 0 jeste manje od 2,
                   i izvrsava se ono posle '?' tj. podatke ce prokazati da budu link.
                   I tako dokle god je i < length-1.
-                  Kada dodje do poslednjeg indexa i=2 poredi 2<2 i vraca 'false', sto znaci da se izvrsava deo iza ':', u ovom nasem slucaju nece prikazati podatke kao link, i poslednji bredcrumb nece biti klikabilan.
+                  Kada dodje do poslednjeg indexa i=2 poredi 2<2 i vraca 'false', sto znaci da se izvrsava deo iza ':', u ovom nasem slucaju nece prikazati podatke kao link, i poslednji breadcrumb nece biti klikabilan.
                   Eto ga. Ako nesto nije jasno, objasnicu naknadno. :)
                */}
             </p>
