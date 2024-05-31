@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Breadcrumbs = ({tabs}) => {
+const Breadcrumbs = ({ tabs }) => {
 
     //Zakomentarisan Inline CSS za mogucu buducu uprotrebu
     return <div>
@@ -10,7 +10,7 @@ const Breadcrumbs = ({tabs}) => {
                     <ul>
                         <li key={i}>
                             {/* {i === 0 && <img src={require("../img/icons/icons8-helmet-50.png")} style={{ width: 5, height: "auto" }} />} */}
-                            {i < tabs.length - 1 ? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span> {crumb.name} </span>)}
+                            {i < tabs.length - 1 ? (<Link to={crumb.path}>{crumb.name}</Link>) : (<p> {crumb.name} </p>)}
                         </li>
                     </ ul>
                 );
