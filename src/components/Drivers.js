@@ -42,7 +42,7 @@ const Drivers = (props) => {
    console.log(filteredDrivers);
 
    const tabs = [
-      { path: "/", name: "Home" }, 
+      { path: "/", label: "Home", name: "Home" }, 
       { path: "/Drivers", name: "Drivers" }
   ];
 

@@ -34,8 +34,8 @@ const DriverDetails = (props) => {
    };
 
    const tabs = [
-      { path: "/", name: "Home" },
-      { path: "/Drivers", name: "Drivers" },
+      { path: "/", label: "Home", name: "Home" },
+      { path: "/Drivers", label: "Drivers", name: "Drivers" },
       { path: `/DriverDetails/${params.id}`, name: `${driver.Driver?.givenName}` }
    ];
 
