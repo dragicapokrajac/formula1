@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag, getColor } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
+import Breadcrumbs from './Breadcrumbs';
+
 
 const DriverDetails = (props) => {
    const params = useParams();
@@ -31,6 +33,12 @@ const DriverDetails = (props) => {
       };
    };
 
+   const tabs = [
+      { path: "/", name: "Home" },
+      { path: "/Drivers", name: "Drivers" },
+      { path: `/DriverDetails/${params.id}`, name: `${driver.Driver?.givenName}` }
+   ];
+
    if (isLoading) {
       return <Loader />
    };
@@ -38,6 +46,7 @@ const DriverDetails = (props) => {
 
    return (
       <div className='component-container-row'>
+         <Breadcrumbs tabs={tabs} />
          <section className="card">
             <div className="card-info">
                <img

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
+import Breadcrumbs from './Breadcrumbs';
 
 
 const Drivers = (props) => {
@@ -29,7 +30,7 @@ const Drivers = (props) => {
    };
 
    const handleShowDriverDetails = (id) => {
-      const link = `/driverDetails/${id}`;
+      const link = `/DriverDetails/${id}`;
       navigate(link)
    };
 
@@ -40,6 +41,11 @@ const Drivers = (props) => {
    });
    console.log(filteredDrivers);
 
+   const tabs = [
+      { path: "/", name: "Home" }, 
+      { path: "/Drivers", name: "Drivers" }
+  ];
+
 
 
    if (isLoading) {
@@ -48,6 +54,7 @@ const Drivers = (props) => {
 
    return (
       <div className='component-container-column'>
+         <Breadcrumbs tabs={tabs} />
          <div><input
             type="text"
             placeholder="Search for a drivers..."

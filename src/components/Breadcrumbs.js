@@ -1,30 +1,25 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Breadcrumbs() {
-    //Still a work in progress!
-    const location = useLocation();
-    const pathnames = location.pathname.split("/").filter(x => x);
-    let breadcrumbPath = "";
+const Breadcrumbs = ({tabs}) => {
 
-    return(
-        <nav>
-            <ul>
-                <Link to={"/"}>Formula 1</Link>
-                {pathnames.map((name, index) => {
-                breadcrumbPath += `/${name}`;
-                const isLast = index === pathnames.length - 1;
- 
-                return isLast? (
-                    <p key={breadcrumbPath}> / {name}</p>
-                ) : (
-                    <p key={breadcrumbPath}> 
-                    {" "} / <Link to={breadcrumbPath}>{name}</Link>
-                    </p>
+    // const crumbs = [];
+
+    return <div>
+        <div>
+            <ul> {tabs?.map((crumb, i) => {
+                return (
+                    <ul>
+                        <li key={i}>
+                            {/* {i === 0 && <img src={require("../img/icons/icons8-helmet-50.png")} style={{ maxWidth: 15 }} />} */}
+                            {i < tabs.length - 1 ? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span> {crumb.name} </span>)}
+                        </li>
+                    </ ul>
                 );
             })}
             </ul>
-        </nav>
-    );
-};
+        </div>
+    </div>
+
+}
 
 export default Breadcrumbs;
