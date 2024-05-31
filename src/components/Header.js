@@ -10,7 +10,6 @@ const Header = () => {
          <Link to="/">
             <img src={LinkLogo} alt="Logo"></img>
          </Link>
-         <SearchBar />
       </header>
    );
 };
