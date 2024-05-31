@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
-import { showFlag } from '../helpers';
+import { showFlag, getColor } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
 
 const DriverDetails = (props) => {
@@ -35,26 +35,6 @@ const DriverDetails = (props) => {
       return <Loader />
    };
 
-   const getColor = (position) => {
-      switch (position) {
-         case "1":
-            return "yellow";
-         case "2":
-            return "darkgray";
-         case "3":
-            return "orange";
-         case "4":
-            return "lightgreen";
-         case "5":
-            return "lightblue";
-         case "6":
-         case "7":
-         case "8":
-         case "9":
-         case "10":
-            return "gray";
-      };
-   };
 
    return (
       <div className='component-container-row'>

@@ -14,3 +14,37 @@ export const showFlag = (resFlags, checkParam) => {
         return 'KR';
     };
 };
+
+export const getColor = (positionAndPoints) => {
+    switch (positionAndPoints) {
+        // Team details i Driver details
+        case "1":
+        case "25":
+            return "yellow";
+            //case 2 u race je lightgreen, u positions je darkgray.
+        case "2":
+        case "18":
+            return "darkgray";
+        case "3":
+        case "15":
+            return "orange";
+        case "4":
+        case "12":
+        case "10":
+        case "8":
+        case "6":
+        case "1":
+            return "lightgreen";
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+            return "lightblue";
+        case "9":
+        case "10":
+            return "gray";
+        default:
+            return "gray"
+
+    }
+}

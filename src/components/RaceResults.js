@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
-import { showFlag } from '../helpers';
+import { showFlag, getColor } from '../helpers';
 
 const RaceResults = ({ flagsRes }) => {
    const [qualifyingResults, setQualifyingResults] = useState([]);
@@ -35,27 +35,8 @@ const RaceResults = ({ flagsRes }) => {
       return <Loader />
    };
 
-   const getColor = (points) => {
-      switch (points) {
-         case "25":
-            return "yellow";
-         case "18":
-            return "darkgray";
-         case "15":
-            return "orange";
-         case "12":
-         case "10":
-         case "8":
-         case "6":
-         case "4":
-         case "2":
-         case "1":
-            return "lightgreen";
-         default:
-            return "gray";
-      };
-   };
 
+   
    return (
       <>
          <section>
@@ -139,6 +120,7 @@ const RaceResults = ({ flagsRes }) => {
                         <td>{result.Constructor.name}</td>
                         <td>{result.Time?.time}</td>
                         <td style={{ backgroundColor: getColor(result.points) }}>
+                           
                            {result.points}
                         </td>
                      </tr>
