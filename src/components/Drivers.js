@@ -8,6 +8,7 @@ import { showFlag } from '../helpers';
 
 const Drivers = (props) => {
    const [drivers, setDrivers] = useState([]);
+   const [searchTerm, setSearchTerm] = useState('');
    const [isLoading, setIsLoading] = useState(true);
    const navigate = useNavigate();
 
@@ -32,22 +33,36 @@ const Drivers = (props) => {
       navigate(link)
    };
 
+   const filteredDrivers = drivers.filter(driver => {
+      const fullName = `${driver.position} ${driver.Driver.givenName} ${driver.Driver.familyName} 
+      ${driver.Driver.nationality} ${driver.Constructors[0].name}`.toLowerCase();
+      return fullName.includes(searchTerm.toLowerCase());
+   });
+   console.log(filteredDrivers);
+
+
+
    if (isLoading) {
       return <Loader />
    };
 
    return (
       <div className='component-container-column'>
+         <div><input
+            type="text"
+            placeholder="Search for a drivers..."
+            value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} /></div>
          <h1>Drivers Championship</h1>
          <section>
             <table className='table-v100'>
                <thead>
                   <tr>
-                     <th colSpan='4'>Drivers Championship Standings - 2013</th>
+                     <th colSpan='4'>Drivers Championship Standings - 2013
+                     </th>
                   </tr>
                </thead>
                <tbody>
-                  {drivers.map(driver =>
+                  {filteredDrivers.map(driver =>
                      <tr key={driver.Driver.driverId}>
                         <td>{driver.position}</td>
                         <td

@@ -7,6 +7,7 @@ import { showFlag } from '../helpers';
 
 const Races = (props) => {
    const [dataRaces, setDataRaces] = useState([]);
+   const [searchTerm, setSearchTerm] = useState('');
    const [isLoading, setIsLoading] = useState(true);
    const navigate = useNavigate();
 
@@ -27,13 +28,25 @@ const Races = (props) => {
       navigate(link);
    };
 
+   const filteredDataRaces = dataRaces.filter(dataRace => {
+      const fullName = `${dataRace.raceName} ${dataRace.Circuit.circuitName}`.toLowerCase();
+      return fullName.includes(searchTerm.toLowerCase());
+   });
+   console.log(filteredDataRaces);
+
    if (isLoading) {
       return <Loader />
    };
 
    return (
+
       <>
+         <div> <input
+            type="text"
+            placeholder="Search for a drivers..."
+            value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} /> </div>
          <h1>Races Calendar</h1>
+
          <table>
             <thead>
                <tr>
@@ -45,7 +58,7 @@ const Races = (props) => {
                </tr>
             </thead>
             <tbody>
-               {dataRaces.map(dataRace =>
+               {filteredDataRaces.map(dataRace =>
                   <tr key={dataRace.Circuit.circuitId}>
                      <td>  {dataRace.round}</td>
                      <td
@@ -65,7 +78,9 @@ const Races = (props) => {
                )}
             </tbody>
          </table>
+
       </>
+
    );
 };
 

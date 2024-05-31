@@ -7,6 +7,7 @@ import { showFlag } from '../helpers';
 
 const Teams = (props) => {
    const [teams, setTeams] = useState([]);
+   const [searchTerm, setSearchTerm] = useState('');
    const [isLoading, setIsLoading] = useState(true);
    const navigate = useNavigate();
 
@@ -27,13 +28,24 @@ const Teams = (props) => {
       navigate(link);
    };
 
+   const filteredTeams = teams.filter(team => {
+      const fullName = `${team.Constructor.name} ${team.position}`.toLowerCase();
+      return fullName.includes(searchTerm.toLowerCase());
+   });
+   console.log(filteredTeams);
+
    if (isLoading) {
       return <Loader />
    };
 
    return (
       <div>
+         <div><input
+            type="text"
+            placeholder="Search for a drivers..."
+            value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} /></div>
          <h1>Constructors Championship</h1>
+
          <table>
             <thead>
                <tr>
@@ -44,7 +56,7 @@ const Teams = (props) => {
                </tr>
             </thead>
             <tbody>
-               {teams.map(team =>
+               {filteredTeams.map(team =>
                   <tr key={team.Constructor.constructorId}>
                      <td>{team.position}</td>
                      <td

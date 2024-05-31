@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const SearchBar = () => {
-   const [value, setValue] = useState('');
+const SearchBar = (props) => {
+   const [searchTerm, setSearchTerm] = useState('');
 
    // Ovo je placeholder component za search bar
    // import SearchBar from "./SearchBar";
@@ -9,15 +9,10 @@ const SearchBar = () => {
 
    return (
       <div>
-         <input
-            type="text"
-            placeholder="Search data..."
-            value={value}
-            onChange={(e) => {
-               setValue(e.target.value);
-            }}
-         />
-         {/* Display suggestions based on 'suggestions' state */}
+<input
+                type="text"
+                placeholder="Search for a drivers..."
+                value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
       </div>
    );
 };
