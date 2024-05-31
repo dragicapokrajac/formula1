@@ -4,6 +4,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
+import linkImg from '../img/icons/link-white.png';
 
 const Teams = (props) => {
    const [teams, setTeams] = useState([]);
@@ -46,7 +47,7 @@ const Teams = (props) => {
             value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} /></div>
          <h1>Constructors Championship</h1>
 
-         <table>
+         <table> 
             <thead>
                <tr>
                   <th>Position</th>
@@ -66,7 +67,9 @@ const Teams = (props) => {
                         <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} />
                         {team.Constructor.name}
                      </td>
-                     <td><a href={team.Constructor.url}>Details</a></td>
+                     <td><a href={team.Constructor.url} target="_blank">Details:
+                        <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }}/>
+                     </a></td>
                      <td>{team.points}</td>
                   </tr>
                )}

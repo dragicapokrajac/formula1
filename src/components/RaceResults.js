@@ -4,6 +4,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag, getColor } from '../helpers';
+import linkImg from '../img/icons/link-white.png';
 
 const RaceResults = ({ flagsRes }) => {
    const [qualifyingResults, setQualifyingResults] = useState([]);
@@ -60,7 +61,8 @@ const RaceResults = ({ flagsRes }) => {
                   </tr>
                   <tr>
                      <td>Full Report: </td>
-                     <td><a href={qualifyingResults.url} target="_blank">Details</a></td>
+                     <td><a href={qualifyingResults.url} target="_blank">Details:
+                         <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }}/></a></td>
                   </tr>
                </tbody>
             </table>

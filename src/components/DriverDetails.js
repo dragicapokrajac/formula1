@@ -60,7 +60,7 @@ const DriverDetails = (props) => {
                   <p>{driver.Driver.nationality}</p>
                   <p>{driver.Constructors[0].name}</p>
                   <p>{driver.Driver.dateOfBirth}</p>
-                  <p><a href={driver.Driver.url}>
+                  <p><a href={driver.Driver.url} target="_blank">
                      <img src={linkImg} className='link-icon' />
                   </a></p>
                </div>
