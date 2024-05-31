@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
-import { showFlag, getColor } from '../helpers';
+import { showFlag, navigateToRaceResultsHandler, getColor } from '../helpers';
 
 const TeamDetails = (props) => {
    const params = useParams();
@@ -26,15 +26,9 @@ const TeamDetails = (props) => {
       setIsLoading(false);
    };
 
-   const handleRaceResults = (id) => {
-      const link = `/raceResults/${id}`;
-      navigate(link);
-   };
-
    if (isLoading) {
       return <Loader />;
    };
-
 
    return (
       <>
@@ -66,7 +60,7 @@ const TeamDetails = (props) => {
                      <tr key={result.round}>
                         <td>{result.round}</td>
                         <td
-                           onClick={() => handleRaceResults(result.round)}
+                           onClick={() => navigateToRaceResultsHandler(result.round, navigate)}
                            style={{ cursor: 'pointer' }}
                         >
                            <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} />

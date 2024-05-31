@@ -41,12 +41,10 @@ const Drivers = (props) => {
    });
    console.log(filteredDrivers);
 
-   const tabs = [
-      { path: "/", label: "Home", name: "Home" }, 
+   const crumbs = [
+      { path: "/", label: "Home", name: "Home" },
       { path: "/Drivers", name: "Drivers" }
-  ];
-
-
+   ];
 
    if (isLoading) {
       return <Loader />
@@ -54,7 +52,7 @@ const Drivers = (props) => {
 
    return (
       <div className='component-container-column'>
-         <Breadcrumbs tabs={tabs} />
+         <Breadcrumbs crumbs={crumbs} />
          <div><input
             type="text"
             placeholder="Search for a drivers..."

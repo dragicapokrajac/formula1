@@ -4,6 +4,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
+import { navigateToRaceResultsHandler } from '../helpers';
 
 const Races = (props) => {
    const [dataRaces, setDataRaces] = useState([]);
@@ -23,11 +24,6 @@ const Races = (props) => {
       setIsLoading(false);
    };
 
-   const handleRaceResults = (id) => {
-      const link = `/raceResults/${id}`;
-      navigate(link);
-   };
-
    const filteredDataRaces = dataRaces.filter(dataRace => {
       const fullName = `${dataRace.raceName} ${dataRace.Circuit.circuitName} ${dataRace.date}${dataRace.Results[0].Driver.familyName}`.toLowerCase();
       return fullName.includes(searchTerm.toLowerCase());
@@ -39,7 +35,6 @@ const Races = (props) => {
    };
 
    return (
-
       <>
          <div> <input
             type="text"
@@ -62,7 +57,7 @@ const Races = (props) => {
                   <tr key={dataRace.Circuit.circuitId}>
                      <td>  {dataRace.round}</td>
                      <td
-                        onClick={() => handleRaceResults(dataRace.round)}
+                        onClick={() => navigateToRaceResultsHandler(dataRace.round, navigate)}
                         style={{ cursor: "pointer" }}
                      >
                         <Flag country={showFlag(props.flagsRes, dataRace.Circuit.Location.country)} />

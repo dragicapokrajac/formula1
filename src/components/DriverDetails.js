@@ -1,25 +1,25 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
-import { showFlag, getColor } from '../helpers';
+import { showFlag, navigateToRaceResultsHandler, getColor } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
 import Breadcrumbs from './Breadcrumbs';
-
 
 const DriverDetails = (props) => {
    const params = useParams();
    const [isLoading, setIsLoading] = useState(true);
    const [driver, setDriver] = useState({});
    const [driverRaces, setDriverRaces] = useState([]);
+   const navigate = useNavigate();
 
    useEffect(() => {
       getDriver();
    }, []);
 
    const getDriver = async () => {
-      console.log(params)
       try {
          const result = await axios.get(`http://ergast.com/api/f1/2013/drivers/${params.id}/driverStandings.json`);
          setDriver(result.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
@@ -33,20 +33,17 @@ const DriverDetails = (props) => {
       };
    };
 
-   const tabs = [
+   const crumbs = [
       { path: "/", label: "Home", name: "Home" },
       { path: "/Drivers", label: "Drivers", name: "Drivers" },
       { path: `/DriverDetails/${params.id}`, name: `${driver.Driver?.givenName}` }
    ];
 
-   if (isLoading) {
-      return <Loader />
-   };
-
+   if (isLoading) { return <Loader /> };
 
    return (
       <div className='component-container-row'>
-         <Breadcrumbs tabs={tabs} />
+         <Breadcrumbs crumbs={crumbs} />
          <section className="card">
             <div className="card-info">
                <img
@@ -94,7 +91,10 @@ const DriverDetails = (props) => {
                   {driverRaces.map(d2 =>
                      <tr key={d2.round}>
                         <td>{d2.round}</td>
-                        <td>
+                        <td
+                           onClick={() => navigateToRaceResultsHandler(d2.round, navigate)}
+                           style={{ cursor: "pointer" }}
+                        >
                            <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} />
                            {d2.raceName}
                         </td>
