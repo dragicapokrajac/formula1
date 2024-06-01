@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag, showColor } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
+import Breadcrumbs from "./Breadcrumbs";
 
 const RaceResults = ({ flagsRes }) => {
    const [qualifyingResults, setQualifyingResults] = useState([]);
@@ -34,6 +36,12 @@ const RaceResults = ({ flagsRes }) => {
 
    const ifParam = "points";
 
+   const crumbs = [
+      { path: '/', label: 'F1' },
+      { path: '/races', label: 'Races' },
+      { path: `/raceResults/${params.id}`, label: `${qualifyingResults.raceName}` }
+   ];
+
    if (isLoading) {
       return <Loader />
    };
@@ -41,6 +49,7 @@ const RaceResults = ({ flagsRes }) => {
    return (
       <>
          <section>
+            <Breadcrumbs crumbs={crumbs} />
             <Flag country={showFlag(flagsRes, qualifyingResults?.Circuit.Location.country)} />
             <table>
                <thead>

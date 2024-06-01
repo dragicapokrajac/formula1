@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
 import { navigateToRaceResultsHandler } from '../helpers';
+import Breadcrumbs from "./Breadcrumbs";
 
 const Races = (props) => {
    const [dataRaces, setDataRaces] = useState([]);
@@ -30,16 +31,25 @@ const Races = (props) => {
    });
    // console.log(filteredDataRaces);
 
+   const crumbs = [
+      { path: '/', label: 'F1' },
+      { path: '/races', label: 'Races' }
+   ];
+
    if (isLoading) {
       return <Loader />
    };
 
    return (
       <>
-         <div> <input
-            type="text"
-            placeholder="Search for a drivers..."
-            value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} /> </div>
+         <Breadcrumbs crumbs={crumbs} />
+         <div>
+            <input
+               type="text"
+               placeholder="Search for a drivers..."
+               value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+            />
+         </div>
          <h1>Races Calendar</h1>
 
          <table>

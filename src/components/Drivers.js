@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
@@ -29,22 +30,21 @@ const Drivers = (props) => {
       }
    };
 
-   const handleShowDriverDetails = (id) => {
-      const link = `/DriverDetails/${id}`;
-      navigate(link)
-   };
-
    const filteredDrivers = drivers.filter(driver => {
       const fullName = `${driver.position} ${driver.Driver.givenName} ${driver.Driver.familyName} 
       ${driver.Driver.nationality} ${driver.Constructors[0].name}`.toLowerCase();
       return fullName.includes(searchTerm.toLowerCase());
    });
-   // console.log(filteredDrivers);
 
    const crumbs = [
-      { path: "/", label: "Home", name: "Home" },
-      { path: "/Drivers", name: "Drivers" }
+      { path: "/", label: "F1" },
+      { path: "/drivers", label: "Drivers" }
    ];
+
+   const handleShowDriverDetails = (id) => {
+      const link = `/DriverDetails/${id}`;
+      navigate(link)
+   };
 
    if (isLoading) {
       return <Loader />

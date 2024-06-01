@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
@@ -34,14 +35,16 @@ const DriverDetails = (props) => {
    };
 
    const crumbs = [
-      { path: "/", label: "Home", name: "Home" },
-      { path: "/Drivers", label: "Drivers", name: "Drivers" },
-      { path: `/DriverDetails/${params.id}`, name: `${driver.Driver?.givenName}` }
+      { path: "/", label: "F1" },
+      { path: "/drivers", label: "Drivers" },
+      { path: `/driverDetails/${params.id}`, name: `${driver.Driver?.givenName} ${driver.Driver?.familyName}` }
    ];
 
    const ifParam = "position";
 
-   if (isLoading) { return <Loader /> };
+   if (isLoading) {
+      return <Loader />
+   };
 
    return (
       <div className='component-container-row'>
@@ -55,7 +58,7 @@ const DriverDetails = (props) => {
                <Flag className=" img img-flag"
                   country={showFlag(props.flagsRes, driver.Driver.nationality)}
                />
-               <p>{driver.Driver?.givenName} {driver.Driver?.familyName}</p>
+               <p>{driver.Driver.givenName} {driver.Driver.familyName}</p>
             </div>
             <div className="data-wrapper">
                <div className="data-label">

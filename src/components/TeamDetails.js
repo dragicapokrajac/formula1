@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
+import Breadcrumbs from "./Breadcrumbs";
 
 const TeamDetails = (props) => {
    const params = useParams();
@@ -26,6 +28,12 @@ const TeamDetails = (props) => {
       setIsLoading(false);
    };
 
+   const crumbs = [
+      { path: '/', label: 'F1' },
+      { path: '/teams', label: 'Teams' },
+      { path: `/teamDetails/${params.id}`, label: `${teamDetails.Constructor?.name}` }
+   ];
+
    const ifParam = "position";
 
    if (isLoading) {
@@ -35,6 +43,7 @@ const TeamDetails = (props) => {
    return (
       <>
          <section>
+            <Breadcrumbs crumbs={crumbs} />
             <div>
                <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)} style={{ width: '80px', height: 'auto' }} />
                <Flag country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />

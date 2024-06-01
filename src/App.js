@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import Homepage from "./components/Homepage";
 import Header from "./components/Header";
-import Navigation from "./components/Navigation";
 import Drivers from "./components/Drivers";
 import DriverDetails from "./components/DriverDetails";
 import Teams from "./components/Teams";
@@ -21,7 +21,7 @@ const App = () => {
    const getFlags = async () => {
       const url = 'https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json';
       const res = await axios.get(url);
-      setFlagsRes(res.data)
+      setFlagsRes(res.data);
    };
 
    return (

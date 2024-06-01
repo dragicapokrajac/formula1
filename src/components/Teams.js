@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
+import Breadcrumbs from "./Breadcrumbs";
 
 const Teams = (props) => {
    const [teams, setTeams] = useState([]);
@@ -33,7 +34,11 @@ const Teams = (props) => {
       const fullName = `${team.Constructor.name} ${team.position}`.toLowerCase();
       return fullName.includes(searchTerm.toLowerCase());
    });
-   console.log(filteredTeams);
+
+   const crumbs = [
+      { path: '/', label: 'F1' },
+      { path: '/teams', label: 'Teams' }
+   ];
 
    if (isLoading) {
       return <Loader />
@@ -41,13 +46,17 @@ const Teams = (props) => {
 
    return (
       <div>
-         <div><input
-            type="text"
-            placeholder="Search for a drivers..."
-            value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} /></div>
+         <Breadcrumbs crumbs={crumbs} />
+         <div>
+            <input
+               type="text"
+               placeholder="Search for a drivers..."
+               value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+            />
+         </div>
          <h1>Constructors Championship</h1>
 
-         <table> 
+         <table>
             <thead>
                <tr>
                   <th>Position</th>
@@ -68,7 +77,7 @@ const Teams = (props) => {
                         {team.Constructor.name}
                      </td>
                      <td><a href={team.Constructor.url} target="_blank">Details:
-                        <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }}/>
+                        <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }} />
                      </a></td>
                      <td>{team.points}</td>
                   </tr>
