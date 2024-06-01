@@ -14,28 +14,35 @@ body {
 
 .routes-container {
    display: flex;
+   flex-direction: column;
    justify-content: space-between;
+   padding: 1rem;
+}
+
+.breadcrumbs {
+   display: flex;
+   padding: 2rem 0;
+
+   p {
+      padding-right: 1rem;
+
+      .link {
+         text-decoration: none;
+      }
+   }
 }
 
 .component-container-column {
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   padding: 1rem;
-
-   section {
-      .table-v100 {
-         width: 100%;
-      }
+   table {
+      width: 100%;
    }
 }
 
 .component-container-row {
    width: 100%;
    display: flex;
-   padding: 1rem;
 
-   .card {
+   .card-section {
       width: 20%;
       display: flex;
       flex-direction: column;
@@ -79,7 +86,7 @@ body {
       }
    }
 
-   .table-v80 {
+   .table-section-w80 {
       width: 80%;
 
       .table {

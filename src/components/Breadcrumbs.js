@@ -10,7 +10,7 @@ const Breadcrumbs = (props) => {
    // ]
 
    return (
-      <div>
+      <div className="breadcrumbs">
          {/* prolazimo kroz niz crumbs koristeci map metodu za rad sa nizovima */}
          {crumbs?.map((crumb, i) =>
             < p key={i} >
@@ -19,7 +19,9 @@ const Breadcrumbs = (props) => {
                'i < crumbs.length - 1' je kao 'if (i < crumbs.length - 1)', a posle znaka '?' ono sto treba da se izvrsi ako je postavljeni uslov true, a posle dvotacke ':' ono sto treba da se izvrsi ako je uslov false (tj. posle ":" je else)
                */}
                {i < crumbs.length - 1
-                  ? <Link to={crumb.path}>{crumb.label}</Link>
+                  ? <Link to={crumb.path} className="link">
+                     {crumb.label}
+                  </Link>
                   : <span> {crumb.label} </span>
                }
                {/* plasticni primer

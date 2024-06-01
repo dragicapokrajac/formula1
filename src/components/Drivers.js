@@ -56,45 +56,47 @@ const Drivers = (props) => {
    };
 
    return (
-      <div className='component-container-column'>
+      <>
          <Breadcrumbs crumbs={crumbs} />
-         <div>
-            <input
-               type="text"
-               placeholder="Search drivers..."
-               value={searchTerm}
-               onChange={(e) => setSearchTerm(e.target.value)}
-            />
-         </div>
-         <h1>Drivers Championship</h1>
-         <section>
-            <table className='table-v100'>
-               <thead>
-                  <tr>
-                     <th colSpan='4'>Drivers Championship Standings - 2013
-                     </th>
-                  </tr>
-               </thead>
-               <tbody>
-                  {filteredDrivers.map(driver =>
-                     <tr key={driver.Driver.driverId}>
-                        <td>{driver.position}</td>
-                        <td
-                           onClick={() => handleShowDriverDetails(driver.Driver.driverId)}
-                           style={{ cursor: "pointer" }}
-                        >
-                           <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
-                           {driver.Driver.givenName} {driver.Driver.familyName}
-                        </td>
-                        <td>{driver.Constructors[0].name}</td>
-                        <td>{driver.points}</td>
-                        <td>{driver.Driver.nationality}</td>
+         <div className='component-container-column'>
+            <h1>Drivers Championship</h1>
+            <section>
+               <table>
+                  <thead>
+                     <tr>
+                        <th colSpan='4'>Drivers Championship Standings - 2013
+                        </th>
+                        <th>
+                           <input
+                              type="text"
+                              placeholder="Search drivers..."
+                              value={searchTerm}
+                              onChange={(e) => setSearchTerm(e.target.value)}
+                           />
+                        </th>
                      </tr>
-                  )}
-               </tbody>
-            </table>
-         </section>
-      </div>
+                  </thead>
+                  <tbody>
+                     {filteredDrivers.map(driver =>
+                        <tr key={driver.Driver.driverId}>
+                           <td>{driver.position}</td>
+                           <td
+                              onClick={() => handleShowDriverDetails(driver.Driver.driverId)}
+                              style={{ cursor: "pointer" }}
+                           >
+                              <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
+                              {driver.Driver.givenName} {driver.Driver.familyName}
+                           </td>
+                           <td>{driver.Constructors[0].name}</td>
+                           <td>{driver.points}</td>
+                           <td>{driver.Driver.nationality}</td>
+                        </tr>
+                     )}
+                  </tbody>
+               </table>
+            </section>
+         </div>
+      </>
    );
 };
 
