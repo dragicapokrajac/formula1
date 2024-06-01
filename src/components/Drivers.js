@@ -30,11 +30,16 @@ const Drivers = (props) => {
       }
    };
 
-   const filteredDrivers = drivers.filter(driver => {
-      const fullName = `${driver.position} ${driver.Driver.givenName} ${driver.Driver.familyName} 
-      ${driver.Driver.nationality} ${driver.Constructors[0].name}`.toLowerCase();
-      return fullName.includes(searchTerm.toLowerCase());
-   });
+   // const filteredDrivers = drivers.filter(driver => {
+   //    const fullName = `${driver.position} ${driver.Driver.givenName} ${driver.Driver.familyName} 
+   //    ${driver.Driver.nationality} ${driver.Constructors[0].name}`.toLowerCase();
+   //    return fullName.includes(searchTerm.toLowerCase());
+   // });
+
+   const filteredDrivers = drivers.filter(driver =>
+      driver.Driver.givenName.toLowerCase().includes(searchTerm.trim().toLowerCase()) ||
+      driver.Driver.familyName.toLowerCase().includes(searchTerm.trim().toLocaleLowerCase())
+   );
 
    const crumbs = [
       { path: "/", label: "F1" },
@@ -53,10 +58,14 @@ const Drivers = (props) => {
    return (
       <div className='component-container-column'>
          <Breadcrumbs crumbs={crumbs} />
-         <div><input
-            type="text"
-            placeholder="Search for a drivers..."
-            value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} /></div>
+         <div>
+            <input
+               type="text"
+               placeholder="Search drivers..."
+               value={searchTerm}
+               onChange={(e) => setSearchTerm(e.target.value)}
+            />
+         </div>
          <h1>Drivers Championship</h1>
          <section>
             <table className='table-v100'>

@@ -30,10 +30,12 @@ const Teams = (props) => {
       navigate(link);
    };
 
-   const filteredTeams = teams.filter(team => {
-      const fullName = `${team.Constructor.name} ${team.position}`.toLowerCase();
-      return fullName.includes(searchTerm.toLowerCase());
-   });
+   // const filteredTeams = teams.filter(team => {
+   //    const fullName = `${team.Constructor.name} ${team.position}`.toLowerCase();
+   //    return fullName.includes(searchTerm.toLowerCase());
+   // });
+
+   const filteredTeams = teams.filter(team => team.Constructor.name.toLowerCase().includes(searchTerm.trim().toLowerCase()));
 
    const crumbs = [
       { path: '/', label: 'F1' },
@@ -50,8 +52,9 @@ const Teams = (props) => {
          <div>
             <input
                type="text"
-               placeholder="Search for a drivers..."
-               value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+               placeholder="Search teams..."
+               value={searchTerm}
+               onChange={(e) => setSearchTerm(e.target.value)}
             />
          </div>
          <h1>Constructors Championship</h1>

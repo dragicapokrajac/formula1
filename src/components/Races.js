@@ -8,7 +8,7 @@ import { navigateToRaceResultsHandler } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
 
 const Races = (props) => {
-   const [dataRaces, setDataRaces] = useState([]);
+   const [races, setRaces] = useState([]);
    const [searchTerm, setSearchTerm] = useState('');
    const [isLoading, setIsLoading] = useState(true);
    const navigate = useNavigate();
@@ -21,15 +21,16 @@ const Races = (props) => {
       const url = "http://ergast.com/api/f1/2013/results/1.json";
       const response = await axios.get(url);
       const resData = response.data.MRData.RaceTable.Races;
-      setDataRaces(resData);
+      setRaces(resData);
       setIsLoading(false);
    };
 
-   const filteredDataRaces = dataRaces.filter(dataRace => {
-      const fullName = `${dataRace.raceName} ${dataRace.Circuit.circuitName} ${dataRace.date}${dataRace.Results[0].Driver.familyName}`.toLowerCase();
-      return fullName.includes(searchTerm.toLowerCase());
-   });
-   // console.log(filteredDataRaces);
+   // const filteredDataRaces = races.filter(race => {
+   //    const fullName = `${race.raceName} ${race.Circuit.circuitName} ${race.date}${race.Results[0].Driver.familyName}`.toLowerCase();
+   //    return fullName.includes(searchTerm.toLowerCase());
+   // });
+
+   const filteredDataRaces = races.filter(race => race.raceName.toLowerCase().includes(searchTerm.trim().toLowerCase()));
 
    const crumbs = [
       { path: '/', label: 'F1' },
@@ -46,8 +47,9 @@ const Races = (props) => {
          <div>
             <input
                type="text"
-               placeholder="Search for a drivers..."
-               value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+               placeholder="Search races..."
+               value={searchTerm}
+               onChange={(e) => setSearchTerm(e.target.value)}
             />
          </div>
          <h1>Races Calendar</h1>
@@ -63,21 +65,21 @@ const Races = (props) => {
                </tr>
             </thead>
             <tbody>
-               {filteredDataRaces.map(dataRace =>
-                  <tr key={dataRace.Circuit.circuitId}>
-                     <td>  {dataRace.round}</td>
+               {filteredDataRaces.map(race =>
+                  <tr key={race.Circuit.circuitId}>
+                     <td>  {race.round}</td>
                      <td
-                        onClick={() => navigateToRaceResultsHandler(dataRace.round, navigate)}
+                        onClick={() => navigateToRaceResultsHandler(race.round, navigate)}
                         style={{ cursor: "pointer" }}
                      >
-                        <Flag country={showFlag(props.flagsRes, dataRace.Circuit.Location.country)} />
-                        {dataRace.raceName}
+                        <Flag country={showFlag(props.flagsRes, race.Circuit.Location.country)} />
+                        {race.raceName}
                      </td>
-                     <td>{dataRace.Circuit.circuitName}</td>
-                     <td>{dataRace.date}</td>
+                     <td>{race.Circuit.circuitName}</td>
+                     <td>{race.date}</td>
                      <td>
-                        <Flag country={showFlag(props.flagsRes, dataRace.Results[0].Driver.nationality)} />
-                        {dataRace.Results[0].Driver.familyName}
+                        <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} />
+                        {race.Results[0].Driver.familyName}
                      </td>
                   </tr>
                )}
