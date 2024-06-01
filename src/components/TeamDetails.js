@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
-import { showFlag, navigateToRaceResultsHandler, getColor } from '../helpers';
+import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
 
 const TeamDetails = (props) => {
    const params = useParams();
@@ -25,6 +25,8 @@ const TeamDetails = (props) => {
       setTeamResults(responseResults.data.MRData.RaceTable.Races);
       setIsLoading(false);
    };
+
+   const ifParam = "position";
 
    if (isLoading) {
       return <Loader />;
@@ -66,10 +68,10 @@ const TeamDetails = (props) => {
                            <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} />
                            {result.raceName}
                         </td>
-                        <td style={{ backgroundColor: getColor(result.Results[0].position) }}>
+                        <td style={{ backgroundColor: showColor(result.Results[0].position, ifParam) }}>
                            {parseInt(result.Results[0].position)}
                         </td>
-                        <td style={{ backgroundColor: getColor(result.Results[1].position) }}>
+                        <td style={{ backgroundColor: showColor(result.Results[1].position, ifParam) }}>
                            {parseInt(result.Results[1].position)}
                         </td>
                         <td>{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</td>

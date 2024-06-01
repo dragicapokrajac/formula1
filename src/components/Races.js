@@ -28,7 +28,7 @@ const Races = (props) => {
       const fullName = `${dataRace.raceName} ${dataRace.Circuit.circuitName} ${dataRace.date}${dataRace.Results[0].Driver.familyName}`.toLowerCase();
       return fullName.includes(searchTerm.toLowerCase());
    });
-   console.log(filteredDataRaces);
+   // console.log(filteredDataRaces);
 
    if (isLoading) {
       return <Loader />

@@ -39,7 +39,7 @@ const Drivers = (props) => {
       ${driver.Driver.nationality} ${driver.Constructors[0].name}`.toLowerCase();
       return fullName.includes(searchTerm.toLowerCase());
    });
-   console.log(filteredDrivers);
+   // console.log(filteredDrivers);
 
    const crumbs = [
       { path: "/", label: "Home", name: "Home" },

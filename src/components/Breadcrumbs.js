@@ -16,7 +16,7 @@ const Breadcrumbs = (props) => {
             < p key={i} >
                {/* 
                kod ispod je ternarni izraz (drugi nacin pisanja if provere, jer u okviru return-a gde se renderuje prikaz tj. u JSX-u nije dozvoljen klasican nacin pisanja if uslova, kao ni for petlje)
-               'i < crumbs.length - 1' je kao 'if (i < crumbs.length - 1)', a posle znaka '?' ono sto treba da se izvrsi ako je postavljeni uslov true, a posle dvotacke ':' ono sto treba da se izvrsi ako je uslov false (tj. pose ":" je else)
+               'i < crumbs.length - 1' je kao 'if (i < crumbs.length - 1)', a posle znaka '?' ono sto treba da se izvrsi ako je postavljeni uslov true, a posle dvotacke ':' ono sto treba da se izvrsi ako je uslov false (tj. posle ":" je else)
                */}
                {i < crumbs.length - 1
                   ? <Link to={crumb.path}>{crumb.name}</Link>
@@ -38,8 +38,7 @@ const Breadcrumbs = (props) => {
                   Eto ga. Ako nesto nije jasno, objasnicu naknadno. :)
                */}
             </p>
-         )
-         }
+         )}
       </div >
    );
 };

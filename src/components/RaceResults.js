@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
-import { showFlag, getColor } from '../helpers';
+import { showFlag, showColor } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
 
 const RaceResults = ({ flagsRes }) => {
@@ -32,12 +32,12 @@ const RaceResults = ({ flagsRes }) => {
 
    let bestTime = [];
 
+   const ifParam = "points";
+
    if (isLoading) {
       return <Loader />
    };
 
-
-   
    return (
       <>
          <section>
@@ -62,7 +62,7 @@ const RaceResults = ({ flagsRes }) => {
                   <tr>
                      <td>Full Report: </td>
                      <td><a href={qualifyingResults.url} target="_blank">Details:
-                         <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }}/></a></td>
+                        <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }} /></a></td>
                   </tr>
                </tbody>
             </table>
@@ -121,8 +121,8 @@ const RaceResults = ({ flagsRes }) => {
                         </td>
                         <td>{result.Constructor.name}</td>
                         <td>{result.Time?.time}</td>
-                        <td style={{ backgroundColor: getColor(result.points) }}>
-                           
+                        <td style={{ backgroundColor: showColor(result.points, ifParam) }}>
+
                            {result.points}
                         </td>
                      </tr>

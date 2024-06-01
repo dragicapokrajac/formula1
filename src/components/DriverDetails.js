@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
-import { showFlag, navigateToRaceResultsHandler, getColor } from '../helpers';
+import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
 import Breadcrumbs from './Breadcrumbs';
 
@@ -38,6 +38,8 @@ const DriverDetails = (props) => {
       { path: "/Drivers", label: "Drivers", name: "Drivers" },
       { path: `/DriverDetails/${params.id}`, name: `${driver.Driver?.givenName}` }
    ];
+
+   const ifParam = "position";
 
    if (isLoading) { return <Loader /> };
 
@@ -100,7 +102,7 @@ const DriverDetails = (props) => {
                         </td>
                         <td>{d2.Results[0].Constructor.name}</td>
                         <td>{d2.Results[0].grid}</td>
-                        <td style={{ backgroundColor: getColor(d2.Results[0].position) }}>
+                        <td style={{ backgroundColor: showColor(d2.Results[0].position, ifParam) }}>
                            {d2.Results[0].position}
                         </td>
                      </tr>
@@ -111,7 +113,5 @@ const DriverDetails = (props) => {
       </div>
    );
 };
-
-
 
 export default DriverDetails;

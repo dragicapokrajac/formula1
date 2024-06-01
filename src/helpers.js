@@ -15,36 +15,46 @@ export const showFlag = (resFlags, checkParam) => {
    };
 };
 
-export const getColor = (positionAndPoints) => {
-   switch (positionAndPoints) {
-      // Team details i Driver details
-      case "1":
-      case "25":
-         return "yellow";
-      //case 2 u race je lightgreen, u positions je darkgray.
+export const showColor = (number, checkParam) => {
+   // points je u RaceResults, za position je u DriverDetails i TeamDetails
+   const switchColor = (color1, color2) => {
+      if (checkParam === 'points') {
+         return color1;
+      } else if (checkParam === 'position') {
+         return color2;
+      };
+   };
+
+   switch (number) {
+      case "1":            // points    position
+         return switchColor("crimson", "yellow");
       case "2":
-      case "18":
-         return "darkgray";
+         return switchColor('limegreen', 'gray');
       case "3":
       case "15":
          return "orange";
       case "4":
-      case "12":
-      case "10":
-      case "8":
-      case "6":
-      case "1":
-         return "lightgreen";
+         return switchColor('hotpink', 'lightgreen');
       case "5":
+         return 'lightblue';
       case "6":
+         return switchColor('steelblue', 'darkorchid');
       case "7":
+         return 'steelblue';
       case "8":
-         return "lightblue";
+         return switchColor('darkorchid', 'hotpink');
       case "9":
+         return 'limegreen';
       case "10":
+         return switchColor('lightblue', 'crimson');
+      case "12":
+         return "lightgreen";
+      case "18":
          return "gray";
+      case "25":
+         return "yellow";
       default:
-         return "gray"
+         return "silver";
    };
 };
 
