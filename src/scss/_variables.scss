@@ -1,12 +1,20 @@
 $bcg-color: #e2e2e2;
-$driver-color: #ffc906;
-$team-color: #223971;
-$races-color: #cc1e4a;
+$driver-color: #f2bb67;
+$driver-color-hover: #eedc81;
+$team-color: #3671c6;
+$team-color-hover: #2293d1;
+$races-color: #f91536;
+$races-color-hover: #fb6076;
+
 $fnt-fmly: 'Segoe UI',
    Tahoma,
    Geneva,
    Verdana,
    sans-serif;
+$font-nav: 'Oswald';
+@import url('https://fonts.googleapis.com/css2?family=#{$font-nav}:wght@200..700&display=swap');
+
+
 $txt-col: #272727;
 
 // $driver-hover: "READY";

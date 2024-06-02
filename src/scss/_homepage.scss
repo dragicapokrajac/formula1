@@ -8,27 +8,53 @@
       margin: 5px;
       padding: 20px;
       border-radius: 5px;
-      width: 300px;
+      width: 100vw;
       height: 450px;
-
+      font-family: $font-nav, sans-serif;
+      font-size: 100px;
+      text-transform: uppercase;
+      overflow: hidden;      
+      white-space: nowrap;
+      pointer-events: auto;
       cursor: pointer;
+      display:flex;
+      justify-content: center;
+      align-items: center;
       transition: background-color 0.3s ease;
       text-align: center;
 
       a {
          text-decoration: none;
-         color: $txt-col;
-      }
+         
+         &:visited {
+           color: $txt-col;
+         }
+       }
+
    }
 
    .driver-block {
       background-color: $bcg-color;
       box-shadow: 0 0 10px $driver-color;
+      color: $driver-color;
+
+      a {
+         color: $driver-color;
+
+         &:visited {
+            color: $driver-color;
+          }
+         }
 
       &:hover {
          background-color: $driver-color;
          color: $bcg-color;
          text-align: center;
+         
+         a {
+            color: $driver-color-hover;
+   
+            }
 
          &::after {
             // content: $driver-hover;
@@ -42,10 +68,23 @@
       /* Background color for block 2 */
       box-shadow: 0 0 10px $team-color;
 
+      a {
+         color: $team-color;
+
+         &:visited {
+            color: $team-color;
+          }
+         }
+
       &:hover {
          background-color: $team-color;
          color: $txt-col;
          text-align: center;
+
+         a {
+            color: $team-color-hover;
+   
+            }
 
          &::after {
             // content: $team-hover;
@@ -58,10 +97,22 @@
       background-color: $bcg-color;
       box-shadow: 0 0 10px $races-color;
 
+      a {
+         color: $races-color;
+
+         &:visited {
+            color: $races-color;
+          }
+         }
+
       &:hover {
          background-color: $races-color;
          color: $bcg-color;
          text-align: center;
+         a {
+            color: $races-color-hover;
+   
+            }
 
          &::after {
             // content: $races-hover;
