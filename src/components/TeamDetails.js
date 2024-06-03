@@ -67,7 +67,7 @@ const TeamDetails = (props) => {
             </div>
 
             <div className="table-section-w80">
-               <table className="table">
+               <table className="table-teams">
                   <thead>
                      <tr>
                         <th colSpan='5'>Formula 1 2013 Results</th>
@@ -89,12 +89,14 @@ const TeamDetails = (props) => {
                               style={{ cursor: 'pointer' }}
                            >
                               <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} />
-                              {result.raceName}
+                              &nbsp; {result.raceName}
                            </td>
                            <td style={{ backgroundColor: showColor(result.Results[0].position, ifParam) }}>
                               {result.Results[0].position}
                            </td>
-                           <td style={{ backgroundColor: showColor(result.Results[1].position, ifParam) }}>
+                           <td style={{
+                              backgroundColor: showColor(result.Results[1].position, ifParam),
+                           }}>
                               {result.Results[1].position}
                            </td>
                            <td>{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</td>

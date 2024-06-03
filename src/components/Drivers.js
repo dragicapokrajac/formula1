@@ -65,7 +65,7 @@ const Drivers = (props) => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                />
             </div>
-            <table className='table'>
+            <table className='table-drivers'>
                <thead>
                   <tr>
                      <th colSpan='5'>Drivers Championship Standings - 2013</th>

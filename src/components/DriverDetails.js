@@ -81,7 +81,7 @@ const DriverDetails = (props) => {
             </div>
 
             <div className="table-section-w80">
-               <table className="table">
+               <table className="table-drivers">
                   <thead>
                      <tr>
                         <th colSpan='5'>Formula 1 2013 Results</th>

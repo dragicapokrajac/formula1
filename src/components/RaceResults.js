@@ -93,7 +93,7 @@ const RaceResults = ({ flagsRes }) => {
                            <td>{qRes.position}</td>
                            <td>
                               <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} />
-                              {qRes.Driver.familyName}
+                              &nbsp; {qRes.Driver.familyName}
                            </td>
                            <td>{qRes.Constructor.name}</td>
                            <td>{bestTime = [qRes.Q1, qRes.Q2, qRes.Q3].sort()[0]}</td>
@@ -122,7 +122,7 @@ const RaceResults = ({ flagsRes }) => {
                            <td>{result.position}</td>
                            <td>
                               <Flag country={showFlag(flagsRes, result.Driver.nationality)} />
-                              {result.Driver.familyName}
+                              &nbsp;{result.Driver.familyName}
                            </td>
                            <td>{result.Constructor.name}</td>
                            <td>{result.Time?.time}</td>

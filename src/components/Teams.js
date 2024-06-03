@@ -56,7 +56,7 @@ const Teams = (props) => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                />
             </div>
-            <table className='table'>
+            <table className='table-teams'>
                <thead>
                   <tr>
                      <th>Position</th>

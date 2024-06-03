@@ -51,7 +51,7 @@ const Races = (props) => {
                />
             </div>
 
-            <table className='table'>
+            <table className='table-races'>
                <thead>
                   <tr>
                      <th>Round</th>

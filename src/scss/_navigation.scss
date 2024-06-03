@@ -3,9 +3,7 @@
    // justify-content: center;
    text-align: center;
 
-
    .navigation {
-
       ul {
          display: flex;
          list-style: none;
@@ -14,8 +12,6 @@
          li {
             margin: 1rem;
             padding: 1rem;
-
-
 
             .link {
                font-family: $font-nav, sans-serif;
@@ -38,7 +34,7 @@
 
             .races-hover {
                &:hover {
-                  color: $races-color;
+                  color: $race-color;
                   text-decoration: underline;
                   text-decoration-thickness: 2.5px;
                   text-underline-offset: 6px;

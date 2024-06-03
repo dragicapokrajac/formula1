@@ -106,18 +106,18 @@
 
    .races-block {
       background-color: $bcg-color;
-      box-shadow: 0 0 20px $races-color;
+      box-shadow: 0 0 20px $race-color;
 
       a {
-         color: $races-color;
+         color: $race-color;
 
          &:visited {
-            color: $races-color;
+            color: $race-color;
          }
       }
 
       &:hover {
-         background-color: $races-color;
+         background-color: $race-color;
          color: $bcg-color;
          text-align: center;
 
@@ -130,7 +130,7 @@
 
 
          &::after {
-            // content: $races-hover;
+            // content: $race-hover;
             font-size: 60px;
          }
       }

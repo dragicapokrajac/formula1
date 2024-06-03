@@ -51,8 +51,19 @@ body {
       align-items: center;
    }
 
-   .table {
-      @include table-properties(100%, #ffc547);
+   .table-drivers {
+      @include table-properties(100%, $driver-color);
+   }
+
+
+   .table-teams {
+      @include table-properties(100%, $team-color-hover);
+   }
+
+   .table-races {
+      @include table-properties(100%, $race-color-hover);
+
+
    }
 }
 
@@ -110,8 +121,21 @@ body {
       width: 80%;
       display: flex;
 
+      .table-drivers {
+         @include table-properties(100%, $driver-color);
+      }
+
+
+      .table-teams {
+         @include table-properties(100%, $team-color);
+      }
+
+      .table-races {
+         @include table-properties(100%, $race-color-hover);
+      }
+
       .table-w50 {
-         @include table-properties(50%, #ffc547);
+         @include table-properties(50%, $race-color-hover);
 
          &:first-child {
             margin-right: 0.5rem;
