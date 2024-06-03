@@ -6,6 +6,7 @@ import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
 import Breadcrumbs from "./Breadcrumbs";
+import SearchBar from './SearchBar';
 
 const Teams = (props) => {
    const [teams, setTeams] = useState([]);
@@ -45,12 +46,12 @@ const Teams = (props) => {
       <div>
          <Breadcrumbs crumbs={crumbs} />
          <div>
-            <input
-               type="text"
-               placeholder="Search teams..."
-               value={searchTerm}
-               onChange={(e) => setSearchTerm(e.target.value)}
-            />
+         <SearchBar
+                  type='text'
+                  placeholder='Search teams...'
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+               />
          </div>
          <h1>Constructors Championship</h1>
 

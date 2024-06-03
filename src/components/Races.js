@@ -6,6 +6,7 @@ import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
 import { navigateToRaceResultsHandler } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
+import SearchBar from './SearchBar';
 
 const Races = (props) => {
    const [races, setRaces] = useState([]);
@@ -40,12 +41,12 @@ const Races = (props) => {
       <>
          <Breadcrumbs crumbs={crumbs} />
          <div>
-            <input
-               type="text"
-               placeholder="Search races..."
-               value={searchTerm}
-               onChange={(e) => setSearchTerm(e.target.value)}
-            />
+         <SearchBar
+                  type='text'
+                  placeholder='Search races...'
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+               />
          </div>
          <h1>Races Calendar</h1>
 
