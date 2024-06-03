@@ -18,6 +18,13 @@ body {
    font-family: $fnt-fmly;
 }
 
+.loader-container {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+
+}
+
 .routes-container {
    display: flex;
    flex-direction: column;
