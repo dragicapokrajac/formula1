@@ -46,14 +46,16 @@ const Teams = (props) => {
    return (
       <div>
          <Breadcrumbs crumbs={crumbs} />
-         <div className='header-wrapper'>
-            <h1>Constructors Championship</h1>
-            <SearchBar
-               type='text'
-               placeholder='Search teams...'
-               value={searchTerm}
-               onChange={(e) => setSearchTerm(e.target.value)}
-            />
+         <div className='component-container-column'>
+            <div className='header-wrapper'>
+               <h1>Constructors Championship</h1>
+               <SearchBar
+                  type='text'
+                  placeholder='Search teams...'
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+               />
+            </div>
          </div>
 
          <Table striped>

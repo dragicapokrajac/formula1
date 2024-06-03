@@ -7,6 +7,7 @@ import { showFlag } from '../helpers';
 import { navigateToRaceResultsHandler } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from './SearchBar';
+import Table from 'react-bootstrap/Table';
 
 const Races = (props) => {
    const [races, setRaces] = useState([]);
@@ -40,17 +41,19 @@ const Races = (props) => {
    return (
       <>
          <Breadcrumbs crumbs={crumbs} />
-         <div className='header-wrapper'>
-            <h1>Races Calendar</h1>
-            <SearchBar
-               type='text'
-               placeholder='Search races...'
-               value={searchTerm}
-               onChange={(e) => setSearchTerm(e.target.value)}
-            />
+         <div className='component-container-column'>
+            <div className='header-wrapper'>
+               <h1>Races Calendar</h1>
+               <SearchBar
+                  type='text'
+                  placeholder='Search races...'
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+               />
+            </div>
          </div>
 
-         <table>
+         <Table striped>
             <thead>
                <tr>
                   <th>Round</th>
@@ -80,7 +83,7 @@ const Races = (props) => {
                   </tr>
                )}
             </tbody>
-         </table>
+         </Table>
 
       </>
 
