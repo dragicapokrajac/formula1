@@ -4,20 +4,22 @@
    // align-items: center;
    justify-content: center;
 
-   .block {
-      margin: 5px;
+   .block,
+   a {
+      margin: 20px;
       padding: 20px;
-      border-radius: 5px;
+      border-radius: 50%;
       width: 100vw;
       height: 450px;
       font-family: $font-nav, sans-serif;
-      font-size: 100px;
+      font-size: 80px;
       text-transform: uppercase;
-      overflow: hidden;      
+      overflow: hidden;
       white-space: nowrap;
       pointer-events: auto;
+      font-weight: bold;
       cursor: pointer;
-      display:flex;
+      display: flex;
       justify-content: center;
       align-items: center;
       transition: background-color 0.3s ease;
@@ -25,17 +27,23 @@
 
       a {
          text-decoration: none;
-         
-         &:visited {
-           color: $txt-col;
-         }
-       }
 
+
+         &:visited {
+            color: $txt-col;
+         }
+
+      }
+
+      &:hover {
+         box-shadow: none;
+      }
    }
+
 
    .driver-block {
       background-color: $bcg-color;
-      box-shadow: 0 0 10px $driver-color;
+      box-shadow: 0 0 20px $driver-color;
       color: $driver-color;
 
       a {
@@ -43,22 +51,24 @@
 
          &:visited {
             color: $driver-color;
-          }
          }
+      }
 
       &:hover {
          background-color: $driver-color;
          color: $bcg-color;
          text-align: center;
-         
+
+
+
          a {
-            color: $driver-color-hover;
-   
-            }
+            color: $bcg-color;
+
+         }
 
          &::after {
             // content: $driver-hover;
-            font-size: 60px;
+            font-size: 50px;
          }
       }
    }
@@ -66,25 +76,25 @@
    .team-block {
       background-color: $bcg-color;
       /* Background color for block 2 */
-      box-shadow: 0 0 10px $team-color;
+      box-shadow: 0 0 20px $team-color;
 
       a {
          color: $team-color;
 
          &:visited {
             color: $team-color;
-          }
          }
+      }
 
       &:hover {
          background-color: $team-color;
-         color: $txt-col;
-         text-align: center;
+         color: $bcg-color;
+
 
          a {
-            color: $team-color-hover;
-   
-            }
+            color: $bcg-color;
+
+         }
 
          &::after {
             // content: $team-hover;
@@ -95,24 +105,28 @@
 
    .races-block {
       background-color: $bcg-color;
-      box-shadow: 0 0 10px $races-color;
+      box-shadow: 0 0 20px $races-color;
 
       a {
          color: $races-color;
 
          &:visited {
             color: $races-color;
-          }
          }
+      }
 
       &:hover {
          background-color: $races-color;
          color: $bcg-color;
          text-align: center;
+
+
          a {
-            color: $races-color-hover;
-   
-            }
+            color: $bcg-color;
+
+         }
+
+
 
          &::after {
             // content: $races-hover;
