@@ -49,7 +49,7 @@ const Drivers = (props) => {
    };
 
    if (isLoading) {
-      return <Loader />
+      return <Loader color='#ffc547' />
    };
 
    return (

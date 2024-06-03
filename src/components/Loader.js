@@ -1,9 +1,12 @@
 import { MoonLoader } from "react-spinners";
 
-const Loader = () => {
+const Loader = ({ color }) => {
    return (
       <div className="loader-container">
-         <MoonLoader color="#f91536" size={100} />
+         <MoonLoader
+            color={color}
+            size={100}
+         />
       </div>
    );
 };

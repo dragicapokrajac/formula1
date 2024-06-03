@@ -34,7 +34,7 @@ const Races = (props) => {
    ];
 
    if (isLoading) {
-      return <Loader />
+      return <Loader color='#f91536' />
    };
 
    return (

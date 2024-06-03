@@ -40,7 +40,7 @@ const Teams = (props) => {
    ];
 
    if (isLoading) {
-      return <Loader />
+      return <Loader color='#2fa775' />
    };
 
    return (

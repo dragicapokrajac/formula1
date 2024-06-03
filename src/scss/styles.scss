@@ -1,6 +1,8 @@
 @import "variables";
 @import "mixins";
 
+
+
 @import "header";
 @import "homepage";
 @import "navigation";
@@ -17,18 +19,11 @@ body {
    font-family: $fnt-fmly;
 }
 
-.loader-container {
-   display: flex;
-   justify-content: center;
-   align-content: center;
+.routes-container {
+   padding: 2rem;
 }
 
-.routes-container {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   padding: 1rem;
-}
+@import 'loader';
 
 .breadcrumbs {
    display: flex;
@@ -67,7 +62,7 @@ body {
    }
 }
 
-// stilovi za komponente koje imaju tabelu i katricu
+// stilovi za komponente koje imaju tabelu/e i katricu
 
 .component-container-row {
    width: 100%;

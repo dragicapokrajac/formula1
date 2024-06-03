@@ -44,7 +44,7 @@ const DriverDetails = (props) => {
    const ifParam = "position";
 
    if (isLoading) {
-      return <Loader />
+      return <Loader color='#ffc547' />
    };
 
    return (

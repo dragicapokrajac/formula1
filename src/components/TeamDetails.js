@@ -41,7 +41,7 @@ const TeamDetails = (props) => {
    const ifParam = "position";
 
    if (isLoading) {
-      return <Loader />;
+      return <Loader color='#2fa775' />;
    };
 
    return (
