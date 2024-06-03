@@ -7,6 +7,7 @@ import Flag from "react-flagkit";
 import { showFlag, showColor } from '../helpers';
 import linkImg from '../img/icons/link-black.png';
 import Breadcrumbs from "./Breadcrumbs";
+import Table from 'react-bootstrap/Table';
 
 const RaceResults = ({ flagsRes }) => {
    const [qualifyingResults, setQualifyingResults] = useState([]);
@@ -48,8 +49,8 @@ const RaceResults = ({ flagsRes }) => {
 
    return (
       <>
+         <Breadcrumbs crumbs={crumbs} />
          <section>
-            <Breadcrumbs crumbs={crumbs} />
             <Flag country={showFlag(flagsRes, qualifyingResults?.Circuit.Location.country)} />
             <table>
                <thead>
@@ -77,8 +78,8 @@ const RaceResults = ({ flagsRes }) => {
             </table>
          </section>
          <br />
-         <section>
-            <table>
+         <section className="table-section-w80">
+            <Table striped className="table">
                <thead>
                   <tr>
                      <th colSpan='4'>Qualifying Results</th>
@@ -103,14 +104,14 @@ const RaceResults = ({ flagsRes }) => {
                      </tr>
                   )}
                </tbody>
-            </table>
+            </Table>
          </section>
          <br />
-         <section>
-            <table>
+         <section className="table-section-w80">
+            <Table striped className="table">
                <thead>
                   <tr>
-                     <th colSpan='4'>Race Results</th>
+                     <th colSpan='5'>Race Results</th>
                   </tr>
                   <tr>
                      <th>Pos</th>
@@ -137,7 +138,7 @@ const RaceResults = ({ flagsRes }) => {
                      </tr>
                   )}
                </tbody>
-            </table>
+            </Table>
          </section>
       </>
    );
