@@ -6,7 +6,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
-import linkImg from '../img/icons/link-white.png';
+import linkImg from '../img/icons/link-black.png';
 import Breadcrumbs from './Breadcrumbs';
 import Table from 'react-bootstrap/Table';
 
