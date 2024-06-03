@@ -7,11 +7,12 @@
    .block,
    a {
       margin: 20px;
-      padding: 20px;
+      // padding: 20px;
       border-radius: 50%;
       width: 100vw;
       height: 450px;
-      font-family: $font-nav, sans-serif;
+      font-family: $fnt-fmly, sans-serif;
+      font-style: italic;
       font-size: 80px;
       text-transform: uppercase;
       overflow: hidden;
