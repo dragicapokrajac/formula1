@@ -1,5 +1,11 @@
 @import "variables";
 
+@import "header";
+@import "homepage";
+@import "navigation";
+@import "drivers";
+@import '~bootstrap/scss/bootstrap';
+
 * {
    margin: 0;
    padding: 0;
@@ -33,6 +39,11 @@ body {
 }
 
 .component-container-column {
+   .header-wrapper {
+      display: flex;
+      justify-content: space-between;
+   }
+
    table {
       width: 100%;
    }
@@ -101,8 +112,5 @@ table {
    }
 }
 
-@import "header";
-@import "navigation";
+
 @import "footer";
-@import "homepage";
-@import "drivers";

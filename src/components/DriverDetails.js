@@ -8,6 +8,7 @@ import Flag from "react-flagkit";
 import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
 import Breadcrumbs from './Breadcrumbs';
+import Table from 'react-bootstrap/Table';
 
 const DriverDetails = (props) => {
    const params = useParams();
@@ -80,7 +81,7 @@ const DriverDetails = (props) => {
             </section>
 
             <section className="table-section-w80">
-               <table className="table">
+               <Table striped className="table">
                   <thead>
                      <tr>
                         <th colSpan='5'>Formula 1 2013 Results</th>
@@ -112,7 +113,7 @@ const DriverDetails = (props) => {
                         </tr>
                      )}
                   </tbody>
-               </table>
+               </Table>
             </section>
          </div>
       </>

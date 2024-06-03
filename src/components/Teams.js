@@ -30,11 +30,6 @@ const Teams = (props) => {
       navigate(link);
    };
 
-   // const filteredTeams = teams.filter(team => {
-   //    const fullName = `${team.Constructor.name} ${team.position}`.toLowerCase();
-   //    return fullName.includes(searchTerm.toLowerCase());
-   // });
-
    const filteredTeams = teams.filter(team => team.Constructor.name.toLowerCase().includes(searchTerm.trim().toLowerCase()));
 
    const crumbs = [

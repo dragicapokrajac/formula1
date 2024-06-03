@@ -6,6 +6,8 @@ import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
 import Breadcrumbs from './Breadcrumbs';
+import SearchBar from './SearchBar';
+import Table from 'react-bootstrap/Table';
 
 
 const Drivers = (props) => {
@@ -30,12 +32,6 @@ const Drivers = (props) => {
       }
    };
 
-   // const filteredDrivers = drivers.filter(driver => {
-   //    const fullName = `${driver.position} ${driver.Driver.givenName} ${driver.Driver.familyName} 
-   //    ${driver.Driver.nationality} ${driver.Constructors[0].name}`.toLowerCase();
-   //    return fullName.includes(searchTerm.toLowerCase());
-   // });
-
    const filteredDrivers = drivers.filter(driver =>
       driver.Driver.givenName.toLowerCase().includes(searchTerm.trim().toLowerCase()) ||
       driver.Driver.familyName.toLowerCase().includes(searchTerm.trim().toLocaleLowerCase())
@@ -59,21 +55,20 @@ const Drivers = (props) => {
       <>
          <Breadcrumbs crumbs={crumbs} />
          <div className='component-container-column'>
-            <h1>Drivers Championship</h1>
+            <div className='header-wrapper'>
+               <h1>Drivers Championship</h1>
+               <SearchBar
+                  type='text'
+                  placeholder='Search drivers...'
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+               />
+            </div>
             <section>
-               <table>
+               <Table striped>
                   <thead>
                      <tr>
-                        <th colSpan='4'>Drivers Championship Standings - 2013
-                        </th>
-                        <th>
-                           <input
-                              type="text"
-                              placeholder="Search drivers..."
-                              value={searchTerm}
-                              onChange={(e) => setSearchTerm(e.target.value)}
-                           />
-                        </th>
+                        <th colSpan='5'>Drivers Championship Standings - 2013</th>
                      </tr>
                   </thead>
                   <tbody>
@@ -93,7 +88,7 @@ const Drivers = (props) => {
                         </tr>
                      )}
                   </tbody>
-               </table>
+               </Table >
             </section>
          </div>
       </>

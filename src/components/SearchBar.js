@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchBar = (props) => {
+const SearchBar = ({ type, placeholder, value, onChange }) => {
    const [searchTerm, setSearchTerm] = useState('');
 
    // Ovo je placeholder component za search bar
@@ -9,10 +9,12 @@ const SearchBar = (props) => {
 
    return (
       <div>
-<input
-                type="text"
-                placeholder="Search for a drivers..."
-                value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+         <input
+            type={type}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+         />
       </div>
    );
 };

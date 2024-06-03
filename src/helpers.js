@@ -15,12 +15,12 @@ export const showFlag = (resFlags, checkParam) => {
    };
 };
 
-export const showColor = (number, checkParam) => {
+export const showColor = (number, value) => {
    // points je u RaceResults, za position je u DriverDetails i TeamDetails
    const switchColor = (color1, color2) => {
-      if (checkParam === 'points') {
+      if (value === 'points') {
          return color1;
-      } else if (checkParam === 'position') {
+      } else if (value === 'position') {
          return color2;
       };
    };

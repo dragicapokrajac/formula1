@@ -25,11 +25,6 @@ const Races = (props) => {
       setIsLoading(false);
    };
 
-   // const filteredDataRaces = races.filter(race => {
-   //    const fullName = `${race.raceName} ${race.Circuit.circuitName} ${race.date}${race.Results[0].Driver.familyName}`.toLowerCase();
-   //    return fullName.includes(searchTerm.toLowerCase());
-   // });
-
    const filteredDataRaces = races.filter(race => race.raceName.toLowerCase().includes(searchTerm.trim().toLowerCase()));
 
    const crumbs = [
