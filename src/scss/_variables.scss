@@ -1,8 +1,8 @@
-$bcg-color: #e2e2e2;
-$driver-color: #f2bb67;
-$driver-color-hover: #eedc81;
-$team-color: #3671c6;
-$team-color-hover: #2293d1;
+$bcg-color: #F8F8FF;
+$driver-color: #ffc547;
+$driver-color-hover: #ffd780;
+$team-color: #2fa775;
+$team-color-hover: #e2e2e2;
 $races-color: #f91536;
 $races-color-hover: #fb6076;
 
@@ -11,8 +11,10 @@ $fnt-fmly: 'Segoe UI',
    Geneva,
    Verdana,
    sans-serif;
-$font-nav: 'Oswald';
-@import url('https://fonts.googleapis.com/css2?family=#{$font-nav}:wght@200..700&display=swap');
+$font-nav: 'KoHo';
+// $font-oswald: "Oswald";
+// @import url('https://fonts.googleapis.com/css2?family=#{$font-oswald}:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=#{$font-nav}:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 
 $txt-col: #272727;

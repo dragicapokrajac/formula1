@@ -4,9 +4,10 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag } from '../helpers';
-import linkImg from '../img/icons/link-white.png';
+import linkImg from '../img/icons/link-black.png';
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from './SearchBar';
+import Table from 'react-bootstrap/Table';
 
 const Teams = (props) => {
    const [teams, setTeams] = useState([]);
@@ -45,17 +46,19 @@ const Teams = (props) => {
    return (
       <div>
          <Breadcrumbs crumbs={crumbs} />
-         <div className='header-wrapper'>
-            <h1>Constructors Championship</h1>
-            <SearchBar
-               type='text'
-               placeholder='Search teams...'
-               value={searchTerm}
-               onChange={(e) => setSearchTerm(e.target.value)}
-            />
+         <div className='component-container-column'>
+            <div className='header-wrapper'>
+               <h1>Constructors Championship</h1>
+               <SearchBar
+                  type='text'
+                  placeholder='Search teams...'
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+               />
+            </div>
          </div>
 
-         <table>
+         <Table striped>
             <thead>
                <tr>
                   <th>Position</th>
@@ -82,7 +85,7 @@ const Teams = (props) => {
                   </tr>
                )}
             </tbody>
-         </table>
+            </Table>
       </div >
    );
 };

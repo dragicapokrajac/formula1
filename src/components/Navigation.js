@@ -6,17 +6,17 @@ const Navigation = () => {
          <nav className="navigation">
             <ul>
                <li>
-                  <NavLink to="/drivers" className="link">
+                  <NavLink to="/drivers" className="link drivers-hover">
                      Drivers
                   </NavLink>
                </li>
                <li>
-                  <NavLink to="/teams" className="link">
+                  <NavLink to="/teams" className="link teams-hover">
                      Teams
                   </NavLink>
                </li>
                <li>
-                  <NavLink to="/races" className="link">
+                  <NavLink to="/races" className="link races-hover">
                      Races
                   </NavLink>
                </li>
