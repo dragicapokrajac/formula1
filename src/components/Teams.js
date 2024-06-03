@@ -44,10 +44,10 @@ const Teams = (props) => {
    };
 
    return (
-      <div>
+      <>
          <Breadcrumbs crumbs={crumbs} />
-         <div className='component-container-column'>
-            <div className='header-wrapper'>
+         <section className='component-container-column'>
+            <div className='heading-wrapper'>
                <h1>Constructors Championship</h1>
                <SearchBar
                   type='text'
@@ -56,37 +56,38 @@ const Teams = (props) => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                />
             </div>
-         </div>
-
-         <Table striped>
-            <thead>
-               <tr>
-                  <th>Position</th>
-                  <th>Name</th>
-                  <th>Details</th>
-                  <th>Points</th>
-               </tr>
-            </thead>
-            <tbody>
-               {filteredTeams.map(team =>
-                  <tr key={team.Constructor.constructorId}>
-                     <td>{team.position}</td>
-                     <td
-                        onClick={() => handleShowTeamRaces(team.Constructor.constructorId)}
-                        style={{ cursor: "pointer" }}
-                     >
-                        <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} />
-                        {team.Constructor.name}
-                     </td>
-                     <td><a href={team.Constructor.url} target="_blank">Details:
-                        <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }} />
-                     </a></td>
-                     <td>{team.points}</td>
+            <table className='table'>
+               <thead>
+                  <tr>
+                     <th>Position</th>
+                     <th>Name</th>
+                     <th>Details</th>
+                     <th>Points</th>
                   </tr>
-               )}
-            </tbody>
-            </Table>
-      </div >
+               </thead>
+               <tbody>
+                  {filteredTeams.map(team =>
+                     <tr key={team.Constructor.constructorId}>
+                        <td>{team.position}</td>
+                        <td
+                           onClick={() => handleShowTeamRaces(team.Constructor.constructorId)}
+                           style={{ cursor: "pointer" }}
+                        >
+                           <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} />
+                           &nbsp; {team.Constructor.name}
+                        </td>
+                        <td>
+                           <a href={team.Constructor.url} target="_blank">
+                              <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }} />
+                           </a>
+                        </td>
+                        <td>{team.points}</td>
+                     </tr>
+                  )}
+               </tbody>
+            </table>
+         </section>
+      </>
    );
 };
 

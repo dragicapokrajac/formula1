@@ -4,10 +4,10 @@ import axios from 'axios';
 
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
-import { showFlag } from '../helpers';
+import { navigateHandler, showFlag } from '../helpers';
 import Breadcrumbs from './Breadcrumbs';
 import SearchBar from './SearchBar';
-import Table from 'react-bootstrap/Table';
+
 
 
 const Drivers = (props) => {
@@ -42,9 +42,10 @@ const Drivers = (props) => {
       { path: "/drivers", label: "Drivers" }
    ];
 
-   const handleShowDriverDetails = (id) => {
-      const link = `/DriverDetails/${id}`;
-      navigate(link)
+
+   const handleNavigateDriverDetails = (id) => {
+      const route = `/DriverDetails/${id}`;
+      navigateHandler(route, navigate);
    };
 
    if (isLoading) {
@@ -55,7 +56,7 @@ const Drivers = (props) => {
       <>
          <Breadcrumbs crumbs={crumbs} />
          <section className='component-container-column'>
-            <div className='header-wrapper'>
+            <div className='heading-wrapper'>
                <h1>Drivers Championship</h1>
                <SearchBar
                   type='text'
@@ -64,8 +65,7 @@ const Drivers = (props) => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                />
             </div>
-            {/* <section> */}
-            <table >
+            <table className='table'>
                <thead>
                   <tr>
                      <th colSpan='5'>Drivers Championship Standings - 2013</th>
@@ -76,7 +76,7 @@ const Drivers = (props) => {
                      <tr key={driver.Driver.driverId}>
                         <td>{driver.position}</td>
                         <td
-                           onClick={() => handleShowDriverDetails(driver.Driver.driverId)}
+                           onClick={() => handleNavigateDriverDetails(driver.Driver.driverId)}
                            style={{ cursor: "pointer" }}
                         >
                            <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
@@ -89,10 +89,11 @@ const Drivers = (props) => {
                   )}
                </tbody>
             </table >
-            {/* </section> */}
          </section>
       </>
    );
 };
 
 export default Drivers;
+
+// onClick={() => navigateHandler(`/DriverDetails/${driver.Driver.driverId}`, navigate)}

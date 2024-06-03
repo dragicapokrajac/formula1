@@ -1,0 +1,26 @@
+@mixin title-properties ($fontSize: 3rem, $color: $font-color, $padding: 0.3em 0) {
+   font-family: $serif-font;
+   font-size: $fontSize;
+   font-weight: 600;
+   color: $color;
+   padding: $padding;
+}
+
+// za .table i .tabele-w50 klase
+@mixin table-properties ($width, $borderColor) {
+   width: $width;
+   border-collapse: collapse;
+   text-align: center;
+
+   thead,
+   tbody {
+      tr {
+         border-bottom: 1px solid $borderColor;
+
+         th,
+         td {
+            padding: 1rem;
+         }
+      }
+   }
+}

@@ -7,7 +7,6 @@ import { showFlag } from '../helpers';
 import { navigateToRaceResultsHandler } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from './SearchBar';
-import Table from 'react-bootstrap/Table';
 
 const Races = (props) => {
    const [races, setRaces] = useState([]);
@@ -41,8 +40,8 @@ const Races = (props) => {
    return (
       <>
          <Breadcrumbs crumbs={crumbs} />
-         <div className='component-container-column'>
-            <div className='header-wrapper'>
+         <section className='component-container-column'>
+            <div className='heading-wrapper'>
                <h1>Races Calendar</h1>
                <SearchBar
                   type='text'
@@ -51,42 +50,40 @@ const Races = (props) => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                />
             </div>
-         </div>
 
-         <Table striped>
-            <thead>
-               <tr>
-                  <th>Round</th>
-                  <th>Grand Prix</th>
-                  <th>Circuit</th>
-                  <th>Date</th>
-                  <th>Winner</th>
-               </tr>
-            </thead>
-            <tbody>
-               {filteredDataRaces.map(race =>
-                  <tr key={race.Circuit.circuitId}>
-                     <td>  {race.round}</td>
-                     <td
-                        onClick={() => navigateToRaceResultsHandler(race.round, navigate)}
-                        style={{ cursor: "pointer" }}
-                     >
-                        <Flag country={showFlag(props.flagsRes, race.Circuit.Location.country)} />
-                        {race.raceName}
-                     </td>
-                     <td>{race.Circuit.circuitName}</td>
-                     <td>{race.date}</td>
-                     <td>
-                        <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} />
-                        {race.Results[0].Driver.familyName}
-                     </td>
+            <table className='table'>
+               <thead>
+                  <tr>
+                     <th>Round</th>
+                     <th>Grand Prix</th>
+                     <th>Circuit</th>
+                     <th>Date</th>
+                     <th>Winner</th>
                   </tr>
-               )}
-            </tbody>
-         </Table>
-
+               </thead>
+               <tbody>
+                  {filteredDataRaces.map(race =>
+                     <tr key={race.Circuit.circuitId}>
+                        <td>  {race.round}</td>
+                        <td
+                           onClick={() => navigateToRaceResultsHandler(race.round, navigate)}
+                           style={{ cursor: "pointer" }}
+                        >
+                           <Flag country={showFlag(props.flagsRes, race.Circuit.Location.country)} />
+                           &nbsp; {race.raceName}
+                        </td>
+                        <td>{race.Circuit.circuitName}</td>
+                        <td>{race.date}</td>
+                        <td>
+                           <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} />
+                           {race.Results[0].Driver.familyName}
+                        </td>
+                     </tr>
+                  )}
+               </tbody>
+            </table>
+         </section>
       </>
-
    );
 };
 

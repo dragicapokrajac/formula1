@@ -27,42 +27,40 @@ const App = () => {
    return (
       <>
          <Router>
-            <div className="body-container">
-               <Header />
-               <main className="routes-container">
-                  <Routes>
-                     <Route
-                        path="/"
-                        element={<Homepage />}
-                     />
-                     <Route
-                        path="/drivers"
-                        element={<Drivers flagsRes={flagsRes} />}
-                     />
-                     <Route
-                        path="/driverDetails/:id"
-                        element={<DriverDetails flagsRes={flagsRes} />}
-                     />
-                     <Route
-                        path="/teams"
-                        element={<Teams flagsRes={flagsRes} />}
-                     />
-                     <Route
-                        path="/teamDetails/:id"
-                        element={<TeamDetails flagsRes={flagsRes} />}
-                     />
-                     <Route
-                        path="/races"
-                        element={<Races flagsRes={flagsRes} />}
-                     />
-                     <Route
-                        path="/raceResults/:id"
-                        element={<RaceResults flagsRes={flagsRes} />}
-                     />
-                  </Routes>
-               </main>
-               <Footer />
-            </div>
+            <Header />
+            <main className="routes-container">
+               <Routes>
+                  <Route
+                     path="/"
+                     element={<Homepage />}
+                  />
+                  <Route
+                     path="/drivers"
+                     element={<Drivers flagsRes={flagsRes} />}
+                  />
+                  <Route
+                     path="/driverDetails/:id"
+                     element={<DriverDetails flagsRes={flagsRes} />}
+                  />
+                  <Route
+                     path="/teams"
+                     element={<Teams flagsRes={flagsRes} />}
+                  />
+                  <Route
+                     path="/teamDetails/:id"
+                     element={<TeamDetails flagsRes={flagsRes} />}
+                  />
+                  <Route
+                     path="/races"
+                     element={<Races flagsRes={flagsRes} />}
+                  />
+                  <Route
+                     path="/raceResults/:id"
+                     element={<RaceResults flagsRes={flagsRes} />}
+                  />
+               </Routes>
+            </main>
+            <Footer />
          </Router>
       </>
    );

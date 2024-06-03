@@ -18,15 +18,15 @@ const DriverDetails = (props) => {
    const navigate = useNavigate();
 
    useEffect(() => {
-      getDriver();
+      getDriverDetails();
    }, []);
 
-   const getDriver = async () => {
+   const getDriverDetails = async () => {
       try {
          const result = await axios.get(`http://ergast.com/api/f1/2013/drivers/${params.id}/driverStandings.json`);
-         setDriver(result.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
-
          const result2 = await axios.get(`http://ergast.com/api/f1/2013/drivers/${params.id}/results.json`);
+
+         setDriver(result.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
          setDriverRaces(result2.data.MRData.RaceTable.Races);
 
          setIsLoading(false);
@@ -50,12 +50,12 @@ const DriverDetails = (props) => {
    return (
       <>
          <Breadcrumbs crumbs={crumbs} />
-         <div className='component-container-row'>
-            <section className="card-section">
+         <section className='component-container-row'>
+            <div className="card-section">
                <div className="card-info">
                   <img
-                     className="img"
                      src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)}
+                     className="img"
                   />
                   <Flag className=" img img-flag"
                      country={showFlag(props.flagsRes, driver.Driver.nationality)}
@@ -78,9 +78,9 @@ const DriverDetails = (props) => {
                      </a></p>
                   </div>
                </div>
-            </section>
+            </div>
 
-            <section className="table-section-w80">
+            <div className="table-section-w80">
                <table className="table">
                   <thead>
                      <tr>
@@ -114,8 +114,8 @@ const DriverDetails = (props) => {
                      )}
                   </tbody>
                </table>
-            </section>
-         </div>
+            </div>
+         </section>
       </>
    );
 };

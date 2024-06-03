@@ -22,9 +22,9 @@ const RaceResults = ({ flagsRes }) => {
    const getRaceResults = async () => {
       try {
          const resQualifying = await axios.get(`http://ergast.com/api/f1/2013/${params.id}/qualifying.json`);
-         setQualifyingResults(resQualifying.data.MRData.RaceTable.Races[0]);
-
          const resRaceResults = await axios.get(`http://ergast.com/api/f1/2013/${params.id}/results.json`);
+
+         setQualifyingResults(resQualifying.data.MRData.RaceTable.Races[0]);
          setRaceResults(resRaceResults.data.MRData.RaceTable.Races[0].Results);
 
          setIsLoading(false);
@@ -50,95 +50,91 @@ const RaceResults = ({ flagsRes }) => {
    return (
       <>
          <Breadcrumbs crumbs={crumbs} />
-         <section>
-            <Flag country={showFlag(flagsRes, qualifyingResults?.Circuit.Location.country)} />
-            <table>
-               <thead>
-                  <tr><th>{qualifyingResults.raceName}</th></tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td>Country: </td>
-                     <td>{qualifyingResults.Circuit.Location.country}</td>
-                  </tr>
-                  <tr>
-                     <td>Location: </td>
-                     <td>{qualifyingResults.Circuit.Location.locality}</td>
-                  </tr>
-                  <tr>
-                     <td>Date: </td>
-                     <td>{qualifyingResults.date}</td>
-                  </tr>
-                  <tr>
-                     <td>Full Report: </td>
-                     <td><a href={qualifyingResults.url} target="_blank">Details:
-                        <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }} /></a></td>
-                  </tr>
-               </tbody>
-            </table>
-         </section>
-         <br />
-         <section className="table-section-w80">
-            <Table striped className="table">
-               <thead>
-                  <tr>
-                     <th colSpan='4'>Qualifying Results</th>
-                  </tr>
-                  <tr>
-                     <th>Pos</th>
-                     <th>Driver</th>
-                     <th>Team</th>
-                     <th>Best Time</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  {qualifyingResults.QualifyingResults.map(qRes =>
-                     <tr key={qRes.Driver.driverId}>
-                        <td>{qRes.position}</td>
-                        <td>
-                           <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} />
-                           {qRes.Driver.familyName}
-                        </td>
-                        <td>{qRes.Constructor.name}</td>
-                        <td>{bestTime = [qRes.Q1, qRes.Q2, qRes.Q3].sort()[0]}</td>
-                     </tr>
-                  )}
-               </tbody>
-            </Table>
-         </section>
-         <br />
-         <section className="table-section-w80">
-            <Table striped className="table">
-               <thead>
-                  <tr>
-                     <th colSpan='5'>Race Results</th>
-                  </tr>
-                  <tr>
-                     <th>Pos</th>
-                     <th>Driver</th>
-                     <th>Team</th>
-                     <th>Result</th>
-                     <th>Points</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  {raceResults.map(result =>
-                     <tr key={result.Driver.driverId}>
-                        <td>{result.position}</td>
-                        <td>
-                           <Flag country={showFlag(flagsRes, result.Driver.nationality)} />
-                           {result.Driver.familyName}
-                        </td>
-                        <td>{result.Constructor.name}</td>
-                        <td>{result.Time?.time}</td>
-                        <td style={{ backgroundColor: showColor(result.points, ifParam) }}>
+         <section className='component-container-row'>
+            <div className="card-section">
+               <div className="card-info">
+                  <Flag country={showFlag(flagsRes, qualifyingResults?.Circuit.Location.country)} />
+               </div>
+               <div className="data-wrapper">
+                  <div className="data-label">
+                     <p>Country:</p>
+                     <p>Location:</p>
+                     <p>Date:</p>
+                     <p>Full Report:</p>
+                  </div>
+                  <div className="data">
+                     <p>{qualifyingResults.Circuit.Location.country}</p>
+                     <p>{qualifyingResults.Circuit.Location.locality}</p>
+                     <p>{qualifyingResults.date}</p>
+                     <p><
+                        a href={qualifyingResults.url} target="_blank">Details:
+                        <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }} /></a>
+                     </p>
+                  </div>
+               </div>
+            </div>
 
-                           {result.points}
-                        </td>
+            <div className="table-section-w80">
+               <table className="table-w50">
+                  <thead>
+                     <tr>
+                        <th colSpan='4'>Qualifying Results</th>
                      </tr>
-                  )}
-               </tbody>
-            </Table>
+                     <tr>
+                        <th>Pos</th>
+                        <th>Driver</th>
+                        <th>Team</th>
+                        <th>Best Time</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {qualifyingResults.QualifyingResults.map(qRes =>
+                        <tr key={qRes.Driver.driverId}>
+                           <td>{qRes.position}</td>
+                           <td>
+                              <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} />
+                              {qRes.Driver.familyName}
+                           </td>
+                           <td>{qRes.Constructor.name}</td>
+                           <td>{bestTime = [qRes.Q1, qRes.Q2, qRes.Q3].sort()[0]}</td>
+                        </tr>
+                     )}
+                  </tbody>
+               </table>
+
+
+               <table className="table-w50">
+                  <thead>
+                     <tr>
+                        <th colSpan='5'>Race Results</th>
+                     </tr>
+                     <tr>
+                        <th>Pos</th>
+                        <th>Driver</th>
+                        <th>Team</th>
+                        <th>Result</th>
+                        <th>Points</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {raceResults.map(result =>
+                        <tr key={result.Driver.driverId}>
+                           <td>{result.position}</td>
+                           <td>
+                              <Flag country={showFlag(flagsRes, result.Driver.nationality)} />
+                              {result.Driver.familyName}
+                           </td>
+                           <td>{result.Constructor.name}</td>
+                           <td>{result.Time?.time}</td>
+                           <td style={{ backgroundColor: showColor(result.points, ifParam) }}>
+
+                              {result.points}
+                           </td>
+                        </tr>
+                     )}
+                  </tbody>
+               </table>
+            </div>
          </section>
       </>
    );
