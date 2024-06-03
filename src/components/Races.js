@@ -40,15 +40,15 @@ const Races = (props) => {
    return (
       <>
          <Breadcrumbs crumbs={crumbs} />
-         <div>
-         <SearchBar
-                  type='text'
-                  placeholder='Search races...'
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-               />
+         <div className='header-wrapper'>
+            <h1>Races Calendar</h1>
+            <SearchBar
+               type='text'
+               placeholder='Search races...'
+               value={searchTerm}
+               onChange={(e) => setSearchTerm(e.target.value)}
+            />
          </div>
-         <h1>Races Calendar</h1>
 
          <table>
             <thead>
