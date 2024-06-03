@@ -54,7 +54,7 @@ const Drivers = (props) => {
    return (
       <>
          <Breadcrumbs crumbs={crumbs} />
-         <div className='component-container-column'>
+         <section className='component-container-column'>
             <div className='header-wrapper'>
                <h1>Drivers Championship</h1>
                <SearchBar
@@ -64,33 +64,33 @@ const Drivers = (props) => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                />
             </div>
-            <section>
-               <Table striped>
-                  <thead>
-                     <tr>
-                        <th colSpan='5'>Drivers Championship Standings - 2013</th>
+            {/* <section> */}
+            <table >
+               <thead>
+                  <tr>
+                     <th colSpan='5'>Drivers Championship Standings - 2013</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {filteredDrivers.map(driver =>
+                     <tr key={driver.Driver.driverId}>
+                        <td>{driver.position}</td>
+                        <td
+                           onClick={() => handleShowDriverDetails(driver.Driver.driverId)}
+                           style={{ cursor: "pointer" }}
+                        >
+                           <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
+                           &nbsp; {driver.Driver.givenName} {driver.Driver.familyName}
+                        </td>
+                        <td>{driver.Constructors[0].name}</td>
+                        <td>{driver.points}</td>
+                        <td>{driver.Driver.nationality}</td>
                      </tr>
-                  </thead>
-                  <tbody>
-                     {filteredDrivers.map(driver =>
-                        <tr key={driver.Driver.driverId}>
-                           <td>{driver.position}</td>
-                           <td
-                              onClick={() => handleShowDriverDetails(driver.Driver.driverId)}
-                              style={{ cursor: "pointer" }}
-                           >
-                              <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
-                              {driver.Driver.givenName} {driver.Driver.familyName}
-                           </td>
-                           <td>{driver.Constructors[0].name}</td>
-                           <td>{driver.points}</td>
-                           <td>{driver.Driver.nationality}</td>
-                        </tr>
-                     )}
-                  </tbody>
-               </Table >
-            </section>
-         </div>
+                  )}
+               </tbody>
+            </table >
+            {/* </section> */}
+         </section>
       </>
    );
 };

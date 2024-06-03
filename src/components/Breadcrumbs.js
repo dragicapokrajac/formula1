@@ -5,7 +5,7 @@ const Breadcrumbs = (props) => {
    // u let crumbs je smesten niz objekata koje smo prosledili preko props-a
    // svaki objekat predstavlja jedan breadcrumb
    // [
-   //    { path: "/", label: "Home", name: "Home" },
+   //    { path: "/", label: "Home"},
    //    { path: "/Drivers", label: "Drivers" }
    // ]
 

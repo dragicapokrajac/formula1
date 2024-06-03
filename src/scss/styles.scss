@@ -3,8 +3,27 @@
 @import "header";
 @import "homepage";
 @import "navigation";
-@import "drivers";
 @import '~bootstrap/scss/bootstrap';
+
+
+@mixin setBackgroundColor ($component) {
+   @if $component =="homepage" {
+      background-color: $bcg-color;
+   }
+
+   @else if $component =="drivers" {
+      background-color: #FFC547;
+   }
+
+   @else if $component =="teams" {
+      background-color: #2FA775;
+   }
+
+   @else if $component =="races" {
+      background-color: #ED183B;
+   }
+
+}
 
 * {
    margin: 0;
@@ -13,10 +32,13 @@
 }
 
 body {
-   background-color: $bcg-color;
+   @include setBackgroundColor(homepage);
+   // background-color: $bcg-color;
    color: $txt-col;
    font-family: $fnt-fmly;
 }
+
+.body-container {}
 
 .loader-container {
    display: flex;
@@ -45,16 +67,29 @@ body {
    }
 }
 
+// stilovi za komponente koje imaju samo tabelu
 .component-container-column {
    .header-wrapper {
       display: flex;
       justify-content: space-between;
+      align-items: center;
    }
 
-   table {
-      width: 100%;
-   }
+   // table {
+   //    width: 100%;
+
+   //    tbody {
+
+   //       tr,
+   //       td {
+   //          border: 1px, solid #ffc547;
+   //          // border-color: #ffc547;
+   //       }
+   //    }
+   // }
 }
+
+// stilovi za komponente koje imaju tabelu i katricu
 
 .component-container-row {
    width: 100%;
@@ -112,12 +147,5 @@ body {
       }
    }
 }
-
-table {
-   thead {
-      text-align: left;
-   }
-}
-
 
 @import "footer";
