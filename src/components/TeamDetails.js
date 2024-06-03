@@ -78,10 +78,10 @@ const TeamDetails = (props) => {
                            {result.raceName}
                         </td>
                         <td style={{ backgroundColor: showColor(result.Results[0].position, ifParam) }}>
-                           {parseInt(result.Results[0].position)}
+                           {result.Results[0].position}
                         </td>
                         <td style={{ backgroundColor: showColor(result.Results[1].position, ifParam) }}>
-                           {parseInt(result.Results[1].position)}
+                           {result.Results[1].position}
                         </td>
                         <td>{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</td>
                      </tr>
