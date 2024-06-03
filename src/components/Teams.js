@@ -7,6 +7,7 @@ import { showFlag } from '../helpers';
 import linkImg from '../img/icons/link-white.png';
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from './SearchBar';
+import Table from 'react-bootstrap/Table';
 
 const Teams = (props) => {
    const [teams, setTeams] = useState([]);
@@ -55,7 +56,7 @@ const Teams = (props) => {
             />
          </div>
 
-         <table>
+         <Table striped>
             <thead>
                <tr>
                   <th>Position</th>
@@ -82,7 +83,7 @@ const Teams = (props) => {
                   </tr>
                )}
             </tbody>
-         </table>
+            </Table>
       </div >
    );
 };

@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
+import Table from 'react-bootstrap/Table';
 
 const TeamDetails = (props) => {
    const params = useParams();
@@ -56,7 +57,7 @@ const TeamDetails = (props) => {
          </section>
          <div>
             <h1>Formula 1 2013 Results</h1>
-            <table>
+            <Table striped>
                <thead>
                   <tr>
                      <th>Round</th>
@@ -87,7 +88,7 @@ const TeamDetails = (props) => {
                      </tr>
                   ))}
                </tbody>
-            </table>
+               </Table>
          </div>
       </>
    );
