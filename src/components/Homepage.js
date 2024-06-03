@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Homepage = () => {
    return (
       <section className="homepage-container">
          <div  className="block driver-block">
-            <Link to="/drivers">Drivers</Link>
+            <NavLink to="/drivers">Drivers</NavLink>
          </div>
          <div className="block team-block">
-            <Link to="/teams">Teams</Link>
+            <NavLink to="/teams">Teams</NavLink>
          </div>
          <div className="block races-block">
-            <Link to="/races">Races</Link>
+            <NavLink to="/races">Races</NavLink>
          </div>
       </section>
    );
