@@ -50,11 +50,13 @@ const TeamDetails = (props) => {
          <Breadcrumbs crumbs={crumbs} />
          <section className="component-container-row">
             <div className="card-section">
-               <div className="card-ifo">
+               <div className="card-info">
                   <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)}
-                     // style={{ width: '80px', height: 'auto' }}
+                     className="img" 
+                     />
+                  <Flag className=" img img-flag" 
+                  country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} 
                   />
-                  <Flag country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
                </div>
                <div className="data-wrapper">
                   <div className="data-label">
@@ -63,10 +65,10 @@ const TeamDetails = (props) => {
                      <p>Position:</p>
                      <p>Points:</p>
                      <p>Hystory:</p>
-                     
+
                   </div>
                   <div className="data">
-                     <p> {teamDetails.Constructor.name}</p>
+                     <p>{teamDetails.Constructor.name}</p>
                      <p>{teamDetails.Constructor.nationality}</p>
                      <p>{teamDetails.position}</p>
                      <p>{teamDetails.points}</p>
@@ -91,7 +93,7 @@ const TeamDetails = (props) => {
                      </tr>
                   </thead>
                   <tbody>
-                     {teamResults.map((result =>
+                     {teamResults.map(result =>
                         <tr key={result.round}>
                            <td>{result.round}</td>
                            <td
@@ -111,7 +113,7 @@ const TeamDetails = (props) => {
                            </td>
                            <td>{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</td>
                         </tr>
-                     ))}
+                     )}
                   </tbody>
                </table>
             </div>
