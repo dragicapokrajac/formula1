@@ -34,7 +34,7 @@ body {
       float: left;
       background: $breadcrumb-color-black;
       text-align: center;
-      padding: 0 40px;
+      padding: 4px 40px;
       position: relative;
       margin: 0 5px 0 0;
       font-size: 16px;
@@ -45,21 +45,21 @@ body {
       &:after,
       &:before {
          content: "";
-         border-top: 10px solid transparent;
-         border-bottom: 10px solid transparent;
+         border-top: 15px solid transparent;
+         border-bottom: 15px solid transparent;
          position: absolute;
          top: 50%;
          transform: translateY(-50%);
       }
 
       &:after {
-         border-left: 10px solid $breadcrumb-color-black;
-         right: -10px;
+         border-left: 15px solid $breadcrumb-color-black;
+         right: -15px;
          z-index: 1;
       }
 
       &:before {
-         border-left: 10px solid $bcg-color;
+         border-left: 15px solid $bcg-color;
          left: 0;
       }
 
@@ -69,6 +69,7 @@ body {
          border-top-left-radius: 5px;
          border-bottom-left-radius: 5px;
       }
+
       .link {
          text-decoration: none;
          color: $bcg-color; //boja teksta
