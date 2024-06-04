@@ -43,8 +43,7 @@ const Breadcrumbs = (props) => {
                   Eto ga. Ako nesto nije jasno, objasnicu naknadno. :)
                */}
             </p>
-         )
-         }
+         )}
       </div >
    );
 };
