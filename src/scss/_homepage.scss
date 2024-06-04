@@ -4,9 +4,20 @@
    // align-items: center;
    justify-content: center;
 
+
+   @keyframes slideIn {
+      0% {
+         transform: translateX(-100%);
+      }
+      100% {
+         transform: translateX(0);
+      }
+   }
+
    .block,
    a {
       margin: 20px;
+      animation: slideIn 0.6s ease forwards;
       // padding: 20px;
       border-radius: 50%;
       width: 100vw;
@@ -25,6 +36,8 @@
       align-items: center;
       transition: background-color 0.3s ease;
       text-align: center;
+
+
 
       a {
          text-decoration: none;
