@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
+import linkImg from '../img/icons/link-black.png';
 import Table from 'react-bootstrap/Table';
 
 const TeamDetails = (props) => {
@@ -49,19 +50,30 @@ const TeamDetails = (props) => {
          <Breadcrumbs crumbs={crumbs} />
          <section className="component-container-row">
             <div className="card-section">
-               <div className="card-ifo">
+               <div className="card-info">
                   <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)}
-                     style={{ width: '80px', height: 'auto' }}
+                     className="img" 
+                     />
+                  <Flag className=" img img-flag" 
+                  country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} 
                   />
-                  <Flag country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} />
                </div>
                <div className="data-wrapper">
                   <div className="data-label">
-                     <p>Team: {teamDetails.Constructor.name}</p>
-                     <p>Country:{teamDetails.Constructor.nationality}</p>
-                     <p>Position:{teamDetails.position}</p>
-                     <p>Points:{teamDetails.points}</p>
-                     <p><a href={teamDetails.Constructor.url} target="_blank">Details</a></p>
+                     <p>Team:</p>
+                     <p>Country:</p>
+                     <p>Position:</p>
+                     <p>Points:</p>
+                     <p>Hystory:</p>
+
+                  </div>
+                  <div className="data">
+                     <p>{teamDetails.Constructor.name}</p>
+                     <p>{teamDetails.Constructor.nationality}</p>
+                     <p>{teamDetails.position}</p>
+                     <p>{teamDetails.points}</p>
+                     <p><a href={teamDetails.Constructor.url} target="_blank">
+                        <img src={linkImg} className='link-icon' /></a></p>
                   </div>
                </div>
             </div>
@@ -81,7 +93,7 @@ const TeamDetails = (props) => {
                      </tr>
                   </thead>
                   <tbody>
-                     {teamResults.map((result =>
+                     {teamResults.map(result =>
                         <tr key={result.round}>
                            <td>{result.round}</td>
                            <td
@@ -101,7 +113,7 @@ const TeamDetails = (props) => {
                            </td>
                            <td>{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</td>
                         </tr>
-                     ))}
+                     )}
                   </tbody>
                </table>
             </div>
