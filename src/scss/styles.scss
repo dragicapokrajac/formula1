@@ -30,17 +30,13 @@ body {
    padding: 2rem 0;
 
    p {
-      align-items: center;
       float: left;
       background: $breadcrumb-color-black;
       text-align: center;
       padding: 4px 40px;
       position: relative;
       margin: 0 5px 0 0;
-      font-size: 16px;
-      text-decoration: none;
       color: #8093a7;
-
 
       &:after,
       &:before {

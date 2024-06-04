@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 
 const Breadcrumbs = (props) => {
    let crumbs = props.crumbs;
+   let color = props.color || '#272727';
+
+
    // u let crumbs je smesten niz objekata koje smo prosledili preko props-a
    // svaki objekat predstavlja jedan breadcrumb
    // [
@@ -13,7 +16,7 @@ const Breadcrumbs = (props) => {
       <div className="breadcrumbs">
          {/* prolazimo kroz niz crumbs koristeci map metodu za rad sa nizovima */}
          {crumbs?.map((crumb, i) =>
-            < p key={i} >
+            < p key={i} style={{ backgroundColor: color }} >
                {/* 
                kod ispod je ternarni izraz (drugi nacin pisanja if provere, jer u okviru return-a gde se renderuje prikaz tj. u JSX-u nije dozvoljen klasican nacin pisanja if uslova, kao ni for petlje)
                'i < crumbs.length - 1' je kao 'if (i < crumbs.length - 1)', a posle znaka '?' ono sto treba da se izvrsi ako je postavljeni uslov true, a posle dvotacke ':' ono sto treba da se izvrsi ako je uslov false (tj. posle ":" je else)
@@ -40,7 +43,8 @@ const Breadcrumbs = (props) => {
                   Eto ga. Ako nesto nije jasno, objasnicu naknadno. :)
                */}
             </p>
-         )}
+         )
+         }
       </div >
    );
 };

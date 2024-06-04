@@ -4,13 +4,13 @@ const Homepage = () => {
    return (
       <section className="homepage-container">
          <div className="block driver-block">
-            <NavLink to="/drivers">Drivers</NavLink>
+            <NavLink to="/drivers">Ready</NavLink>
          </div>
          <div className="block team-block">
-            <NavLink to="/teams">Teams</NavLink>
+            <NavLink to="/teams">Set</NavLink>
          </div>
          <div className="block races-block">
-            <NavLink to="/races">Races</NavLink>
+            <NavLink to="/races">Go</NavLink>
          </div>
       </section>
    );

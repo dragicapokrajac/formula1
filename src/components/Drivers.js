@@ -54,7 +54,7 @@ const Drivers = (props) => {
 
    return (
       <>
-         <Breadcrumbs crumbs={crumbs} />
+         <Breadcrumbs crumbs={crumbs} color="#ffd780" />
          <section className='component-container-column'>
             <div className='heading-wrapper'>
                <h1>Drivers Championship</h1>
