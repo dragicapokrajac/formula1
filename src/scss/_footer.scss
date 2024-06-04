@@ -1,4 +1,7 @@
 .footer-container {
+   background-image: url('../img/trakaTemp.jpg');
+   background-repeat: repeat-x;
+   background-size: 20px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -9,11 +12,4 @@
    h4 {
       margin-top: 15px;
    }
-
-}
-
-footer {
-   background-image: url('../img/trakaTemp.jpg');
-   background-repeat: repeat-x;
-   background-size: 20px;
 }

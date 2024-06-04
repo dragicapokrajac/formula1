@@ -9,6 +9,7 @@
       0% {
          transform: translateX(-100%);
       }
+
       100% {
          transform: translateX(0);
       }
@@ -22,7 +23,7 @@
       border-radius: 50%;
       width: 100vw;
       height: 450px;
-      font-family: $font-nav, sans-serif;
+      font-family: $font-accent, sans-serif;
       font-style: italic;
       font-size: 6rem;
       text-transform: uppercase;

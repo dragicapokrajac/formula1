@@ -4,10 +4,9 @@ import axios from "axios";
 
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
-import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
+import { showFlag, showColor, navigateHandler } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
-import linkImg from '../img/icons/link-black.png';
-import Table from 'react-bootstrap/Table';
+import linkImg from '../img/icons/link_icon24px.png';
 
 const TeamDetails = (props) => {
    const params = useParams();
@@ -39,7 +38,12 @@ const TeamDetails = (props) => {
       { path: `/teamDetails/${params.id}`, label: `${teamDetails.Constructor?.name}` }
    ];
 
-   const ifParam = "position";
+   const value = "position";
+
+   const handleNavigateRaceResults = (id) => {
+      const route = `/RaceResults/${id}`;
+      navigateHandler(route, navigate);
+   };
 
    if (isLoading) {
       return <Loader color='#2fa775' />;
@@ -51,29 +55,34 @@ const TeamDetails = (props) => {
          <section className="component-container-row">
             <div className="card-section">
                <div className="card-info">
-                  <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)}
-                     className="img-team" 
-                     />
-                  <Flag className=" img-flag img-flag-team" 
-                  country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} 
+                  <img
+                     src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)}
+                     className="img"
+                  />
+                  <Flag
+                     className="img img-flag"
+                     country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)}
                   />
                </div>
                <div className="data-wrapper">
                   <div className="data-label">
-                     <p>Team:</p>
+                     <p>Team: </p>
                      <p>Country:</p>
                      <p>Position:</p>
                      <p>Points:</p>
                      <p>History:</p>
-
                   </div>
                   <div className="data">
                      <p>{teamDetails.Constructor.name}</p>
                      <p>{teamDetails.Constructor.nationality}</p>
                      <p>{teamDetails.position}</p>
                      <p>{teamDetails.points}</p>
-                     <p><a href={teamDetails.Constructor.url} target="_blank">
-                        <img src={linkImg} className='link-icon' /></a></p>
+                     <p>
+                        <a
+                           href={teamDetails.Constructor.url} target="_blank">
+                           <img src={linkImg} />
+                        </a>
+                     </p>
                   </div>
                </div>
             </div>
@@ -82,7 +91,10 @@ const TeamDetails = (props) => {
                <table className="table-teams">
                   <thead>
                      <tr>
-                        <th colSpan='5'>Formula 1 2013 Results</th>
+                        <th
+                           colSpan='5'
+                           className="table-header"
+                        >Formula 1 2013 Results</th>
                      </tr>
                      <tr>
                         <th>Round</th>
@@ -97,17 +109,19 @@ const TeamDetails = (props) => {
                         <tr key={result.round}>
                            <td>{result.round}</td>
                            <td
-                              onClick={() => navigateToRaceResultsHandler(result.round, navigate)}
-                              style={{ cursor: 'pointer' }}
+                              onClick={() => handleNavigateRaceResults(result.round)}
+                              className="link-td"
                            >
-                              <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} />
-                              &nbsp; {result.raceName}
+                              <div className="td-container">
+                                 <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} />
+                                 <span>{result.raceName}</span>
+                              </div>
                            </td>
-                           <td style={{ backgroundColor: showColor(result.Results[0].position, ifParam) }}>
+                           <td style={{ backgroundColor: showColor(result.Results[0].position, value) }}>
                               {result.Results[0].position}
                            </td>
                            <td style={{
-                              backgroundColor: showColor(result.Results[1].position, ifParam),
+                              backgroundColor: showColor(result.Results[1].position, value),
                            }}>
                               {result.Results[1].position}
                            </td>

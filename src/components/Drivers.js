@@ -32,7 +32,9 @@ const Drivers = (props) => {
       }
    };
 
-   const filteredDrivers = drivers.filter(driver =>
+   const driversArray = drivers.slice();
+
+   const filteredDrivers = driversArray.filter(driver =>
       driver.Driver.givenName.toLowerCase().includes(searchTerm.trim().toLowerCase()) ||
       driver.Driver.familyName.toLowerCase().includes(searchTerm.trim().toLocaleLowerCase())
    );
@@ -56,19 +58,20 @@ const Drivers = (props) => {
       <>
          <Breadcrumbs crumbs={crumbs} color="#ffd780" />
          <section className='component-container-column'>
-            <div className='heading-wrapper'>
-               <h1>Drivers Championship</h1>
-               <SearchBar
-                  type='text'
-                  placeholder='Search drivers...'
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-               />
-            </div>
+            <h1>Drivers Championship</h1>
+            <SearchBar
+               type='text'
+               placeholder='Search drivers...'
+               value={searchTerm}
+               onChange={(e) => setSearchTerm(e.target.value)}
+            />
             <table className='table-drivers'>
                <thead>
                   <tr>
-                     <th colSpan='5'>Drivers Championship Standings - 2013</th>
+                     <th
+                        colSpan='5'
+                        className="table-header"
+                     >Drivers Championship Standings - 2013</th>
                   </tr>
                </thead>
                <tbody>
@@ -77,10 +80,12 @@ const Drivers = (props) => {
                         <td>{driver.position}</td>
                         <td
                            onClick={() => handleNavigateDriverDetails(driver.Driver.driverId)}
-                           style={{ cursor: "pointer" }}
+                           className="link-td"
                         >
-                           <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
-                           &nbsp; {driver.Driver.givenName} {driver.Driver.familyName}
+                           <div className="td-container">
+                              <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
+                              <span>{driver.Driver.givenName} {driver.Driver.familyName}</span>
+                           </div>
                         </td>
                         <td>{driver.Constructors[0].name}</td>
                         <td>{driver.points}</td>

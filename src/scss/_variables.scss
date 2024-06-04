@@ -1,25 +1,19 @@
 $bcg-color: #F8F8FF;
-$driver-color: #ffc547;
-$driver-color-hover: #ffd780;
+$driver-color: #f8b72a;
+$driver-color-hover: #ffd06b;
 $team-color: #2fa775;
 $team-color-hover: #36b079;
 $race-color: #f91536;
 $race-color-hover: #fb6076;
-$breadcrumb-color-black: #272727;
+$breadcrumb-color-black: #272727; //ovu varijablu je potrebno zameniti sa $txt-col
+$txt-col: #272727;
 
 $fnt-fmly: 'Segoe UI',
    Tahoma,
    Geneva,
    Verdana,
    sans-serif;
-$font-nav: 'KoHo';
+$font-accent: 'KoHo';
 // $font-oswald: "Oswald";
 // @import url('https://fonts.googleapis.com/css2?family=#{$font-oswald}:wght@200..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=#{$font-nav}:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-
-
-$txt-col: #272727;
-
-// $driver-hover: "READY";
-// $team-hover:"SET";
-// $races-hover:"GO";
+@import url('https://fonts.googleapis.com/css2?family=#{$font-accent}:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');

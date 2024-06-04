@@ -58,11 +58,6 @@ export const showColor = (number, value) => {
    };
 };
 
-export const navigateToRaceResultsHandler = (id, navigate) => {
-   const link = `/raceResults/${id}`;
-   navigate(link);
-};
-
 export const navigateHandler = (route, navigate) => {
    navigate(route);
 };

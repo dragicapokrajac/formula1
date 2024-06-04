@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
-import { showFlag } from '../helpers';
-import linkImg from '../img/icons/link-black.png';
+import { showFlag, navigateHandler } from '../helpers';
+import linkImg from '../img/icons/link_icon24px.png';
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from './SearchBar';
-import Table from 'react-bootstrap/Table';
 
 const Teams = (props) => {
    const [teams, setTeams] = useState([]);
@@ -27,17 +26,19 @@ const Teams = (props) => {
       setIsLoading(false);
    };
 
-   const handleShowTeamRaces = (id) => {
-      const link = `/teamDetails/${id}`;
-      navigate(link);
-   };
+   const teamsArray = teams.slice();
 
-   const filteredTeams = teams.filter(team => team.Constructor.name.toLowerCase().includes(searchTerm.trim().toLowerCase()));
+   const filteredTeams = teamsArray.filter(team => team.Constructor.name.toLowerCase().includes(searchTerm.trim().toLowerCase()));
 
    const crumbs = [
       { path: '/', label: 'F1' },
       { path: '/teams', label: 'Teams' }
    ];
+
+   const handleNavigateTeamRaces = (id) => {
+      const route = `/teamDetails/${id}`;
+      navigateHandler(route, navigate);
+   };
 
    if (isLoading) {
       return <Loader color='#2fa775' />
@@ -47,15 +48,13 @@ const Teams = (props) => {
       <>
          <Breadcrumbs crumbs={crumbs} />
          <section className='component-container-column'>
-            <div className='heading-wrapper'>
-               <h1>Constructors Championship</h1>
-               <SearchBar
-                  type='text'
-                  placeholder='Search teams...'
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-               />
-            </div>
+            <h1>Constructors Championship</h1>
+            <SearchBar
+               type='text'
+               placeholder='Search teams...'
+               value={searchTerm}
+               onChange={(e) => setSearchTerm(e.target.value)}
+            />
             <table className='table-teams'>
                <thead>
                   <tr>
@@ -70,15 +69,19 @@ const Teams = (props) => {
                      <tr key={team.Constructor.constructorId}>
                         <td>{team.position}</td>
                         <td
-                           onClick={() => handleShowTeamRaces(team.Constructor.constructorId)}
-                           style={{ cursor: "pointer" }}
+                           onClick={() => handleNavigateTeamRaces(team.Constructor.constructorId)}
+                           className="link-td"
                         >
-                           <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} />
-                           &nbsp; {team.Constructor.name}
+                           <div className="td-container">
+                              <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} />
+                              <span>{team.Constructor.name}</span>
+                           </div>
                         </td>
                         <td>
-                           <a href={team.Constructor.url} target="_blank">
-                              <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }} />
+                           <a
+                              href={team.Constructor.url}
+                              target="_blank">
+                              <img src={linkImg} />
                            </a>
                         </td>
                         <td>{team.points}</td>

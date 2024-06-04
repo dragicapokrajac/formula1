@@ -5,10 +5,9 @@ import axios from "axios";
 
 import Loader from "./Loader";
 import Flag from "react-flagkit";
-import { showFlag, navigateToRaceResultsHandler, showColor } from '../helpers';
-import linkImg from '../img/icons/link-black.png';
+import { showFlag, showColor, navigateHandler } from '../helpers';
+import linkImg from '../img/icons/link_icon24px.png';
 import Breadcrumbs from './Breadcrumbs';
-
 
 const DriverDetails = (props) => {
    const params = useParams();
@@ -41,7 +40,12 @@ const DriverDetails = (props) => {
       { path: `/driverDetails/${params.id}`, label: `${driver.Driver?.givenName} ${driver.Driver?.familyName}` }
    ];
 
-   const ifParam = "position";
+   const value = "position";
+
+   const handleNavigateRaceResults = (id) => {
+      const route = `/RaceResults/${id}`;
+      navigateHandler(route, navigate);
+   };
 
    if (isLoading) {
       return <Loader color='#ffc547' />
@@ -53,17 +57,15 @@ const DriverDetails = (props) => {
          <section className='component-container-row'>
             <div className="card-section">
                <div className="card-info">
-                  <img src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)}
-                     className="img-driver"
+                  <h2>{driver.Driver.givenName} {driver.Driver.familyName}</h2>
+                  <img
+                     src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)}
+                     className="img"
                   />
-                  <div className="driver-flag-name">
-                  <Flag className=" img-flag img-flag-driver"
+                  <Flag
+                     className="img img-flag"
                      country={showFlag(props.flagsRes, driver.Driver.nationality)}
                   />
-                  <p>{driver.Driver.givenName} {driver.Driver.familyName}</p>
-                  </div>
-
-
                </div>
                <div className="data-wrapper">
                   <div className="data-label">
@@ -76,9 +78,13 @@ const DriverDetails = (props) => {
                      <p>{driver.Driver.nationality}</p>
                      <p>{driver.Constructors[0].name}</p>
                      <p>{driver.Driver.dateOfBirth}</p>
-                     <p><a href={driver.Driver.url} target="_blank">
-                        <img src={linkImg} className='link-icon' />
-                     </a></p>
+                     <p>
+                        <a
+                           href={driver.Driver.url}
+                           target="_blank">
+                           <img src={linkImg} className='link-icon' />
+                        </a>
+                     </p>
                   </div>
                </div>
             </div>
@@ -87,7 +93,10 @@ const DriverDetails = (props) => {
                <table className="table-drivers">
                   <thead>
                      <tr>
-                        <th colSpan='5'>Formula 1 2013 Results</th>
+                        <th
+                           colSpan='5'
+                           className="table-header"
+                        >Formula 1 2013 Results</th>
                      </tr>
                      <tr>
                         <th>Round</th>
@@ -102,15 +111,17 @@ const DriverDetails = (props) => {
                         <tr key={d2.round}>
                            <td>{d2.round}</td>
                            <td
-                              onClick={() => navigateToRaceResultsHandler(d2.round, navigate)}
-                              style={{ cursor: "pointer" }}
+                              onClick={() => handleNavigateRaceResults(d2.round)}
+                              className="link-td"
                            >
-                              <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} />
-                              {d2.raceName}
+                              <div className="td-container">
+                                 <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} />
+                                 <span>{d2.raceName}</span>
+                              </div>
                            </td>
                            <td>{d2.Results[0].Constructor.name}</td>
                            <td>{d2.Results[0].grid}</td>
-                           <td style={{ backgroundColor: showColor(d2.Results[0].position, ifParam) }}>
+                           <td style={{ backgroundColor: showColor(d2.Results[0].position, value) }}>
                               {d2.Results[0].position}
                            </td>
                         </tr>

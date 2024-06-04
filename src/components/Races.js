@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
-import { showFlag } from '../helpers';
-import { navigateToRaceResultsHandler } from '../helpers';
+import { showFlag, navigateHandler } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from './SearchBar';
 
@@ -26,12 +25,19 @@ const Races = (props) => {
       setIsLoading(false);
    };
 
-   const filteredDataRaces = races.filter(race => race.raceName.toLowerCase().includes(searchTerm.trim().toLowerCase()));
+   const racesArray = races.slice();
+
+   const filteredDataRaces = racesArray.filter(race => race.raceName.toLowerCase().includes(searchTerm.trim().toLowerCase()));
 
    const crumbs = [
       { path: '/', label: 'F1' },
       { path: '/races', label: 'Races' }
    ];
+
+   const handleNavigateRaceResults = (id) => {
+      const route = `/RaceResults/${id}`;
+      navigateHandler(route, navigate);
+   };
 
    if (isLoading) {
       return <Loader color='#f91536' />
@@ -41,16 +47,13 @@ const Races = (props) => {
       <>
          <Breadcrumbs crumbs={crumbs} />
          <section className='component-container-column'>
-            <div className='heading-wrapper'>
-               <h1>Races Calendar</h1>
-               <SearchBar
-                  type='text'
-                  placeholder='Search races...'
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-               />
-            </div>
-
+            <h1>Races Calendar</h1>
+            <SearchBar
+               type='text'
+               placeholder='Search races...'
+               value={searchTerm}
+               onChange={(e) => setSearchTerm(e.target.value)}
+            />
             <table className='table-races'>
                <thead>
                   <tr>
@@ -66,17 +69,21 @@ const Races = (props) => {
                      <tr key={race.Circuit.circuitId}>
                         <td>  {race.round}</td>
                         <td
-                           onClick={() => navigateToRaceResultsHandler(race.round, navigate)}
-                           style={{ cursor: "pointer" }}
+                           onClick={() => handleNavigateRaceResults(race.round)}
+                           className="link-td"
                         >
-                           <Flag country={showFlag(props.flagsRes, race.Circuit.Location.country)} />
-                           &nbsp; {race.raceName}
+                           <div className="td-container">
+                              <Flag country={showFlag(props.flagsRes, race.Circuit.Location.country)} />
+                              <span>{race.raceName}</span>
+                           </div>
                         </td>
                         <td>{race.Circuit.circuitName}</td>
                         <td>{race.date}</td>
                         <td>
-                           <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} />
-                           {race.Results[0].Driver.familyName}
+                           <div className="td-container">
+                              <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} />
+                              <span>{race.Results[0].Driver.familyName}</span>
+                           </div>
                         </td>
                      </tr>
                   )}

@@ -5,9 +5,8 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag, showColor } from '../helpers';
-import linkImg from '../img/icons/link-black.png';
+import linkImg from '../img/icons/link_icon24px.png';
 import Breadcrumbs from "./Breadcrumbs";
-import Table from 'react-bootstrap/Table';
 
 const RaceResults = ({ flagsRes }) => {
    const [qualifyingResults, setQualifyingResults] = useState([]);
@@ -35,7 +34,7 @@ const RaceResults = ({ flagsRes }) => {
 
    let bestTime = [];
 
-   const ifParam = "points";
+   const value = "points";
 
    const crumbs = [
       { path: '/', label: 'F1' },
@@ -53,8 +52,10 @@ const RaceResults = ({ flagsRes }) => {
          <section className='component-container-row'>
             <div className="card-section">
                <div className="card-info">
-                  <Flag className="img-flag img-flag-race" 
-                  country={showFlag(flagsRes, qualifyingResults?.Circuit.Location.country)} />
+                  <Flag
+                     className="img"
+                     country={showFlag(flagsRes, qualifyingResults?.Circuit.Location.country)}
+                  />
                </div>
                <div className="data-wrapper">
                   <div className="data-label">
@@ -67,8 +68,12 @@ const RaceResults = ({ flagsRes }) => {
                      <p>{qualifyingResults.Circuit.Location.country}</p>
                      <p>{qualifyingResults.Circuit.Location.locality}</p>
                      <p>{qualifyingResults.date}</p>
-                     <p><a href={qualifyingResults.url} target="_blank">
-                        <img src={linkImg} className='link-icon'/></a>
+                     <p>
+                        <a
+                           href={qualifyingResults.url}
+                           target="_blank">
+                           <img src={linkImg} />
+                        </a>
                      </p>
                   </div>
                </div>
@@ -78,7 +83,9 @@ const RaceResults = ({ flagsRes }) => {
                <table className="table-w50">
                   <thead>
                      <tr>
-                        <th colSpan='4'>Qualifying Results</th>
+                        <th
+                           colSpan='4' className="table-header"
+                        >Qualifying Results</th>
                      </tr>
                      <tr>
                         <th>Pos</th>
@@ -92,8 +99,10 @@ const RaceResults = ({ flagsRes }) => {
                         <tr key={qRes.Driver.driverId}>
                            <td>{qRes.position}</td>
                            <td>
-                              <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} />
-                              &nbsp; {qRes.Driver.familyName}
+                              <div className="td-container">
+                                 <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} />
+                                 <span>{qRes.Driver.familyName}</span>
+                              </div>
                            </td>
                            <td>{qRes.Constructor.name}</td>
                            <td>{bestTime = [qRes.Q1, qRes.Q2, qRes.Q3].sort()[0]}</td>
@@ -106,7 +115,9 @@ const RaceResults = ({ flagsRes }) => {
                <table className="table-w50">
                   <thead>
                      <tr>
-                        <th colSpan='5'>Race Results</th>
+                        <th
+                           colSpan='5'
+                           className="table-header">Race Results</th>
                      </tr>
                      <tr>
                         <th>Pos</th>
@@ -121,13 +132,14 @@ const RaceResults = ({ flagsRes }) => {
                         <tr key={result.Driver.driverId}>
                            <td>{result.position}</td>
                            <td>
-                              <Flag country={showFlag(flagsRes, result.Driver.nationality)} />
-                              &nbsp;{result.Driver.familyName}
+                              <div className="td-container">
+                                 <Flag country={showFlag(flagsRes, result.Driver.nationality)} />
+                                 <span>{result.Driver.familyName}</span>
+                              </div>
                            </td>
                            <td>{result.Constructor.name}</td>
                            <td>{result.Time?.time}</td>
-                           <td style={{ backgroundColor: showColor(result.points, ifParam) }}>
-
+                           <td style={{ backgroundColor: showColor(result.points, value) }}>
                               {result.points}
                            </td>
                         </tr>

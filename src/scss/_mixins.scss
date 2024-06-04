@@ -1,13 +1,5 @@
-@mixin title-properties ($fontSize: 3rem, $color: $font-color, $padding: 0.3em 0) {
-   font-family: $serif-font;
-   font-size: $fontSize;
-   font-weight: 600;
-   color: $color;
-   padding: $padding;
-}
-
 // za .table i .tabele-w50 klase
-@mixin table-properties ($width, $borderColor) {
+@mixin table-properties ($width, $borderColor, $tableHeaderColor, $tdContainerWidth: 50%) {
    width: $width;
    border-collapse: collapse;
    text-align: center;
@@ -20,6 +12,26 @@
          th,
          td {
             padding: 1rem 0;
+         }
+
+         .table-header {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: $tableHeaderColor;
+         }
+
+         .link-td {
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+         }
+
+         .td-container {
+            width: $tdContainerWidth;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
          }
       }
    }
