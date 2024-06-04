@@ -52,9 +52,9 @@ const TeamDetails = (props) => {
             <div className="card-section">
                <div className="card-info">
                   <img src={require(`../img/teams/${teamDetails.Constructor.constructorId}.png`)}
-                     className="img" 
+                     className="img-team" 
                      />
-                  <Flag className=" img img-flag" 
+                  <Flag className=" img-flag img-flag-team" 
                   country={showFlag(props.flagsRes, teamDetails.Constructor.nationality)} 
                   />
                </div>
@@ -64,7 +64,7 @@ const TeamDetails = (props) => {
                      <p>Country:</p>
                      <p>Position:</p>
                      <p>Points:</p>
-                     <p>Hystory:</p>
+                     <p>History:</p>
 
                   </div>
                   <div className="data">

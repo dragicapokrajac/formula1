@@ -53,7 +53,8 @@ const RaceResults = ({ flagsRes }) => {
          <section className='component-container-row'>
             <div className="card-section">
                <div className="card-info">
-                  <Flag country={showFlag(flagsRes, qualifyingResults?.Circuit.Location.country)} />
+                  <Flag className="img-flag img-flag-race" 
+                  country={showFlag(flagsRes, qualifyingResults?.Circuit.Location.country)} />
                </div>
                <div className="data-wrapper">
                   <div className="data-label">
@@ -66,9 +67,8 @@ const RaceResults = ({ flagsRes }) => {
                      <p>{qualifyingResults.Circuit.Location.country}</p>
                      <p>{qualifyingResults.Circuit.Location.locality}</p>
                      <p>{qualifyingResults.date}</p>
-                     <p><
-                        a href={qualifyingResults.url} target="_blank">Details:
-                        <img src={linkImg} className='link-icon' style={{ width: "2%", height: "auto" }} /></a>
+                     <p><a href={qualifyingResults.url} target="_blank">
+                        <img src={linkImg} className='link-icon'/></a>
                      </p>
                   </div>
                </div>

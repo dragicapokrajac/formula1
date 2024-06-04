@@ -53,14 +53,17 @@ const DriverDetails = (props) => {
          <section className='component-container-row'>
             <div className="card-section">
                <div className="card-info">
-                  <img
-                     src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)}
-                     className="img"
+                  <img src={require(`../img/drivers/${driver.Driver.driverId}.jpg`)}
+                     className="img-driver"
                   />
-                  <Flag className=" img img-flag"
+                  <div className="driver-flag-name">
+                  <Flag className=" img-flag img-flag-driver"
                      country={showFlag(props.flagsRes, driver.Driver.nationality)}
                   />
                   <p>{driver.Driver.givenName} {driver.Driver.familyName}</p>
+                  </div>
+
+
                </div>
                <div className="data-wrapper">
                   <div className="data-label">

@@ -118,16 +118,39 @@ body {
       gap: 1rem;
 
       .card-info {
+         border: 4px solid black;
+         border-style: groove;
+         display: flex;
          width: 100%;
 
-         .img {
-            width: 100px;
+         .driver-flag-name {
+            padding: 0 0 0 10px;
+         }
+
+         .img-driver {
+            width: 50%;
+         }
+
+         .img-team {
+            width: 60%;
+            padding: 0 10px 0 0;
+         }
+
+         .img-flag {
             height: auto;
             margin-right: 0.8rem;
          }
 
-         .img-flag {
-            width: 50px;
+         .img-flag-team {
+            width: 60px;
+         }
+
+         .img-flag-driver {
+            width: 90px;
+         }
+
+         .img-flag-race {
+            width: 150px;
          }
 
          p {
@@ -137,6 +160,8 @@ body {
 
       .data-wrapper {
          display: flex;
+         border: 4px solid black;
+         border-style: ridge;
 
          .data-label,
          .data {
@@ -181,5 +206,6 @@ body {
       }
    }
 }
+
 
 @import "footer";
