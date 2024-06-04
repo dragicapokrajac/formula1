@@ -30,13 +30,55 @@ body {
    padding: 2rem 0;
 
    p {
-      padding-right: 1rem;
+      align-items: center;
+      float: left;
+      background: $breadcrumb-color-black;
+      text-align: center;
+      padding: 0 40px;
+      position: relative;
+      margin: 0 5px 0 0;
+      font-size: 16px;
+      text-decoration: none;
+      color: #8093a7;
 
+
+      &:after,
+      &:before {
+         content: "";
+         border-top: 10px solid transparent;
+         border-bottom: 10px solid transparent;
+         position: absolute;
+         top: 50%;
+         transform: translateY(-50%);
+      }
+
+      &:after {
+         border-left: 10px solid $breadcrumb-color-black;
+         right: -10px;
+         z-index: 1;
+      }
+
+      &:before {
+         border-left: 10px solid $bcg-color;
+         left: 0;
+      }
+
+      &:first-child a,
+      &:last-child a {
+         padding-left: 20px;
+         border-top-left-radius: 5px;
+         border-bottom-left-radius: 5px;
+      }
       .link {
          text-decoration: none;
+         color: $bcg-color; //boja teksta
+
       }
    }
 }
+
+
+
 
 // stilovi za komponente koje imaju samo tabelu
 .component-container-column {
