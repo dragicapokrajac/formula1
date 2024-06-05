@@ -1,9 +1,7 @@
 .homepage-container {
    display: flex;
    flex-direction: row;
-   // align-items: center;
    justify-content: center;
-
 
    @keyframes slideIn {
       0% {
@@ -17,7 +15,6 @@
 
    .block,
    a {
-      margin: 20px;
       animation: slideIn 0.6s ease forwards;
       padding: 20px;
       border-radius: 50%;
@@ -38,31 +35,39 @@
       transition: background-color 0.3s ease;
       text-align: center;
 
-
-
-      a {
-         text-decoration: none;
-
-
-         &:visited {
-            color: $txt-col;
-         }
-
-      }
-
       &:hover {
          box-shadow: none;
       }
    }
 
    .block {
-      &:hover a {
-         display: none;
+      margin: 20px;
+   }
 
+   a {
+      text-decoration: none;
 
+      &:visited {
+         color: $txt-col;
       }
+   }
 
+   .driver-link:before {
+      content: "Ready";
+   }
 
+   .team-link:before {
+      content: "Set";
+   }
+
+   .races-link:before {
+      content: "Go";
+   }
+
+   .driver-link:hover:before,
+   .team-link:hover:before,
+   .races-link:hover:before {
+      content: "";
    }
 
    .driver-block {
@@ -76,6 +81,7 @@
          &:visited {
             color: $driver-color;
          }
+
       }
 
       &:hover {
@@ -83,20 +89,18 @@
          color: $bcg-color;
          text-align: center;
 
-         &:before {
-            content: "Drivers";
+         &:after {
+            color: $driver-color;
          }
 
-
+         &:before {
+            content: "Drivers";
+            position: absolute;
+         }
 
          a {
             color: $bcg-color;
 
-         }
-
-         &::after {
-            // content: $driver-hover;
-            font-size: 50px;
          }
       }
    }
@@ -117,19 +121,20 @@
       &:hover {
          background-color: $team-color;
          color: $bcg-color;
+         text-align: center;
+
+         &:after {
+            color: $team-color;
+         }
 
          &:before {
             content: "Teams";
+            position: absolute;
+
          }
 
          a {
             color: $bcg-color;
-
-         }
-
-         &::after {
-            // content: $team-hover;
-            font-size: 60px;
          }
       }
    }
@@ -153,8 +158,8 @@
 
          &:before {
             content: "Races";
+            position: absolute;
          }
-
 
          a {
             color: $bcg-color;
@@ -162,11 +167,6 @@
          }
 
 
-
-         &::after {
-            // content: $race-hover;
-            font-size: 60px;
-         }
       }
    }
 }
