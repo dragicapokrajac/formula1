@@ -27,9 +27,7 @@ const Teams = (props) => {
       setIsLoading(false);
    };
 
-   const teamsArray = teams.slice();
-
-   const filteredTeams = teamsArray.filter(team => team.Constructor.name.toLowerCase().includes(searchTerm.trim().toLowerCase()));
+   const filteredTeams = teams.filter(team => team.Constructor.name.toLowerCase().includes(searchTerm.trim().toLowerCase()));
 
    const crumbs = [
       { path: '/', label: 'F1' },

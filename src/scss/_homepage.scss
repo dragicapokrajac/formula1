@@ -1,7 +1,10 @@
 .homepage-container {
    display: flex;
-   flex-direction: row;
-   justify-content: center;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+   min-height: 80vh;
+   padding-bottom: 0;
 
    @keyframes slideIn {
       0% {
@@ -13,75 +16,40 @@
       }
    }
 
-   .block,
    a {
-      animation: slideIn 0.6s ease forwards;
-      padding: 20px;
+      animation: slideIn 0.7s ease forwards;
+      width: 30%;
+      height: 28vw;
+      background: $team-color;
       border-radius: 50%;
-      width: 100vw;
-      height: 450px;
-      font-family: $font-accent, sans-serif;
-      font-style: italic;
-      font-size: 6rem;
-      text-transform: uppercase;
-      overflow: hidden;
-      white-space: nowrap;
-      pointer-events: auto;
-      font-weight: bold;
       cursor: pointer;
+      // cursor: wait;
+
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: background-color 0.3s ease;
+
+      text-decoration: none;
+      font-family: $font-accent, sans-serif;
+      font-size: 5.5rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-style: italic;
       text-align: center;
+      // transition: background-color 0.3s ease;
 
       &:hover {
          box-shadow: none;
       }
    }
 
-   .block {
-      margin: 20px;
-   }
-
-   a {
-      text-decoration: none;
-
-      &:visited {
-         color: $txt-col;
-      }
-   }
-
-   .driver-link:before {
-      content: "Ready";
-   }
-
-   .team-link:before {
-      content: "Set";
-   }
-
-   .races-link:before {
-      content: "Go";
-   }
-
-   .driver-link:hover:before,
-   .team-link:hover:before,
-   .races-link:hover:before {
-      content: "";
-   }
-
-   .driver-block {
+   .drivers-link {
       background-color: $bcg-color;
-      box-shadow: 0 0 20px $driver-color;
+      box-shadow: 0 0 25px $driver-color;
       color: $driver-color;
 
-      a {
-         color: $driver-color;
-
-         &:visited {
-            color: $driver-color;
-         }
-
+      &:before {
+         content: "Ready";
       }
 
       &:hover {
@@ -95,33 +63,27 @@
 
          &:before {
             content: "Drivers";
-            position: absolute;
-         }
-
-         a {
-            color: $bcg-color;
-
          }
       }
    }
 
-   .team-block {
+   .teams-link {
       background-color: $bcg-color;
-      /* Background color for block 2 */
-      box-shadow: 0 0 20px $team-color;
+      box-shadow: 0 0 25px $team-color;
+      color: $team-color;
 
-      a {
-         color: $team-color;
+      &:hover {
+         background-color: $team-color;
+         color: $bcg-color;
+      }
 
-         &:visited {
-            color: $team-color;
-         }
+      &:before {
+         content: "Set";
       }
 
       &:hover {
          background-color: $team-color;
          color: $bcg-color;
-         text-align: center;
 
          &:after {
             color: $team-color;
@@ -129,44 +91,191 @@
 
          &:before {
             content: "Teams";
-            position: absolute;
-
-         }
-
-         a {
-            color: $bcg-color;
          }
       }
    }
 
-   .races-block {
+   .races-link {
       background-color: $bcg-color;
-      box-shadow: 0 0 20px $race-color;
-
-      a {
-         color: $race-color;
-
-         &:visited {
-            color: $race-color;
-         }
-      }
+      box-shadow: 0 0 25px $race-color;
+      color: $race-color;
 
       &:hover {
          background-color: $race-color;
          color: $bcg-color;
          text-align: center;
+      }
+
+      &:before {
+         content: "Go";
+      }
+
+      &:hover {
+         background-color: $race-color;
+         color: $bcg-color;
+
+         &:after {
+            color: $race-color;
+         }
 
          &:before {
-            content: "Races";
-            position: absolute;
+            content: "Race";
          }
-
-         a {
-            color: $bcg-color;
-
-         }
-
-
       }
    }
+
+
+
+
+
+   // .block,
+   // a {
+   //    animation: slideIn 0.6s ease forwards;
+   //    padding: 20px;
+   //    border-radius: 50%;
+   //    width: 100vw;
+   //    height: 450px;
+   //    font-family: $font-accent, sans-serif;
+   //    font-style: italic;
+   //    font-size: 6rem;
+   //    text-transform: uppercase;
+   //    overflow: hidden;
+   //    white-space: nowrap;
+   //    pointer-events: auto;
+   //    font-weight: bold;
+   //    cursor: pointer;
+   //    display: flex;
+   //    justify-content: center;
+   //    align-items: center;
+   //    transition: background-color 0.3s ease;
+   //    text-align: center;
+
+   //    &:hover {
+   //       box-shadow: none;
+   //    }
+   // }
+
+   // .block {
+   //    margin: 20px;
+   // }
+
+   // a {
+   //    text-decoration: none;
+
+   //    &:visited {
+   //       color: $txt-col;
+   //    }
+   // }
+
+   // .driver-link:before {
+   //    content: "Ready";
+   // }
+
+   // .team-link:before {
+   //    content: "Set";
+   // }
+
+   // .races-link:before {
+   //    content: "Go";
+   // }
+
+   // .driver-link:hover:before,
+   // .team-link:hover:before,
+   // .races-link:hover:before {
+   //    content: "";
+   // }
+
+   // .driver-block {
+   //    background-color: $bcg-color;
+   //    box-shadow: 0 0 20px $driver-color;
+   //    color: $driver-color;
+
+   //    a {
+   //       color: $driver-color;
+
+   //       &:visited {
+   //          color: $driver-color;
+   //       }
+
+   //    }
+
+   //    &:hover {
+   //       background-color: $driver-color;
+   //       color: $bcg-color;
+   //       text-align: center;
+
+   //       &:after {
+   //          color: $driver-color;
+   //       }
+
+   //       &:before {
+   //          content: "Drivers";
+   //          position: absolute;
+   //       }
+
+   //       a {
+   //          color: $bcg-color;
+   //       }
+   //    }
+   // }
+
+   // .team-block {
+   //    background-color: $bcg-color;
+   //    box-shadow: 0 0 20px $team-color;
+
+   //    a {
+   //       color: $team-color;
+
+   //       &:visited {
+   //          color: $team-color;
+   //       }
+   //    }
+
+   //    &:hover {
+   //       background-color: $team-color;
+   //       color: $bcg-color;
+   //       text-align: center;
+
+   //       &:after {
+   //          color: $team-color;
+   //       }
+
+   //       &:before {
+   //          content: "Teams";
+   //          position: absolute;
+   //       }
+
+   //       a {
+   //          color: $bcg-color;
+   //       }
+   //    }
+   // }
+
+   // .races-block {
+   //    background-color: $bcg-color;
+   //    box-shadow: 0 0 20px $race-color;
+
+   //    a {
+   //       color: $race-color;
+
+   //       &:visited {
+   //          color: $race-color;
+   //       }
+   //    }
+
+   //    &:hover {
+   //       background-color: $race-color;
+   //       color: $bcg-color;
+   //       text-align: center;
+
+   //       &:before {
+   //          content: "Races";
+   //          position: absolute;
+   //       }
+
+   //       a {
+   //          color: $bcg-color;
+   //       }
+   //    }
+   // }
 }

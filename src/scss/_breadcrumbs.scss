@@ -1,0 +1,49 @@
+.breadcrumbs {
+   display: flex;
+   padding: 2rem 0;
+
+   p {
+      float: left;
+      background: $txt-col;
+      text-align: center;
+      padding: 4px 40px;
+      position: relative;
+      margin: 0 5px 0 0;
+      color: $bcg-color;
+      cursor: default;
+
+      &:after,
+      &:before {
+         content: "";
+         border-top: 15px solid transparent;
+         border-bottom: 15px solid transparent;
+         position: absolute;
+         top: 50%;
+         transform: translateY(-50%);
+      }
+
+      &:after {
+         border-left: 15px solid $txt-col;
+         right: -15px;
+         z-index: 1;
+      }
+
+      &:before {
+         border-left: 15px solid $bcg-color;
+         left: 0;
+      }
+
+      &:first-child a,
+      &:last-child a {
+         padding-left: 20px;
+         border-top-left-radius: 5px;
+         border-bottom-left-radius: 5px;
+      }
+
+      .link {
+         text-decoration: none;
+         color: $bcg-color; //boja teksta
+         font-weight: 700;
+      }
+   }
+}

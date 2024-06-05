@@ -33,9 +33,7 @@ const Drivers = (props) => {
       }
    };
 
-   const driversArray = drivers.slice();
-
-   const filteredDrivers = driversArray.filter(driver =>
+   const filteredDrivers = drivers.filter(driver =>
       driver.Driver.givenName.toLowerCase().includes(searchTerm.trim().toLowerCase()) ||
       driver.Driver.familyName.toLowerCase().includes(searchTerm.trim().toLocaleLowerCase())
    );

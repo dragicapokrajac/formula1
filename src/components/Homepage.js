@@ -11,6 +11,12 @@ const Homepage = () => {
          </header>
 
          <section className="homepage-container">
+            <NavLink to="/drivers" className='drivers-link'></NavLink>
+            <NavLink to="/teams" className='teams-link'></NavLink>
+            <NavLink to="/races" className='races-link'></NavLink>
+         </section>
+
+         {/* <section className="homepage-container">
             <div className="block driver-block">
                <NavLink className="driver-link" to="/drivers"></NavLink>
             </div>
@@ -20,7 +26,7 @@ const Homepage = () => {
             <div className="block races-block">
                <NavLink className="races-link" to="/races"></NavLink>
             </div>
-         </section>
+         </section> */}
       </>
    );
 };

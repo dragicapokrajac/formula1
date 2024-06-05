@@ -1,11 +1,9 @@
 @import "variables";
 @import "mixins";
 
-
-
 @import "header";
-@import "homepage";
 @import "navigation";
+@import "homepage";
 
 * {
    margin: 0;
@@ -22,82 +20,14 @@ body {
    padding: 0 2rem;
 }
 
-// .routes-container {
-//    padding: 0 2rem;
-// }
+.routes-container {
+   min-height: 100vh;
+}
+
 
 @import 'loader';
-
-.breadcrumbs {
-   display: flex;
-   padding: 2rem 0;
-
-   p {
-      float: left;
-      background: $breadcrumb-color-black;
-      text-align: center;
-      padding: 4px 40px;
-      position: relative;
-      margin: 0 5px 0 0;
-      color: $bcg-color;
-      cursor: default;
-
-      &:after,
-      &:before {
-         content: "";
-         border-top: 15px solid transparent;
-         border-bottom: 15px solid transparent;
-         position: absolute;
-         top: 50%;
-         transform: translateY(-50%);
-      }
-
-      &:after {
-         border-left: 15px solid $breadcrumb-color-black;
-         right: -15px;
-         z-index: 1;
-      }
-
-      &:before {
-         border-left: 15px solid $bcg-color;
-         left: 0;
-      }
-
-      &:first-child a,
-      &:last-child a {
-         padding-left: 20px;
-         border-top-left-radius: 5px;
-         border-bottom-left-radius: 5px;
-      }
-
-      .link {
-         text-decoration: none;
-         color: $bcg-color; //boja teksta
-         font-weight: 700;
-      }
-   }
-}
-
-//SearchBar
-.search-wrapper {
-   display: flex;
-   justify-content: end;
-
-   .search-box {
-      padding: 0.5rem 0.8em;
-      border: 1px solid $txt-col;
-      border-radius: 2px;
-      display: flex;
-      justify-content: flex-end;
-
-      input {
-         width: 100%;
-         background-color: $bcg-color;
-         border: none;
-         outline: none;
-      }
-   }
-}
+@import 'search';
+@import 'breadcrumbs';
 
 // stilovi za komponente koje imaju samo tabelu
 .component-container-column {

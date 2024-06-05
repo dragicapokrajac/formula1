@@ -1,0 +1,19 @@
+.search-wrapper {
+   display: flex;
+   justify-content: end;
+
+   .search-box {
+      padding: 0.5rem 0.8em;
+      border: 1px solid $txt-col;
+      border-radius: 2px;
+      display: flex;
+      justify-content: flex-end;
+
+      input {
+         width: 100%;
+         background-color: $bcg-color;
+         border: none;
+         outline: none;
+      }
+   }
+}

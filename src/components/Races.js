@@ -26,9 +26,7 @@ const Races = (props) => {
       setIsLoading(false);
    };
 
-   const racesArray = races.slice();
-
-   const filteredDataRaces = racesArray.filter(race => race.raceName.toLowerCase().includes(searchTerm.trim().toLowerCase()));
+   const filteredDataRaces = races.filter(race => race.raceName.toLowerCase().includes(searchTerm.trim().toLowerCase()));
 
    const crumbs = [
       { path: '/', label: 'F1' },
