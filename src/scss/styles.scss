@@ -39,7 +39,8 @@ body {
       padding: 4px 40px;
       position: relative;
       margin: 0 5px 0 0;
-      color: #8093a7;
+      color: $bcg-color;
+      cursor: default;
 
       &:after,
       &:before {
@@ -72,6 +73,7 @@ body {
       .link {
          text-decoration: none;
          color: $bcg-color; //boja teksta
+         font-weight: 700;
       }
    }
 }
