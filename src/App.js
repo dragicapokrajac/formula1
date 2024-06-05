@@ -27,7 +27,7 @@ const App = () => {
    return (
       <>
          <Router>
-            <Header />
+            {/* <Header /> */}
             <main className="routes-container">
                <Routes>
                   <Route

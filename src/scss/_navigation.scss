@@ -1,59 +1,67 @@
-.nav-container {
-   // display: flex;
-   // justify-content: center;
-   text-align: center;
+// .nav-container {
+.navigation {
+   ul {
+      display: flex;
+      list-style: none;
 
-   .navigation {
-      ul {
-         display: flex;
-         list-style: none;
-         padding: 0;
+      li {
+         // margin: 0 1rem;
+         padding: 0 1rem;
 
-         li {
-            margin: 1rem;
-            padding: 1rem;
+         .link {
+            font-family: $fnt-fmly, sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            text-decoration: none;
+            color: $txt-col;
+            margin-left: 2rem;
+         }
 
-            .link {
-               font-family: $fnt-fmly, sans-serif;
-               font-weight: 700;
-               text-transform: uppercase;
-               font-size: 1.8rem;
-               text-decoration: none;
-               color: $txt-col;
-               // color: $bcg-color; //proba
-               margin-left: 2rem;
+         .link-drivers {
+            &:hover {
+               color: $driver-color;
+               text-decoration: underline;
+               text-decoration-thickness: 2.5px;
+               text-underline-offset: 6px;
             }
 
-            .drivers-hover {
-               &:hover {
-                  color: $driver-color;
-                  text-decoration: underline;
-                  text-decoration-thickness: 2.5px;
-                  text-underline-offset: 6px;
-               }
-            }
-
-            .races-hover {
-               &:hover {
-                  color: $race-color;
-                  text-decoration: underline;
-                  text-decoration-thickness: 2.5px;
-                  text-underline-offset: 6px;
-               }
-            }
-
-            .teams-hover {
-               &:hover {
-                  color: $team-color;
-                  text-decoration: underline;
-                  text-decoration-thickness: 2.5px;
-                  text-underline-offset: 6px;
-               }
+            &.active {
+               color: $driver-color;
             }
          }
+
+         .link-teams {
+            &:hover {
+               color: $team-color;
+               text-decoration: underline;
+               text-decoration-thickness: 2.5px;
+               text-underline-offset: 6px;
+            }
+
+            &.active {
+               color: $team-color;
+            }
+         }
+
+         .link-races {
+            &:hover {
+               color: $race-color;
+               text-decoration: underline;
+               text-decoration-thickness: 2.5px;
+               text-underline-offset: 6px;
+            }
+
+            &.active {
+               color: $race-color;
+            }
+         }
+
       }
    }
 }
+
+// }
 
 //     .drivers,
 //     .teams,

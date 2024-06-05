@@ -1,13 +1,15 @@
 .footer-container {
-   background-image: url('../img/trakaTemp.jpg');
-   background-repeat: repeat-x;
-   background-size: 20px;
    display: flex;
    justify-content: center;
    align-items: center;
-   padding: 1rem;
-   font-family: $fnt-fmly, sans-serif;
    min-height: 100%;
+   padding: 1rem;
+   margin: 2rem 0;
+   font-family: $fnt-fmly, sans-serif;
+
+   background-image: url('../img/trakaTemp.jpg');
+   background-repeat: repeat-x;
+   background-size: 1.1rem;
 
    h4 {
       margin-top: 15px;

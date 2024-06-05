@@ -7,6 +7,7 @@ import { showFlag, navigateHandler } from '../helpers';
 import linkImg from '../img/icons/link_icon24px.png';
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from './SearchBar';
+import Header from "./Header";
 
 const Teams = (props) => {
    const [teams, setTeams] = useState([]);
@@ -46,6 +47,7 @@ const Teams = (props) => {
 
    return (
       <>
+         <Header />
          <Breadcrumbs crumbs={crumbs} />
          <section className='component-container-column'>
             <h1>Constructors Championship</h1>

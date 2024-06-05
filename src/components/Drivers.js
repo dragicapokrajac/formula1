@@ -7,6 +7,7 @@ import Flag from 'react-flagkit';
 import { navigateHandler, showFlag } from '../helpers';
 import Breadcrumbs from './Breadcrumbs';
 import SearchBar from './SearchBar';
+import Header from './Header';
 
 
 
@@ -44,7 +45,6 @@ const Drivers = (props) => {
       { path: "/drivers", label: "Drivers" }
    ];
 
-
    const handleNavigateDriverDetails = (id) => {
       const route = `/DriverDetails/${id}`;
       navigateHandler(route, navigate);
@@ -56,6 +56,7 @@ const Drivers = (props) => {
 
    return (
       <>
+         <Header />
          <Breadcrumbs crumbs={crumbs} color="#ffd780" />
          <section className='component-container-column'>
             <h1>Drivers Championship</h1>

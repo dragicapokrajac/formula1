@@ -7,6 +7,7 @@ import Flag from "react-flagkit";
 import { showFlag, showColor } from '../helpers';
 import linkImg from '../img/icons/link_icon24px.png';
 import Breadcrumbs from "./Breadcrumbs";
+import Header from "./Header";
 
 const RaceResults = ({ flagsRes }) => {
    const [qualifyingResults, setQualifyingResults] = useState([]);
@@ -48,6 +49,7 @@ const RaceResults = ({ flagsRes }) => {
 
    return (
       <>
+         <Header />
          <Breadcrumbs crumbs={crumbs} />
          <section className='component-container-row'>
             <div className="card-section">

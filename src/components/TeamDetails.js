@@ -7,6 +7,7 @@ import Flag from 'react-flagkit';
 import { showFlag, showColor, navigateHandler } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
 import linkImg from '../img/icons/link_icon24px.png';
+import Header from "./Header";
 
 const TeamDetails = (props) => {
    const params = useParams();
@@ -51,6 +52,7 @@ const TeamDetails = (props) => {
 
    return (
       <>
+         <Header />
          <Breadcrumbs crumbs={crumbs} />
          <section className="component-container-row">
             <div className="card-section">

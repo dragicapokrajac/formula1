@@ -2,14 +2,16 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding: 2rem 1.5rem;
-   padding-top: 1.3rem;
+   padding: 2rem 0 2.9rem;
    font-size: 1.5rem;
    font-style: italic;
 
    background-image: url('../img/trakaTemp.jpg');
    background-repeat: repeat-x;
-   background-size: 20px;
+   background-size: 1.1rem;
    background-position: bottom;
-   // background-color: $driver-color; //proba 
+}
+
+.header-logo {
+   justify-content: center;
 }

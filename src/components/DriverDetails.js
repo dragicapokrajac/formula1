@@ -8,6 +8,7 @@ import Flag from "react-flagkit";
 import { showFlag, showColor, navigateHandler } from '../helpers';
 import linkImg from '../img/icons/link_icon24px.png';
 import Breadcrumbs from './Breadcrumbs';
+import Header from "./Header";
 
 const DriverDetails = (props) => {
    const params = useParams();
@@ -53,6 +54,7 @@ const DriverDetails = (props) => {
 
    return (
       <>
+         <Header />
          <Breadcrumbs crumbs={crumbs} />
          <section className='component-container-row'>
             <div className="card-section">

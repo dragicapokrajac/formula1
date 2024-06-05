@@ -6,6 +6,7 @@ import Flag from 'react-flagkit';
 import { showFlag, navigateHandler } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from './SearchBar';
+import Header from "./Header";
 
 const Races = (props) => {
    const [races, setRaces] = useState([]);
@@ -45,6 +46,7 @@ const Races = (props) => {
 
    return (
       <>
+         <Header />
          <Breadcrumbs crumbs={crumbs} />
          <section className='component-container-column'>
             <h1>Races Calendar</h1>
