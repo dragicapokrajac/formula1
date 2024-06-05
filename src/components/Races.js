@@ -47,7 +47,7 @@ const Races = (props) => {
    return (
       <>
          <Header />
-         <Breadcrumbs crumbs={crumbs} />
+         <Breadcrumbs crumbs={crumbs} color="#fb6076" />
          <section className='component-container-column'>
             <h1>Races Calendar</h1>
             <SearchBar

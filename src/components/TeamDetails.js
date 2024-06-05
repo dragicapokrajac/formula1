@@ -53,7 +53,7 @@ const TeamDetails = (props) => {
    return (
       <>
          <Header />
-         <Breadcrumbs crumbs={crumbs} />
+         <Breadcrumbs crumbs={crumbs} color="#36b079" />
          <section className="component-container-row">
             <div className="card-section">
                <div className="card-info">

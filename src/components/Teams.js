@@ -48,7 +48,7 @@ const Teams = (props) => {
    return (
       <>
          <Header />
-         <Breadcrumbs crumbs={crumbs} />
+         <Breadcrumbs crumbs={crumbs} color="#36b079" />
          <section className='component-container-column'>
             <h1>Constructors Championship</h1>
             <SearchBar

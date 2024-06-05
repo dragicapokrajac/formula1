@@ -55,7 +55,7 @@ const DriverDetails = (props) => {
    return (
       <>
          <Header />
-         <Breadcrumbs crumbs={crumbs} />
+         <Breadcrumbs crumbs={crumbs} color="#ffd780" />
          <section className='component-container-row'>
             <div className="card-section">
                <div className="card-info">
