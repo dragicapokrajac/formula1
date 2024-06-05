@@ -79,21 +79,72 @@ body {
 //SearchBar
 .search-wrapper {
    display: flex;
-   justify-content: end;
+   justify-content: flex-end;
+}
 
-   .search-box {
-      padding: 0.5rem 0.8em;
+.search-box {
+   width: fit-content;
+   height: fit-content;
+   position: relative;
+
+   input {
+      height: 30px;
+      width: 30px;
       border: 1px solid $txt-col;
-      border-radius: 2px;
-      display: flex;
-      justify-content: flex-end;
+      padding: 10px;
+      font-size: 16px;
+      letter-spacing: 1px;
+      outline: none;
+      border-radius: 25px;
+      transition: width 0.5s ease-in-out;
+      padding-right: 16px;
+      color: $txt-col;
 
-      input {
-         width: 100%;
-         background-color: $bcg-color;
-         border: none;
-         outline: none;
+      &::placeholder {
+         color: $txt-col;
+         font-weight: 100;
       }
+   }
+
+   button {
+      width: 30px;
+      height: 30px;
+      border-style: none;
+      font-size: 26px;
+      outline: none;
+      cursor: pointer;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      color: #fff;
+      background-color: transparent;
+      pointer-events: painted;
+   }
+
+   &:focus-within input, .input-search.expanded {
+      width: calc(300px - 2 * 10px - 2 * 1px);
+   }
+  
+
+   &:focus-within button {
+      display: none;
+   }
+
+   .input-search.expanded {
+      border: 0;
+      border-radius: 0;
+      border-bottom: 1px solid $txt-col;
+      border-left: 1px solid $txt-col;
+      transition: all 500ms cubic-bezier((0, 0.05, 0.1, 0));
+   }
+
+   button:focus~input,
+   button:focus-within~input {
+      width: calc(300px - 2 * 10px - 2 * 1px);
+      border-radius: 0;
+      background-color: transparent;
+      border-bottom: 1px solid $txt-col;
+      transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
    }
 }
 
