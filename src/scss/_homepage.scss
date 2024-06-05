@@ -19,7 +19,7 @@
    a {
       margin: 20px;
       animation: slideIn 0.6s ease forwards;
-      // padding: 20px;
+      padding: 20px;
       border-radius: 50%;
       width: 100vw;
       height: 450px;
@@ -55,6 +55,15 @@
       }
    }
 
+   .block {
+      &:hover a {
+         display: none;
+
+
+      }
+
+
+   }
 
    .driver-block {
       background-color: $bcg-color;
@@ -73,6 +82,10 @@
          background-color: $driver-color;
          color: $bcg-color;
          text-align: center;
+
+         &:before {
+            content: "Drivers";
+         }
 
 
 
@@ -105,6 +118,9 @@
          background-color: $team-color;
          color: $bcg-color;
 
+         &:before {
+            content: "Teams";
+         }
 
          a {
             color: $bcg-color;
@@ -134,6 +150,10 @@
          background-color: $race-color;
          color: $bcg-color;
          text-align: center;
+
+         &:before {
+            content: "Races";
+         }
 
 
          a {
