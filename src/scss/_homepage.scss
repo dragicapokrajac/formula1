@@ -6,9 +6,9 @@
    min-height: 80vh;
    padding-bottom: 0;
 
-   @keyframes slideIn {
+   @keyframes slideSide {
       0% {
-         transform: translateX(-300%);
+         transform: translateX(300%);
       }
 
       100% {
@@ -43,7 +43,7 @@
    }
 
    .drivers-link {
-      animation: slideIn 1.5s ease forwards;
+      animation: slideSide 0.5s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $driver-color;
       color: $driver-color;
@@ -69,7 +69,7 @@
    }
 
    .teams-link {
-      animation: slideIn 1s ease forwards;
+      animation: slideSide 1s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $team-color;
       color: $team-color;
@@ -98,7 +98,7 @@
    }
 
    .races-link {
-      animation: slideIn 0.5s ease forwards;
+      animation: slideSide 1.5s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $race-color;
       color: $race-color;
