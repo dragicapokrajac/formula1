@@ -6,9 +6,9 @@
    min-height: 80vh;
    padding-bottom: 0;
 
-   @keyframes slideIn {
+   @keyframes slideSide {
       0% {
-         transform: translateX(-300%);
+         transform: translateX(300%);
       }
 
       100% {
@@ -43,17 +43,25 @@
    }
 
    .drivers-link {
-      animation: slideIn 1.5s ease forwards;
+      animation: slideSide 0.5s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $driver-color;
-      color: $driver-color;
+      background-color: rgba(255, 255, 255, 0.7);
+      background-image: $driver-img;
+      background-blend-mode: lighten;
+      background-size: contain;
+      background-size: cover;
+      box-shadow: 0 0 25px $driver-color;
+      color: $txt-col;
 
 
       &:before {
+         text-shadow: 5px 3px $driver-color;
          content: "Ready";
       }
 
       &:hover {
+         background-image: none;
          background-color: $driver-color;
          color: $bcg-color;
          text-align: center;
@@ -63,53 +71,72 @@
          }
 
          &:before {
+            text-shadow: none;
             content: "Drivers";
          }
       }
    }
 
    .teams-link {
-      animation: slideIn 1s ease forwards;
+      animation: slideSide 1s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $team-color;
-      color: $team-color;
-
+      background-image: $teams-img;
+      background-color: rgba(255, 255, 255, 0.7);
+      background-blend-mode: lighten;
+      background-size: contain;
+      background-size: cover;
+      box-shadow: 0 0 25px $team-color;
+      color: $txt-col;
+      
       &:hover {
          background-color: $team-color;
          color: $bcg-color;
       }
-
+      
       &:before {
+         text-shadow: 5px 3px $team-color;
          content: "Set";
       }
-
+      
       &:hover {
+         background-image: none;
          background-color: $team-color;
          color: $bcg-color;
-
+         
          &:after {
             color: $team-color;
          }
-
+         
          &:before {
+            text-shadow: none;
             content: "Teams";
          }
       }
    }
 
    .races-link {
-      animation: slideIn 0.5s ease forwards;
+      animation: slideSide 1.5s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $race-color;
-      color: $race-color;
-
+      background-image: $races-img;
+      background-color: rgba(255, 255, 255, 0.7);
+      background-blend-mode: lighten;
+      background-size: contain;
+      background-size: cover;
+      box-shadow: 0 0 25px $race-color;
+      color: $txt-col;
+      
+      
       &:hover {
+         background-image: none;
          background-color: $race-color;
          color: $bcg-color;
          text-align: center;
       }
-
+      
       &:before {
+         text-shadow: 5px 3px $race-color;
          content: "Go!";
       }
 
@@ -122,6 +149,7 @@
          }
 
          &:before {
+            text-shadow: none;
             content: "Race";
          }
       }

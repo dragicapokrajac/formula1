@@ -55,13 +55,13 @@ body {
 
 // stilovi za komponente koje imaju tabelu/e i katricu
 
-@keyframes slideUp {
+@keyframes slideIn {
    0% {
-      transform: translateY(300%);
+      transform: translateX(-300%);
    }
 
    100% {
-      transform: translateY(0);
+      transform: translateX(0);
    }
 }
 
@@ -71,7 +71,7 @@ body {
    gap: 1rem;
 
    .card-section {
-      animation: slideUp 0.8s ease forwards;
+      animation: slideIn 0.8s ease forwards;
       width: 20%;
       margin-top: 1rem;
       display: flex;
