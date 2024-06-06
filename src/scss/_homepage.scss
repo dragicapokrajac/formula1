@@ -31,7 +31,7 @@
 
       text-decoration: none;
       font-family: $font-accent, sans-serif;
-      font-size: 5.5rem;
+      font-size: 6vw;
       text-transform: uppercase;
       font-weight: bold;
       font-style: italic;
@@ -47,6 +47,7 @@
       background-color: $bcg-color;
       box-shadow: 0 0 25px $driver-color;
       color: $driver-color;
+
 
       &:before {
          content: "Ready";
@@ -107,7 +108,7 @@
       }
 
       &:before {
-         content: "Go";
+         content: "Go!";
       }
 
       &:hover {

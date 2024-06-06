@@ -11,12 +11,13 @@
       margin: 0 5px 0 0;
       color: $bcg-color;
       cursor: default;
+      transform: skew(-30deg);
+      // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      border-radius: 2px;
 
       &:after,
       &:before {
          content: "";
-         border-top: 15px solid transparent;
-         border-bottom: 15px solid transparent;
          position: absolute;
          top: 50%;
          transform: translateY(-50%);
