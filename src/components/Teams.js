@@ -4,7 +4,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag, navigateHandler } from '../helpers';
-import linkImg from '../img/icons/link_icon24px.png';
+import linkImg from '../img/icons/link_icon.png';
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from './SearchBar';
 import Header from "./Header";
@@ -35,6 +35,7 @@ const Teams = (props) => {
    ];
 
    const handleNavigateTeamRaces = (id) => {
+      console.log('Teams id', id);
       const route = `/teamDetails/${id}`;
       navigateHandler(route, navigate);
    };
@@ -59,6 +60,7 @@ const Teams = (props) => {
                <thead>
                   <tr>
                      <th>Position</th>
+                     <th>&nbsp;</th>
                      <th>Name</th>
                      <th>Details</th>
                      <th>Points</th>
@@ -68,20 +70,23 @@ const Teams = (props) => {
                   {filteredTeams.map(team =>
                      <tr key={team.Constructor.constructorId}>
                         <td>{team.position}</td>
+                        <td>
+                           <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} />
+                        </td>
                         <td
                            onClick={() => handleNavigateTeamRaces(team.Constructor.constructorId)}
                            className="link-td"
                         >
-                           <div className="td-container">
-                              <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} />
-                              <span>{team.Constructor.name}</span>
-                           </div>
+                           {/* <div className="td-container"> */}
+                           {/* <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} /> */}
+                           {team.Constructor.name}
+                           {/* </div> */}
                         </td>
                         <td>
                            <a
                               href={team.Constructor.url}
                               target="_blank">
-                              <img src={linkImg} />
+                              <img src={linkImg} className="link-icon" />
                            </a>
                         </td>
                         <td>{team.points}</td>

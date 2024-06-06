@@ -1,5 +1,5 @@
 // za .table i .tabele-w50 klase
-@mixin table-properties ($width, $borderColor, $tableHeaderColor, $tdContainerWidth: 50%) {
+@mixin table-properties ($width, $borderColor, $tableHeaderColor) {
    width: $width;
    border-collapse: collapse;
    text-align: center;
@@ -8,14 +8,16 @@
    tbody {
       @keyframes fadeIn {
          0% {
-           opacity: 0;
+            opacity: 0;
          }
+
          100% {
-           opacity: 1;
+            opacity: 1;
          }
-       }
-      
+      }
+
       animation: fadeIn 0.6s ease;
+
       tr {
          border-bottom: 1px solid $borderColor;
 
@@ -31,18 +33,20 @@
          }
 
          .link-td {
-            display: flex;
-            justify-content: center;
+            width: 25%;
             cursor: pointer;
+
+            &:hover {
+               font-weight: bold;
+            }
          }
 
-         .td-container {
-            width: $tdContainerWidth;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.2rem;
-         }
+         // .td-container {
+         //    display: flex;
+         //    align-items: center;
+         //    justify-content: space-evenly;
+         //    gap: 1.2rem;
+         // }
       }
    }
 }

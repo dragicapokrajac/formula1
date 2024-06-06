@@ -58,9 +58,11 @@ const Races = (props) => {
                <thead>
                   <tr>
                      <th>Round</th>
+                     <th>&nbsp;</th>
                      <th>Grand Prix</th>
                      <th>Circuit</th>
                      <th>Date</th>
+                     <th>&nbsp;</th>
                      <th>Winner</th>
                   </tr>
                </thead>
@@ -68,22 +70,28 @@ const Races = (props) => {
                   {filteredDataRaces.map(race =>
                      <tr key={race.Circuit.circuitId}>
                         <td>  {race.round}</td>
+                        <td>
+                           <Flag country={showFlag(props.flagsRes, race.Circuit.Location.country)} />
+                        </td>
                         <td
                            onClick={() => handleNavigateRaceResults(race.round)}
                            className="link-td"
                         >
-                           <div className="td-container">
-                              <Flag country={showFlag(props.flagsRes, race.Circuit.Location.country)} />
-                              <span>{race.raceName}</span>
-                           </div>
+                           {/* <div className="td-container"> */}
+                           {/* <Flag country={showFlag(props.flagsRes, race.Circuit.Location.country)} /> */}
+                           {race.raceName}
+                           {/* </div> */}
                         </td>
                         <td>{race.Circuit.circuitName}</td>
                         <td>{race.date}</td>
                         <td>
-                           <div className="td-container">
-                              <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} />
-                              <span>{race.Results[0].Driver.familyName}</span>
-                           </div>
+                           <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} />
+                        </td>
+                        <td>
+                           {/* <div className="td-container"> */}
+                           {/* <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} /> */}
+                           {race.Results[0].Driver.familyName}
+                           {/* </div> */}
                         </td>
                      </tr>
                   )}

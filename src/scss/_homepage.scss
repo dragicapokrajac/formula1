@@ -16,7 +16,7 @@
       }
    }
 
-   a {  
+   a {
       width: 30%;
       height: 28vw;
       background: $team-color;
@@ -88,26 +88,26 @@
       background-size: cover;
       box-shadow: 0 0 25px $team-color;
       color: $txt-col;
-      
+
       &:hover {
          background-color: $team-color;
          color: $bcg-color;
       }
-      
+
       &:before {
          text-shadow: 5px 3px $team-color;
          content: "Set";
       }
-      
+
       &:hover {
          background-image: none;
          background-color: $team-color;
          color: $bcg-color;
-         
+
          &:after {
             color: $team-color;
          }
-         
+
          &:before {
             text-shadow: none;
             content: "Teams";
@@ -126,15 +126,15 @@
       background-size: cover;
       box-shadow: 0 0 25px $race-color;
       color: $txt-col;
-      
-      
+
+
       &:hover {
          background-image: none;
          background-color: $race-color;
          color: $bcg-color;
          text-align: center;
       }
-      
+
       &:before {
          text-shadow: 5px 3px $race-color;
          content: "Go!";

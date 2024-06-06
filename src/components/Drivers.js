@@ -48,6 +48,11 @@ const Drivers = (props) => {
       navigateHandler(route, navigate);
    };
 
+   const handleNavigateTeamDetails = (id) => {
+      const route = `/TeamDetails/${id}`;
+      navigateHandler(route, navigate);
+   };
+
    if (isLoading) {
       return <Loader color='#f7484e' />
    };
@@ -68,7 +73,7 @@ const Drivers = (props) => {
                <thead>
                   <tr>
                      <th
-                        colSpan='5'
+                        colSpan='6'
                         className="table-header"
                      >Drivers Championship Standings - 2013</th>
                   </tr>
@@ -77,16 +82,24 @@ const Drivers = (props) => {
                   {filteredDrivers.map(driver =>
                      <tr key={driver.Driver.driverId}>
                         <td>{driver.position}</td>
+                        <td>
+                           <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
+                        </td>
                         <td
                            onClick={() => handleNavigateDriverDetails(driver.Driver.driverId)}
                            className="link-td"
                         >
-                           <div className="td-container">
-                              <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} />
-                              <span>{driver.Driver.givenName} {driver.Driver.familyName}</span>
-                           </div>
+                           {/* <div className="td-container"> */}
+                           {/* <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} /> */}
+                           {driver.Driver.givenName} {driver.Driver.familyName}
+                           {/* </div> */}
                         </td>
-                        <td>{driver.Constructors[0].name}</td>
+                        <td
+                           onClick={() => handleNavigateTeamDetails(driver.Constructors[0].constructorId)}
+                           className="link-td"
+                        >
+                           {driver.Constructors[0].name}
+                        </td>
                         <td>{driver.points}</td>
                         <td>{driver.Driver.nationality}</td>
                      </tr>
@@ -99,5 +112,3 @@ const Drivers = (props) => {
 };
 
 export default Drivers;
-
-// onClick={() => navigateHandler(`/DriverDetails/${driver.Driver.driverId}`, navigate)}

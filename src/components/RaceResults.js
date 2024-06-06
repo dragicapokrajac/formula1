@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Loader from "./Loader";
 import Flag from "react-flagkit";
-import { showFlag, showColor } from '../helpers';
-import linkImg from '../img/icons/link_icon24px.png';
+import { showFlag, showColor, navigateHandler } from '../helpers';
+import linkImg from '../img/icons/link_icon.png';
 import Breadcrumbs from "./Breadcrumbs";
 import Header from "./Header";
 
@@ -14,6 +14,7 @@ const RaceResults = ({ flagsRes }) => {
    const [raceResults, setRaceResults] = useState([]);
    const [isLoading, setIsLoading] = useState(true);
    const params = useParams();
+   const navigate = useNavigate();
 
    useEffect(() => {
       getRaceResults();
@@ -42,6 +43,16 @@ const RaceResults = ({ flagsRes }) => {
       { path: '/races', label: 'Races' },
       { path: `/raceResults/${params.id}`, label: `${qualifyingResults.raceName}` }
    ];
+
+   const handleNavigateDriverDetails = (id) => {
+      const route = `/DriverDetails/${id}`;
+      navigateHandler(route, navigate);
+   };
+
+   const handleNavigateTeamDetails = (id) => {
+      const route = `/TeamDetails/${id}`;
+      navigateHandler(route, navigate);
+   };
 
    if (isLoading) {
       return <Loader color='#36b061' />
@@ -74,7 +85,7 @@ const RaceResults = ({ flagsRes }) => {
                         <a
                            href={qualifyingResults.url}
                            target="_blank">
-                           <img src={linkImg} />
+                           <img src={linkImg} className="link-icon" />
                         </a>
                      </p>
                   </div>
@@ -86,11 +97,12 @@ const RaceResults = ({ flagsRes }) => {
                   <thead>
                      <tr>
                         <th
-                           colSpan='4' className="table-header"
+                           colSpan='5' className="table-header"
                         >Qualifying Results</th>
                      </tr>
                      <tr>
                         <th>Pos</th>
+                        <th>&nbsp;</th>
                         <th>Driver</th>
                         <th>Team</th>
                         <th>Best Time</th>
@@ -101,28 +113,37 @@ const RaceResults = ({ flagsRes }) => {
                         <tr key={qRes.Driver.driverId}>
                            <td>{qRes.position}</td>
                            <td>
-                              <div className="td-container">
-                                 <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} />
-                                 <span>{qRes.Driver.familyName}</span>
-                              </div>
+                              <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} />
                            </td>
-                           <td>{qRes.Constructor.name}</td>
+                           <td
+                              onClick={() => handleNavigateDriverDetails(qRes.Driver.driverId)}
+                              className="link-td"
+                           >
+                              {/* <div className="td-container"> */}
+                              {/* <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} /> */}
+                              {qRes.Driver.familyName}
+                              {/* </div> */}
+                           </td>
+                           <td
+                              onClick={() => handleNavigateTeamDetails(qRes.Constructor.constructorId)}
+                              className="link-td"
+                           >{qRes.Constructor.name}</td>
                            <td>{bestTime = [qRes.Q1, qRes.Q2, qRes.Q3].sort()[0]}</td>
                         </tr>
                      )}
                   </tbody>
                </table>
 
-
                <table className="table-w50">
                   <thead>
                      <tr>
                         <th
-                           colSpan='5'
+                           colSpan='6'
                            className="table-header">Race Results</th>
                      </tr>
                      <tr>
                         <th>Pos</th>
+                        <th>&nbsp;</th>
                         <th>Driver</th>
                         <th>Team</th>
                         <th>Result</th>
@@ -134,12 +155,21 @@ const RaceResults = ({ flagsRes }) => {
                         <tr key={result.Driver.driverId}>
                            <td>{result.position}</td>
                            <td>
-                              <div className="td-container">
-                                 <Flag country={showFlag(flagsRes, result.Driver.nationality)} />
-                                 <span>{result.Driver.familyName}</span>
-                              </div>
+                              <Flag country={showFlag(flagsRes, result.Driver.nationality)} />
                            </td>
-                           <td>{result.Constructor.name}</td>
+                           <td
+                              onClick={() => handleNavigateDriverDetails(result.Driver.driverId)}
+                              className="link-td"
+                           >
+                              {/* <div className="td-container"> */}
+                              {/* <Flag country={showFlag(flagsRes, result.Driver.nationality)} /> */}
+                              {result.Driver.familyName}
+                              {/* </div> */}
+                           </td>
+                           <td
+                              onClick={() => handleNavigateTeamDetails(result.Constructor.constructorId)}
+                              className="link-td"
+                           >{result.Constructor.name}</td>
                            <td>{result.Time?.time}</td>
                            <td style={{ backgroundColor: showColor(result.points, value) }}>
                               {result.points}

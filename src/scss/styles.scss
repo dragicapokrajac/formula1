@@ -12,7 +12,6 @@
 }
 
 body {
-   min-height: 100vh;
    background-color: $bcg-color;
    color: $txt-col;
    font-family: $fnt-fmly;
@@ -23,7 +22,6 @@ body {
 .routes-container {
    min-height: 100vh;
 }
-
 
 @import 'loader';
 @import 'search';
@@ -37,7 +35,6 @@ body {
       text-transform: uppercase;
       font-style: italic;
       margin-bottom: 2rem;
-      // text-shadow: -5px -2px 7px $txt-col;
    }
 
    .table-drivers {
@@ -49,7 +46,7 @@ body {
    }
 
    .table-races {
-      @include table-properties(100%, $race-color, $race-color, 100%);
+      @include table-properties(100%, $race-color, $race-color);
    }
 }
 
@@ -63,6 +60,10 @@ body {
    100% {
       transform: translateX(0);
    }
+}
+
+.link-icon:hover {
+   background-color: $hover;
 }
 
 .component-container-row {
@@ -125,7 +126,7 @@ body {
       }
 
       .table-w50 {
-         @include table-properties(50%, $race-color, $race-color, 100%);
+         @include table-properties(50%, $race-color, $race-color);
 
          &:first-child {
             margin-right: 1.5rem;
@@ -133,6 +134,5 @@ body {
       }
    }
 }
-
 
 @import "footer";

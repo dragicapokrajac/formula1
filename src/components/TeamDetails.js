@@ -6,7 +6,7 @@ import Loader from "./Loader";
 import Flag from 'react-flagkit';
 import { showFlag, showColor, navigateHandler } from '../helpers';
 import Breadcrumbs from "./Breadcrumbs";
-import linkImg from '../img/icons/link_icon24px.png';
+import linkImg from '../img/icons/link_icon.png';
 import Header from "./Header";
 
 const TeamDetails = (props) => {
@@ -82,7 +82,7 @@ const TeamDetails = (props) => {
                      <p>
                         <a
                            href={teamDetails.Constructor.url} target="_blank">
-                           <img src={linkImg} />
+                           <img src={linkImg} className="link-icon" />
                         </a>
                      </p>
                   </div>
@@ -94,12 +94,13 @@ const TeamDetails = (props) => {
                   <thead>
                      <tr>
                         <th
-                           colSpan='5'
+                           colSpan='6'
                            className="table-header"
                         >Formula 1 2013 Results</th>
                      </tr>
                      <tr>
                         <th>Round</th>
+                        <th>&nbsp;</th>
                         <th>Gran Prix</th>
                         <th>{teamResults[0].Results[0].Driver.familyName}</th>
                         <th>{teamResults[0].Results[1].Driver.familyName}</th>
@@ -110,14 +111,17 @@ const TeamDetails = (props) => {
                      {teamResults.map(result =>
                         <tr key={result.round}>
                            <td>{result.round}</td>
+                           <td>
+                              <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} />
+                           </td>
                            <td
                               onClick={() => handleNavigateRaceResults(result.round)}
                               className="link-td"
                            >
-                              <div className="td-container">
-                                 <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} />
-                                 <span>{result.raceName}</span>
-                              </div>
+                              {/* <div className="td-container"> */}
+                              {/* <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} /> */}
+                              {result.raceName}
+                              {/* </div> */}
                            </td>
                            <td style={{ backgroundColor: showColor(result.Results[0].position, value) }}>
                               {result.Results[0].position}

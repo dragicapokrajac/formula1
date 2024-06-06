@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { showFlag, showColor, navigateHandler } from '../helpers';
-import linkImg from '../img/icons/link_icon24px.png';
+import linkImg from '../img/icons/link_icon.png';
 import Breadcrumbs from './Breadcrumbs';
 import Header from "./Header";
 
@@ -45,6 +44,11 @@ const DriverDetails = (props) => {
 
    const handleNavigateRaceResults = (id) => {
       const route = `/RaceResults/${id}`;
+      navigateHandler(route, navigate);
+   };
+
+   const handleNavigateTeamDetails = (id) => {
+      const route = `/TeamDetails/${id}`;
       navigateHandler(route, navigate);
    };
 
@@ -96,12 +100,13 @@ const DriverDetails = (props) => {
                   <thead>
                      <tr>
                         <th
-                           colSpan='5'
+                           colSpan='6'
                            className="table-header"
                         >Formula 1 2013 Results</th>
                      </tr>
                      <tr>
                         <th>Round</th>
+                        <th>&nbsp;</th>
                         <th>Grand Prix</th>
                         <th>Team</th>
                         <th>Grid</th>
@@ -112,16 +117,22 @@ const DriverDetails = (props) => {
                      {driverRaces.map(d2 =>
                         <tr key={d2.round}>
                            <td>{d2.round}</td>
+                           <td>
+                              <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} />
+                           </td>
                            <td
                               onClick={() => handleNavigateRaceResults(d2.round)}
                               className="link-td"
                            >
-                              <div className="td-container">
-                                 <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} />
-                                 <span>{d2.raceName}</span>
-                              </div>
+                              {/* <div className="td-container"> */}
+                              {/* <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} /> */}
+                              {d2.raceName}
+                              {/* </div> */}
                            </td>
-                           <td>{d2.Results[0].Constructor.name}</td>
+                           <td
+                              onClick={() => handleNavigateTeamDetails(driver.Constructors[0].constructorId)}
+                              className="link-td"
+                           >{d2.Results[0].Constructor.name}</td>
                            <td>{d2.Results[0].grid}</td>
                            <td style={{ backgroundColor: showColor(d2.Results[0].position, value) }}>
                               {d2.Results[0].position}

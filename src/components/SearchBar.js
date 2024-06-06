@@ -1,9 +1,9 @@
-import searchIcon from '../img/icons/search_15px.png';
+import searchIcon from '../img/icons/search-icon.png';
 
 const SearchBar = ({ type, placeholder, value, onChange }) => {
    return (
       <div className='search-wrapper'>
-         < div class="search-box" >
+         <div className="search-box" >
             <input
                type={type}
                placeholder={placeholder}
