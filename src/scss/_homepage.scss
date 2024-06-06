@@ -8,7 +8,7 @@
 
    @keyframes slideIn {
       0% {
-         transform: translateX(-100%);
+         transform: translateX(-300%);
       }
 
       100% {
@@ -16,8 +16,7 @@
       }
    }
 
-   a {
-      animation: slideIn 0.7s ease forwards;
+   a {  
       width: 30%;
       height: 28vw;
       background: $team-color;
@@ -44,6 +43,7 @@
    }
 
    .drivers-link {
+      animation: slideIn 1.5s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $driver-color;
       color: $driver-color;
@@ -69,6 +69,7 @@
    }
 
    .teams-link {
+      animation: slideIn 1s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $team-color;
       color: $team-color;
@@ -97,6 +98,7 @@
    }
 
    .races-link {
+      animation: slideIn 0.5s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $race-color;
       color: $race-color;
