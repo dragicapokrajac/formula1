@@ -46,14 +46,22 @@
       animation: slideSide 0.5s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $driver-color;
-      color: $driver-color;
+      background-color: rgba(255, 255, 255, 0.7);
+      background-image: $driver-img;
+      background-blend-mode: lighten;
+      background-size: contain;
+      background-size: cover;
+      box-shadow: 0 0 25px $driver-color;
+      color: $txt-col;
 
 
       &:before {
+         text-shadow: 5px 3px $driver-color;
          content: "Ready";
       }
 
       &:hover {
+         background-image: none;
          background-color: $driver-color;
          color: $bcg-color;
          text-align: center;
@@ -63,6 +71,7 @@
          }
 
          &:before {
+            text-shadow: none;
             content: "Drivers";
          }
       }
@@ -72,26 +81,35 @@
       animation: slideSide 1s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $team-color;
-      color: $team-color;
-
+      background-image: $teams-img;
+      background-color: rgba(255, 255, 255, 0.7);
+      background-blend-mode: lighten;
+      background-size: contain;
+      background-size: cover;
+      box-shadow: 0 0 25px $team-color;
+      color: $txt-col;
+      
       &:hover {
          background-color: $team-color;
          color: $bcg-color;
       }
-
+      
       &:before {
+         text-shadow: 5px 3px $team-color;
          content: "Set";
       }
-
+      
       &:hover {
+         background-image: none;
          background-color: $team-color;
          color: $bcg-color;
-
+         
          &:after {
             color: $team-color;
          }
-
+         
          &:before {
+            text-shadow: none;
             content: "Teams";
          }
       }
@@ -101,15 +119,24 @@
       animation: slideSide 1.5s ease forwards;
       background-color: $bcg-color;
       box-shadow: 0 0 25px $race-color;
-      color: $race-color;
-
+      background-image: $races-img;
+      background-color: rgba(255, 255, 255, 0.7);
+      background-blend-mode: lighten;
+      background-size: contain;
+      background-size: cover;
+      box-shadow: 0 0 25px $race-color;
+      color: $txt-col;
+      
+      
       &:hover {
+         background-image: none;
          background-color: $race-color;
          color: $bcg-color;
          text-align: center;
       }
-
+      
       &:before {
+         text-shadow: 5px 3px $race-color;
          content: "Go!";
       }
 
@@ -122,6 +149,7 @@
          }
 
          &:before {
+            text-shadow: none;
             content: "Race";
          }
       }
