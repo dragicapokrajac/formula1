@@ -49,7 +49,7 @@ body {
    }
 
    .table-races {
-      @include table-properties(100%, $race-color-hover, $race-color, 100%);
+      @include table-properties(100%, $race-color, $race-color, 100%);
    }
 }
 
@@ -64,6 +64,7 @@ body {
       transform: translateY(0);
    }
 }
+
 .component-container-row {
    width: 100%;
    display: flex;
@@ -120,11 +121,11 @@ body {
       }
 
       .table-races {
-         @include table-properties(100%, $race-color-hover, $race-color);
+         @include table-properties(100%, $race-color, $race-color);
       }
 
       .table-w50 {
-         @include table-properties(50%, $race-color-hover, $race-color, 100%);
+         @include table-properties(50%, $race-color, $race-color, 100%);
 
          &:first-child {
             margin-right: 1.5rem;
