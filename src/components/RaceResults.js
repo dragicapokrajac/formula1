@@ -44,13 +44,13 @@ const RaceResults = ({ flagsRes }) => {
    ];
 
    if (isLoading) {
-      return <Loader color='#f91536' />
+      return <Loader color='#36b061' />
    };
 
    return (
       <>
          <Header />
-         <Breadcrumbs crumbs={crumbs} color="#fb6076" />
+         <Breadcrumbs crumbs={crumbs} color="#36b061" />
          <section className='component-container-row'>
             <div className="card-section">
                <div className="card-info">

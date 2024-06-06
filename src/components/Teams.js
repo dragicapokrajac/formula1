@@ -40,13 +40,13 @@ const Teams = (props) => {
    };
 
    if (isLoading) {
-      return <Loader color='#2fa775' />
+      return <Loader color='#ffc300' />
    };
 
    return (
       <>
          <Header />
-         <Breadcrumbs crumbs={crumbs} color="#36b079" />
+         <Breadcrumbs crumbs={crumbs} color="#ffc300" />
          <section className='component-container-column'>
             <h1>Constructors Championship</h1>
             <SearchBar

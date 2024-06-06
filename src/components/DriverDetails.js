@@ -38,7 +38,7 @@ const DriverDetails = (props) => {
    const crumbs = [
       { path: "/", label: "F1" },
       { path: "/drivers", label: "Drivers" },
-      { path: `/driverDetails/${params.id}`, label: `${driver.Driver?.givenName} ${driver.Driver?.familyName}` }
+      { path: `/driverDetails/${params.id}`, label: ` ${driver.Driver?.familyName}` }
    ];
 
    const value = "position";
@@ -49,13 +49,13 @@ const DriverDetails = (props) => {
    };
 
    if (isLoading) {
-      return <Loader color='#ffc547' />
+      return <Loader color='#f7484e' />
    };
 
    return (
       <>
          <Header />
-         <Breadcrumbs crumbs={crumbs} color="#f8b72a" />
+         <Breadcrumbs crumbs={crumbs} color="#f7484e" />
          <section className='component-container-row'>
             <div className="card-section">
                <div className="card-info">

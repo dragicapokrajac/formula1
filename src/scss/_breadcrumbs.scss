@@ -1,50 +1,39 @@
 .breadcrumbs {
    display: flex;
    padding: 2rem 0;
+   transform: skew(-40deg);
 
    p {
       float: left;
       background: $txt-col;
-      text-align: center;
+      // text-align: center;
       padding: 4px 40px;
       position: relative;
       margin: 0 5px 0 0;
       color: $bcg-color;
       cursor: default;
-      transform: skew(-30deg);
+
       // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
       border-radius: 2px;
+      // letter-spacing: 0.2em;
+      font-size: 1rem;
 
-      &:after,
-      &:before {
-         content: "";
-         position: absolute;
-         top: 50%;
-         transform: translateY(-50%);
-      }
-
-      &:after {
-         border-left: 15px solid $txt-col;
-         right: -15px;
-         z-index: 1;
-      }
-
-      &:before {
-         border-left: 15px solid $bcg-color;
-         left: 0;
-      }
-
-      &:first-child a,
-      &:last-child a {
-         padding-left: 20px;
-         border-top-left-radius: 5px;
-         border-bottom-left-radius: 5px;
+      .link,
+      span {
+         transform: skew(40deg);
+         display: block;
       }
 
       .link {
          text-decoration: none;
          color: $bcg-color; //boja teksta
          font-weight: 700;
+
+
       }
+
+      //       transform: skewX(20deg);
+      //   display: block;\
    }
+
 }

@@ -49,13 +49,13 @@ const Drivers = (props) => {
    };
 
    if (isLoading) {
-      return <Loader color='#ffc547' />
+      return <Loader color='#f7484e' />
    };
 
    return (
       <>
          <Header />
-         <Breadcrumbs crumbs={crumbs} color="#f8b72a" />
+         <Breadcrumbs crumbs={crumbs} color="#f7484e" />
          <section className='component-container-column'>
             <h1>Drivers Championship</h1>
             <SearchBar

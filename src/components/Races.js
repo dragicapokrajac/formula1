@@ -39,13 +39,13 @@ const Races = (props) => {
    };
 
    if (isLoading) {
-      return <Loader color='#f91536' />
+      return <Loader color='#36b061' />
    };
 
    return (
       <>
          <Header />
-         <Breadcrumbs crumbs={crumbs} color="#fb6076" />
+         <Breadcrumbs crumbs={crumbs} color="#36b061" />
          <section className='component-container-column'>
             <h1>Races Calendar</h1>
             <SearchBar
