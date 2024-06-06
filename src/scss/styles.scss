@@ -54,12 +54,23 @@ body {
 }
 
 // stilovi za komponente koje imaju tabelu/e i katricu
+
+@keyframes slideUp {
+   0% {
+      transform: translateY(300%);
+   }
+
+   100% {
+      transform: translateY(0);
+   }
+}
 .component-container-row {
    width: 100%;
    display: flex;
    gap: 1rem;
 
    .card-section {
+      animation: slideUp 0.8s ease forwards;
       width: 20%;
       margin-top: 1rem;
       display: flex;
