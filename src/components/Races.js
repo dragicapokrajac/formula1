@@ -19,7 +19,7 @@ const Races = (props) => {
    }, []);
 
    const getRaces = async () => {
-      const url = "http://ergast.com/api/f1/2013/results/1.json";
+      const url = "https://ergast.com/api/f1/2013/results/1.json";
       const response = await axios.get(url);
       const resData = response.data.MRData.RaceTable.Races;
       setRaces(resData);
