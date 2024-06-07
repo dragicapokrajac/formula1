@@ -21,8 +21,8 @@ const TeamDetails = (props) => {
    }, []);
 
    const getTeamDetails = async () => {
-      const urlStandings = `http://ergast.com/api/f1/2013/constructors/${params.id}/constructorStandings.json`;
-      const urlResults = `http://ergast.com/api/f1/2013/constructors/${params.id}/results.json`;
+      const urlStandings = `https://ergast.com/api/f1/2013/constructors/${params.id}/constructorStandings.json`;
+      const urlResults = `https://ergast.com/api/f1/2013/constructors/${params.id}/results.json`;
 
       const responseStandings = await axios.get(urlStandings);
       const responseResults = await axios.get(urlResults);

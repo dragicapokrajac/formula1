@@ -22,8 +22,8 @@ const RaceResults = ({ flagsRes }) => {
 
    const getRaceResults = async () => {
       try {
-         const resQualifying = await axios.get(`http://ergast.com/api/f1/2013/${params.id}/qualifying.json`);
-         const resRaceResults = await axios.get(`http://ergast.com/api/f1/2013/${params.id}/results.json`);
+         const resQualifying = await axios.get(`https://ergast.com/api/f1/2013/${params.id}/qualifying.json`);
+         const resRaceResults = await axios.get(`https://ergast.com/api/f1/2013/${params.id}/results.json`);
 
          setQualifyingResults(resQualifying.data.MRData.RaceTable.Races[0]);
          setRaceResults(resRaceResults.data.MRData.RaceTable.Races[0].Results);

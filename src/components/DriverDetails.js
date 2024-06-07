@@ -22,8 +22,8 @@ const DriverDetails = (props) => {
 
    const getDriverDetails = async () => {
       try {
-         const result = await axios.get(`http://ergast.com/api/f1/2013/drivers/${params.id}/driverStandings.json`);
-         const result2 = await axios.get(`http://ergast.com/api/f1/2013/drivers/${params.id}/results.json`);
+         const result = await axios.get(`https://ergast.com/api/f1/2013/drivers/${params.id}/driverStandings.json`);
+         const result2 = await axios.get(`https://ergast.com/api/f1/2013/drivers/${params.id}/results.json`);
 
          setDriver(result.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
          setDriverRaces(result2.data.MRData.RaceTable.Races);

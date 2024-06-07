@@ -23,7 +23,7 @@ const Drivers = (props) => {
 
    const getDrivers = async () => {
       try {
-         const url = "http://ergast.com/api/f1/2013/driverStandings.json";
+         const url = "https://ergast.com/api/f1/2013/driverStandings.json";
          const res = await axios.get(url);
          const resDrivers = res.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
          setDrivers(resDrivers);
