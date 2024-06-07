@@ -89,10 +89,7 @@ const Drivers = (props) => {
                            onClick={() => handleNavigateDriverDetails(driver.Driver.driverId)}
                            className="link-td"
                         >
-                           {/* <div className="td-container"> */}
-                           {/* <Flag country={showFlag(props.flagsRes, driver.Driver.nationality)} /> */}
                            {driver.Driver.givenName} {driver.Driver.familyName}
-                           {/* </div> */}
                         </td>
                         <td
                            onClick={() => handleNavigateTeamDetails(driver.Constructors[0].constructorId)}

@@ -77,10 +77,7 @@ const Races = (props) => {
                            onClick={() => handleNavigateRaceResults(race.round)}
                            className="link-td"
                         >
-                           {/* <div className="td-container"> */}
-                           {/* <Flag country={showFlag(props.flagsRes, race.Circuit.Location.country)} /> */}
                            {race.raceName}
-                           {/* </div> */}
                         </td>
                         <td>{race.Circuit.circuitName}</td>
                         <td>{race.date}</td>
@@ -88,10 +85,7 @@ const Races = (props) => {
                            <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} />
                         </td>
                         <td>
-                           {/* <div className="td-container"> */}
-                           {/* <Flag country={showFlag(props.flagsRes, race.Results[0].Driver.nationality)} /> */}
                            {race.Results[0].Driver.familyName}
-                           {/* </div> */}
                         </td>
                      </tr>
                   )}

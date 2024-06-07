@@ -15,7 +15,7 @@
       font-size: 1.1rem;
       font-family: $font-accent;
       font-weight: bold;
-      
+
       .link,
       span {
          transform: skew(40deg);
@@ -25,8 +25,8 @@
 
       .link {
          text-decoration: none;
-         color: $bcg-color; //boja teksta
-         color: $txt-col; //boja teksta
+         color: $bcg-color;
+         color: $txt-col;
          font-weight: bold;
       }
    }

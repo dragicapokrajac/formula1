@@ -1,4 +1,3 @@
-// .nav-container {
 .navigation {
    ul {
       display: flex;
@@ -55,35 +54,6 @@
                color: $race-color;
             }
          }
-
       }
    }
 }
-
-// }
-
-//     .drivers,
-//     .teams,
-//     .races {
-
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//         margin-bottom: 10px;
-//         padding: 10px;
-
-//         width: 100px;
-//         height: 100px;
-//         cursor: pointer;
-
-//         img {
-//             width: 60%;
-//             height: 60%;
-//         }
-
-//         li {
-//             border: 5px solid;
-//             color: $driver-color;
-//         }
-//     }
-// }
