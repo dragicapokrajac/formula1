@@ -6,17 +6,16 @@
    p {
       float: left;
       background: $txt-col;
-      // text-align: center;
+      background: $bcg-color;
+      border: 1px solid $txt-col;
       padding: 4px 40px;
       position: relative;
-      margin: 0 5px 0 0;
-      color: $bcg-color;
+      margin: 0 6px 0 0;
       cursor: default;
-
-      // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
       border-radius: 2px;
-      // letter-spacing: 0.2em;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      font-family: $font-accent;
+      font-weight: bold;
 
       .link,
       span {
@@ -27,13 +26,8 @@
       .link {
          text-decoration: none;
          color: $bcg-color; //boja teksta
-         font-weight: 700;
-
-
+         color: $txt-col; //boja teksta
+         font-weight: bold;
       }
-
-      //       transform: skewX(20deg);
-      //   display: block;\
    }
-
 }

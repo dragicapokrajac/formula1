@@ -8,7 +8,7 @@ const Breadcrumbs = (props) => {
       <div className="breadcrumbs">
 
          {crumbs?.map((crumb, i) =>
-            < p key={i} style={{ backgroundColor: color }} >
+            < p key={i} style={{ color: color }} >
                {i < crumbs.length - 1
                   ? <NavLink to={crumb.path} className="link">
                      {crumb.label}
