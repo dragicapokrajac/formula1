@@ -119,10 +119,7 @@ const RaceResults = ({ flagsRes }) => {
                               onClick={() => handleNavigateDriverDetails(qRes.Driver.driverId)}
                               className="link-td"
                            >
-                              {/* <div className="td-container"> */}
-                              {/* <Flag country={showFlag(flagsRes, qRes.Constructor.nationality)} /> */}
                               {qRes.Driver.familyName}
-                              {/* </div> */}
                            </td>
                            <td
                               onClick={() => handleNavigateTeamDetails(qRes.Constructor.constructorId)}
@@ -161,10 +158,7 @@ const RaceResults = ({ flagsRes }) => {
                               onClick={() => handleNavigateDriverDetails(result.Driver.driverId)}
                               className="link-td"
                            >
-                              {/* <div className="td-container"> */}
-                              {/* <Flag country={showFlag(flagsRes, result.Driver.nationality)} /> */}
                               {result.Driver.familyName}
-                              {/* </div> */}
                            </td>
                            <td
                               onClick={() => handleNavigateTeamDetails(result.Constructor.constructorId)}

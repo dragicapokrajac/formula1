@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
    return (
-      // <div className="nav-container">
       <nav className="navigation">
          <ul>
             <li>
@@ -22,7 +21,6 @@ const Navigation = () => {
             </li>
          </ul>
       </nav>
-      // </div>
    );
 };
 

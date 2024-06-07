@@ -9,7 +9,6 @@ const Homepage = () => {
                <img src={LinkLogo} alt="Logo"></img>
             </Link>
          </header>
-
          <section className="homepage-container">
             <NavLink to="/drivers" className='drivers-link'></NavLink>
             <NavLink to="/teams" className='teams-link'></NavLink>

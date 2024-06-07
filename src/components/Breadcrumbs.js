@@ -6,7 +6,6 @@ const Breadcrumbs = (props) => {
 
    return (
       <div className="breadcrumbs">
-
          {crumbs?.map((crumb, i) =>
             < p key={i} style={{ color: color }} >
                {i < crumbs.length - 1

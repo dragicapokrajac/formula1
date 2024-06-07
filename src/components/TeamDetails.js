@@ -118,10 +118,7 @@ const TeamDetails = (props) => {
                               onClick={() => handleNavigateRaceResults(result.round)}
                               className="link-td"
                            >
-                              {/* <div className="td-container"> */}
-                              {/* <Flag country={showFlag(props.flagsRes, result.Circuit.Location.country)} /> */}
                               {result.raceName}
-                              {/* </div> */}
                            </td>
                            <td style={{ backgroundColor: showColor(result.Results[0].position, value) }}>
                               {result.Results[0].position}

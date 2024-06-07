@@ -124,10 +124,7 @@ const DriverDetails = (props) => {
                               onClick={() => handleNavigateRaceResults(d2.round)}
                               className="link-td"
                            >
-                              {/* <div className="td-container"> */}
-                              {/* <Flag country={showFlag(props.flagsRes, d2.Circuit.Location.country)} /> */}
                               {d2.raceName}
-                              {/* </div> */}
                            </td>
                            <td
                               onClick={() => handleNavigateTeamDetails(driver.Constructors[0].constructorId)}

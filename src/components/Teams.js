@@ -77,10 +77,7 @@ const Teams = (props) => {
                            onClick={() => handleNavigateTeamRaces(team.Constructor.constructorId)}
                            className="link-td"
                         >
-                           {/* <div className="td-container"> */}
-                           {/* <Flag country={showFlag(props.flagsRes, team.Constructor.nationality)} /> */}
                            {team.Constructor.name}
-                           {/* </div> */}
                         </td>
                         <td>
                            <a
