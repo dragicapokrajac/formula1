@@ -8,7 +8,6 @@
       background: $txt-col;
       background: $bcg-color;
       border: 1px solid $txt-col;
-      padding: 4px 40px;
       position: relative;
       margin: 0 6px 0 0;
       cursor: default;
@@ -16,10 +15,11 @@
       font-size: 1.1rem;
       font-family: $font-accent;
       font-weight: bold;
-
+      
       .link,
       span {
          transform: skew(40deg);
+         padding: 4px 40px;
          display: block;
       }
 
