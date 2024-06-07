@@ -1,7 +1,7 @@
 function Footer() {
    return (
       <footer className="footer-container">
-         <h4>Design copyright &copy; Team 1 2024</h4>
+         <p>&copy;2024. All Rights Reserved. Smart School FED Team 1 </p>
       </footer>
    );
 };
