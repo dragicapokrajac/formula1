@@ -21,6 +21,7 @@ body {
 
 .routes-container {
    min-height: 100vh;
+   overflow: hidden;
 }
 
 @import 'loader';
