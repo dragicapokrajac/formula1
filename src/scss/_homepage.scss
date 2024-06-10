@@ -45,22 +45,20 @@
 
       &:before {
          margin-bottom: -31px;
-         text-shadow: 5px 3px $driver-color;
+         text-shadow: 6px 3px $driver-color;
          content: "Ready";
       }
 
       &:hover {
          background-image: none;
-         background-color: $driver-color;
+         background-color: #f7484e;
          color: $bcg-color;
-
-         &:after {
-            color: $driver-color;
-         }
+         border: 2px solid $txt-col;
 
          &:before {
             margin: 0;
             content: "Drivers";
+            text-shadow: 9px 4px hsla(0, 0%, 15%, 0.9);
          }
       }
    }
@@ -74,7 +72,7 @@
 
       &:before {
          margin-bottom: -31px;
-         text-shadow: 5px 3px $team-color;
+         text-shadow: 6px 3px $team-color;
          content: "Set";
       }
 
@@ -82,14 +80,12 @@
          background-image: none;
          background-color: $team-color;
          color: $bcg-color;
-
-         &:after {
-            color: $team-color;
-         }
+         border: 2px solid $txt-col;
 
          &:before {
             margin: 0;
             content: "Teams";
+            text-shadow: 9px 4px hsla(0, 0%, 15%, 0.9);
          }
       }
    }
@@ -103,7 +99,7 @@
 
       &:before {
          margin-bottom: -31px;
-         text-shadow: 5px 3px $race-color;
+         text-shadow: 6px 3px $race-color;
          content: "Go!";
       }
 
@@ -111,14 +107,12 @@
          background-image: none;
          background-color: $race-color;
          color: $bcg-color;
-
-         &:after {
-            color: $race-color;
-         }
+         border: 2px solid $txt-col;
 
          &:before {
             margin: 0;
-            content: "Race";
+            content: "Races";
+            text-shadow: 9px 4px hsla(0, 0%, 15%, 0.9);
          }
       }
    }
